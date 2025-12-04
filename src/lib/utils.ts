@@ -35,18 +35,6 @@ export function getDistanceLabel(distance: "close" | "medium" | "far"): string {
   }
 }
 
-export function calculateConfidenceScore(dataFreshness: string): number {
-  const freshnessDate = new Date(dataFreshness);
-  const now = new Date();
-  const daysDiff = Math.floor((now.getTime() - freshnessDate.getTime()) / (1000 * 60 * 60 * 24));
-
-  if (daysDiff <= 30) return 95;
-  if (daysDiff <= 60) return 85;
-  if (daysDiff <= 90) return 75;
-  if (daysDiff <= 180) return 60;
-  return 50;
-}
-
 export function validateZipCode(zip: string): boolean {
   return /^\d{5}$/.test(zip);
 }

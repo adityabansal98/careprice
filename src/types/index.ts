@@ -76,7 +76,6 @@ export interface HospitalResult {
   hospital: Hospital;
   priceInfo: PriceInfo;
   distance: "close" | "medium" | "far";
-  confidenceScore: number;
   procedure: Procedure;
 }
 

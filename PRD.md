@@ -26,7 +26,7 @@ Results Page:
 
 List of hospitals matching the query.
 
-Cards displaying: Hospital Name, Estimated Cost, Distance from User, and a "Confidence Score" (based on data freshness).
+Cards displaying: Hospital Name, Estimated Cost, Distance from User.
 
 Sort options: Lowest Price, Closest Distance.
 

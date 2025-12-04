@@ -1,5 +1,5 @@
 import type { Hospital, Procedure, HospitalResult, SearchParams, InsuranceProvider, PriceInfo, PlanRates, PlanPriceRange, InsuranceRates } from "@/types";
-import { calculateDistance, calculateConfidenceScore } from "@/lib/utils";
+import { calculateDistance } from "@/lib/utils";
 import hospitalsData from "@/data/hospitals.json";
 import proceduresData from "@/data/procedures.json";
 
@@ -110,13 +110,11 @@ export function searchHospitals(params: SearchParams): HospitalResult[] {
     );
 
     const distance = calculateDistance(zipCode, hospital.zip);
-    const confidenceScore = calculateConfidenceScore(hospital.dataFreshness);
 
     results.push({
       hospital,
       priceInfo,
       distance,
-      confidenceScore,
       procedure: matchedProcedure,
     });
   }
