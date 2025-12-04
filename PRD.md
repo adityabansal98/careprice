@@ -24,6 +24,8 @@ System Logic: If no insurance is selected, show "Cash Price". If insurance is se
 
 Results Page:
 
+Right on top show a block called AI Insights which says a few things about how the prices actually vary and depend on. Right now it will be hard coded in the data in the field insights in procedures.
+
 List of hospitals matching the query.
 
 Cards displaying: Hospital Name, Estimated Cost, Distance from User.

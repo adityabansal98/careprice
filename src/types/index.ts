@@ -3,6 +3,7 @@ export interface Procedure {
   name: string;
   category: string;
   description: string;
+  insights: string[];
 }
 
 // Each plan now has a min/max range

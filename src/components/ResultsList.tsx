@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { ArrowUpDown, DollarSign, MapPin, Star, AlertCircle, List, Map } from "lucide-react";
 import { HospitalCard } from "@/components/HospitalCard";
+import { AIInsights } from "@/components/AIInsights";
 import { Button } from "@/components/ui/button";
 import { getDisplayPrice } from "@/lib/search";
 import type { HospitalResult, SortOption, ViewMode } from "@/types";
@@ -89,8 +90,14 @@ export function ResultsList({ results, isLoading = false }: ResultsListProps) {
     return "Showing price ranges across all plan types. Select a specific plan for narrower ranges.";
   };
 
+  // Get procedure from first result for AI Insights
+  const procedure = results[0]?.procedure;
+
   return (
     <div className="w-full max-w-4xl mx-auto mt-8 space-y-6">
+      {/* AI Insights */}
+      {procedure && <AIInsights procedure={procedure} />}
+
       {/* Results Header */}
       <div className="flex flex-col gap-4">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">

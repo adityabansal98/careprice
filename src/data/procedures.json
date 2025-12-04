@@ -3,49 +3,96 @@
     "cpt_code": "72148",
     "name": "MRI Lumbar Spine w/o Dye",
     "category": "Radiology",
-    "description": "Magnetic resonance imaging of the lower back without contrast"
+    "description": "Magnetic resonance imaging of the lower back without contrast",
+    "insights": [
+      "MRI prices can vary by 300-500% between hospitals in the same area.",
+      "Outpatient imaging centers typically charge 40-60% less than hospital-based facilities.",
+      "Cash prices are often lower than insurance rates if you haven't met your deductible.",
+      "Ask about \"self-pay\" discounts - many facilities offer 20-40% off for upfront payment."
+    ]
   },
   {
     "cpt_code": "70553",
     "name": "MRI Brain w/ & w/o Dye",
     "category": "Radiology",
-    "description": "Magnetic resonance imaging of the brain with and without contrast"
+    "description": "Magnetic resonance imaging of the brain with and without contrast",
+    "insights": [
+      "Brain MRIs with contrast typically cost 20-30% more than without contrast.",
+      "The contrast dye (gadolinium) adds $100-300 to the total cost.",
+      "Some insurance plans require prior authorization for brain MRIs.",
+      "Freestanding imaging centers often have shorter wait times and lower prices."
+    ]
   },
   {
     "cpt_code": "71046",
     "name": "Chest X-Ray 2 Views",
     "category": "Radiology",
-    "description": "X-ray examination of the chest, frontal and lateral views"
+    "description": "X-ray examination of the chest, frontal and lateral views",
+    "insights": [
+      "Chest X-rays are one of the most affordable imaging tests available.",
+      "Urgent care centers often offer competitive pricing for routine X-rays.",
+      "Prices can double at hospital emergency departments vs. outpatient facilities.",
+      "Most insurance plans cover chest X-rays with minimal or no copay."
+    ]
   },
   {
     "cpt_code": "80053",
     "name": "Comprehensive Metabolic Panel",
     "category": "Laboratory",
-    "description": "Blood test measuring glucose, calcium, proteins, and electrolytes"
+    "description": "Blood test measuring glucose, calcium, proteins, and electrolytes",
+    "insights": [
+      "Lab test prices vary dramatically - the same test can cost $20 or $200.",
+      "Direct-to-consumer lab services often offer the lowest cash prices.",
+      "Hospital labs typically charge 3-5x more than independent labs.",
+      "Many pharmacies now offer basic blood panels at competitive rates."
+    ]
   },
   {
     "cpt_code": "85025",
     "name": "Complete Blood Count (CBC)",
     "category": "Laboratory",
-    "description": "Blood test measuring red cells, white cells, and platelets"
+    "description": "Blood test measuring red cells, white cells, and platelets",
+    "insights": [
+      "CBC is one of the most common and affordable blood tests.",
+      "Results are usually available within 24 hours.",
+      "Independent labs like Quest or LabCorp often have the best cash prices.",
+      "Some primary care offices include CBC in annual wellness visits at no extra cost."
+    ]
   },
   {
     "cpt_code": "73721",
     "name": "MRI Knee w/o Dye",
     "category": "Radiology",
-    "description": "Magnetic resonance imaging of the knee without contrast"
+    "description": "Magnetic resonance imaging of the knee without contrast",
+    "insights": [
+      "Knee MRIs are among the most commonly ordered orthopedic imaging studies.",
+      "Open MRI machines may cost less but provide lower image quality.",
+      "Some insurers require trying physical therapy before approving knee MRIs.",
+      "Athletic and sports medicine clinics may offer package deals for knee imaging."
+    ]
   },
   {
     "cpt_code": "43239",
     "name": "Upper GI Endoscopy w/ Biopsy",
     "category": "Gastroenterology",
-    "description": "Examination of the upper digestive tract with tissue sample"
+    "description": "Examination of the upper digestive tract with tissue sample",
+    "insights": [
+      "Endoscopy costs include facility fee, physician fee, and anesthesia separately.",
+      "Ambulatory surgery centers typically charge 40-50% less than hospitals.",
+      "Biopsy pathology fees are often billed separately and can add $200-500.",
+      "Some GI practices offer bundled pricing that includes all fees upfront."
+    ]
   },
   {
     "cpt_code": "29881",
     "name": "Knee Arthroscopy",
     "category": "Orthopedics",
-    "description": "Minimally invasive surgery to examine or treat knee joint"
+    "description": "Minimally invasive surgery to examine or treat knee joint",
+    "insights": [
+      "Arthroscopy costs can range from $5,000 to $15,000+ depending on location.",
+      "Outpatient surgery centers offer significant savings over hospital ORs.",
+      "Physical therapy costs post-surgery should be factored into total expense.",
+      "Some surgeons offer cash-pay packages that bundle all related fees."
+    ]
   }
 ]
-
