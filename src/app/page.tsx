@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { Heart, ShieldCheck, TrendingDown, Sparkles } from "lucide-react";
 import { SearchForm } from "@/components/SearchForm";
 import { ResultsList } from "@/components/ResultsList";
@@ -11,10 +11,16 @@ export default function Home() {
   const [results, setResults] = useState<HospitalResult[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   const handleSearch = useCallback((params: SearchParams) => {
     setIsLoading(true);
     setHasSearched(true);
+
+    // Scroll to results section immediately
+    setTimeout(() => {
+      resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 100);
 
     // Simulate network delay for better UX
     setTimeout(() => {
@@ -111,7 +117,7 @@ export default function Home() {
       </section>
 
       {/* Results Section */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+      <section ref={resultsRef} className="pb-20 px-4 sm:px-6 lg:px-8 scroll-mt-20">
         {hasSearched && (
           <>
             <ResultsList results={results} isLoading={isLoading} />
