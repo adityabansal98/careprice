@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Leaflet CSS */
+@import "leaflet/dist/leaflet.css";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0c4a6e;
+  --card-background: #f8fafc;
+  --border-color: #e2e8f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0c1222;
+    --foreground: #e0f2fe;
+    --card-background: #1e293b;
+    --border-color: #334155;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--card-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+/* Leaflet Custom Styles */
+.leaflet-container {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  padding: 0;
+}
+
+.leaflet-popup-content {
+  margin: 12px;
+  min-width: 260px;
+}
+
+.leaflet-popup-tip {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.custom-marker {
+  background: transparent;
+  border: none;
+}
+
+/* Dark mode adjustments for map */
+@media (prefers-color-scheme: dark) {
+  .leaflet-popup-content-wrapper {
+    background: #1e293b;
+    color: #e2e8f0;
+  }
+  
+  .leaflet-popup-tip {
+    background: #1e293b;
+  }
+  
+  .leaflet-container {
+    background: #0f172a;
+  }
+}

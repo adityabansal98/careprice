@@ -1,0 +1,31 @@
+Project Rules
+
+Tech Stack
+
+Use Next.js 14 with the App Router (app/ directory).
+
+Use Tailwind CSS for styling.
+
+Use TypeScript for all code.
+
+Use Lucide React for icons.
+
+Use shadcn/ui patterns for components (you can mock the installation by creating the raw component files in components/ui).
+
+Coding Principles
+
+Functional Components: Use React functional components with hooks.
+
+Server vs Client: Default to Server Components. Use 'use client' only when interactivity (state, effects) is needed.
+
+Data Fetching: For this MVP, import JSON data directly from src/data/ instead of setting up a fetch API.
+
+Error Handling: Always implement graceful fallbacks if data is missing (e.g., "Price not available" instead of crashing).
+
+Style Guide
+
+Use descriptive variable names (hospitalList instead of list).
+
+Type all props explicitly (e.g., interface HospitalCardProps { ... }).
+
+Do not use any. Use unknown or define a type.

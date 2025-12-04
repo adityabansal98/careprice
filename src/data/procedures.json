@@ -1,0 +1,51 @@
+[
+  {
+    "cpt_code": "72148",
+    "name": "MRI Lumbar Spine w/o Dye",
+    "category": "Radiology",
+    "description": "Magnetic resonance imaging of the lower back without contrast"
+  },
+  {
+    "cpt_code": "70553",
+    "name": "MRI Brain w/ & w/o Dye",
+    "category": "Radiology",
+    "description": "Magnetic resonance imaging of the brain with and without contrast"
+  },
+  {
+    "cpt_code": "71046",
+    "name": "Chest X-Ray 2 Views",
+    "category": "Radiology",
+    "description": "X-ray examination of the chest, frontal and lateral views"
+  },
+  {
+    "cpt_code": "80053",
+    "name": "Comprehensive Metabolic Panel",
+    "category": "Laboratory",
+    "description": "Blood test measuring glucose, calcium, proteins, and electrolytes"
+  },
+  {
+    "cpt_code": "85025",
+    "name": "Complete Blood Count (CBC)",
+    "category": "Laboratory",
+    "description": "Blood test measuring red cells, white cells, and platelets"
+  },
+  {
+    "cpt_code": "73721",
+    "name": "MRI Knee w/o Dye",
+    "category": "Radiology",
+    "description": "Magnetic resonance imaging of the knee without contrast"
+  },
+  {
+    "cpt_code": "43239",
+    "name": "Upper GI Endoscopy w/ Biopsy",
+    "category": "Gastroenterology",
+    "description": "Examination of the upper digestive tract with tissue sample"
+  },
+  {
+    "cpt_code": "29881",
+    "name": "Knee Arthroscopy",
+    "category": "Orthopedics",
+    "description": "Minimally invasive surgery to examine or treat knee joint"
+  }
+]
+
