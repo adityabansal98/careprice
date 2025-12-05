@@ -4,6 +4,7 @@ import { useState, useCallback, useRef } from "react";
 import { Heart, ShieldCheck, TrendingDown, Sparkles } from "lucide-react";
 import { SearchForm } from "@/components/SearchForm";
 import { ResultsList } from "@/components/ResultsList";
+import { ChatAssistant } from "@/components/ChatAssistant";
 import { searchHospitals } from "@/lib/search";
 import type { HospitalResult, SearchParams } from "@/types";
 
@@ -207,6 +208,9 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Chat Assistant */}
+      <ChatAssistant />
     </div>
   );
 }
