@@ -30,6 +30,8 @@ List of hospitals matching the query.
 
 Cards displaying: Hospital Name, Estimated Cost, Distance from User.
 
+Some hospitals have financial aid available for some users (for ex. below poverty line). Add a dialog below every hospital card that you can get x% discount here if you quality y criteria. Note that this policy is specific to the hospital.
+
 Sort options: Lowest Price, Closest Distance.
 
 Detail View (Modal or Page):

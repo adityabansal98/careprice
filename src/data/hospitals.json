@@ -13,6 +13,13 @@
             "lat": 40.7484,
             "lng": -73.9967
         },
+        "financialAssistance": {
+            "available": true,
+            "discountPercent": 50,
+            "programName": "City Care Assistance Program",
+            "eligibilityCriteria": "Household income below 200% of Federal Poverty Level",
+            "incomeThreshold": "Under $60,000/year for family of 4"
+        },
         "prices": {
             "72148": {
                 "gross_charge": 2500,
@@ -637,6 +644,13 @@
         "coordinates": {
             "lat": 40.7258,
             "lng": -73.9981
+        },
+        "financialAssistance": {
+            "available": true,
+            "discountPercent": 35,
+            "programName": "Metro Health Payment Assistance",
+            "eligibilityCriteria": "Uninsured patients with income below 250% FPL",
+            "incomeThreshold": "Under $75,000/year for family of 4"
         },
         "prices": {
             "72148": {
@@ -1263,6 +1277,13 @@
             "lat": 40.7990,
             "lng": -73.9665
         },
+        "financialAssistance": {
+            "available": true,
+            "discountPercent": 100,
+            "programName": "Community Care Free Services Program",
+            "eligibilityCriteria": "Income below 100% Federal Poverty Level qualifies for free care; 100-300% FPL receives sliding scale discounts up to 80%",
+            "incomeThreshold": "Free care under $31,200/year for family of 4; discounts up to $93,600/year"
+        },
         "prices": {
             "72148": {
                 "gross_charge": 2200,
@@ -1888,6 +1909,9 @@
             "lat": 40.7648,
             "lng": -73.9808
         },
+        "financialAssistance": {
+            "available": false
+        },
         "prices": {
             "72148": {
                 "gross_charge": 3200,
@@ -2512,6 +2536,13 @@
         "coordinates": {
             "lat": 40.8400,
             "lng": -73.9419
+        },
+        "financialAssistance": {
+            "available": true,
+            "discountPercent": 75,
+            "programName": "Valley Community Charity Care",
+            "eligibilityCriteria": "Uninsured or underinsured patients below 400% Federal Poverty Level; Medicaid recipients also qualify",
+            "incomeThreshold": "Under $124,800/year for family of 4"
         },
         "prices": {
             "72148": {

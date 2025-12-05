@@ -39,6 +39,15 @@ export interface Coordinates {
   lng: number;
 }
 
+// Financial assistance program offered by a hospital
+export interface FinancialAssistance {
+  available: boolean;
+  discountPercent?: number;
+  eligibilityCriteria?: string;
+  programName?: string;
+  incomeThreshold?: string;
+}
+
 export interface Hospital {
   id: string;
   name: string;
@@ -50,6 +59,7 @@ export interface Hospital {
   rating: number;
   dataFreshness: string;
   coordinates: Coordinates;
+  financialAssistance?: FinancialAssistance;
   prices: {
     [cptCode: string]: ProcedurePrice;
   };
