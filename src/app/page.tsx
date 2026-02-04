@@ -6,12 +6,13 @@ import { SearchForm } from "@/components/SearchForm";
 import { ResultsList } from "@/components/ResultsList";
 import { ChatAssistant } from "@/components/ChatAssistant";
 import { searchHospitals } from "@/lib/search";
-import type { HospitalResult, SearchParams } from "@/types";
+import type { HospitalResult, SearchParams, InsuranceProfile } from "@/types";
 
 export default function Home() {
   const [results, setResults] = useState<HospitalResult[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [insuranceProfile, setInsuranceProfile] = useState<InsuranceProfile | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   const handleSearch = useCallback((params: SearchParams) => {
@@ -121,7 +122,12 @@ export default function Home() {
       <section ref={resultsRef} className="pb-20 px-4 sm:px-6 lg:px-8 scroll-mt-20">
         {hasSearched && (
           <>
-            <ResultsList results={results} isLoading={isLoading} />
+            <ResultsList
+              results={results}
+              isLoading={isLoading}
+              insuranceProfile={insuranceProfile}
+              onInsuranceProfileChange={setInsuranceProfile}
+            />
             {!isLoading && results.length === 0 && (
               <div className="max-w-4xl mx-auto mt-8">
                 <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-8 text-center border-2 border-slate-200 dark:border-slate-800">

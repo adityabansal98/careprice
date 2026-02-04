@@ -5,9 +5,10 @@ import dynamic from "next/dynamic";
 import { ArrowUpDown, DollarSign, MapPin, Star, AlertCircle, List, Map } from "lucide-react";
 import { HospitalCard } from "@/components/HospitalCard";
 import { AIInsights } from "@/components/AIInsights";
+import { InsuranceProfileForm } from "@/components/InsuranceProfileForm";
 import { Button } from "@/components/ui/button";
 import { getDisplayPrice } from "@/lib/search";
-import type { HospitalResult, SortOption, ViewMode } from "@/types";
+import type { HospitalResult, SortOption, ViewMode, InsuranceProfile } from "@/types";
 
 // Dynamically import MapView to avoid SSR issues with Leaflet
 const MapView = dynamic(() => import("@/components/MapView").then((mod) => mod.MapView), {
@@ -22,6 +23,8 @@ const MapView = dynamic(() => import("@/components/MapView").then((mod) => mod.M
 interface ResultsListProps {
   results: HospitalResult[];
   isLoading?: boolean;
+  insuranceProfile: InsuranceProfile | null;
+  onInsuranceProfileChange: (profile: InsuranceProfile | null) => void;
 }
 
 const SORT_OPTIONS: Array<{ value: SortOption; label: string; icon: React.ReactNode }> = [
@@ -35,7 +38,12 @@ const VIEW_OPTIONS: Array<{ value: ViewMode; label: string; icon: React.ReactNod
   { value: "map", label: "Map", icon: <Map className="h-4 w-4" /> },
 ];
 
-export function ResultsList({ results, isLoading = false }: ResultsListProps) {
+export function ResultsList({ 
+  results, 
+  isLoading = false,
+  insuranceProfile,
+  onInsuranceProfileChange,
+}: ResultsListProps) {
   const [sortBy, setSortBy] = useState<SortOption>("price");
   const [viewMode, setViewMode] = useState<ViewMode>("list");
 
@@ -97,6 +105,13 @@ export function ResultsList({ results, isLoading = false }: ResultsListProps) {
     <div className="w-full max-w-4xl mx-auto mt-8 space-y-6">
       {/* AI Insights */}
       {procedure && <AIInsights procedure={procedure} />}
+
+      {/* Insurance Profile Form */}
+      <InsuranceProfileForm
+        profile={insuranceProfile}
+        onSave={onInsuranceProfileChange}
+        onClear={() => onInsuranceProfileChange(null)}
+      />
 
       {/* Results Header */}
       <div className="flex flex-col gap-4">
@@ -176,6 +191,7 @@ export function ResultsList({ results, isLoading = false }: ResultsListProps) {
               key={result.hospital.id}
               result={result}
               rank={index + 1}
+              insuranceProfile={insuranceProfile}
             />
           ))}
         </div>

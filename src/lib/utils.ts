@@ -39,3 +39,67 @@ export function validateZipCode(zip: string): boolean {
   return /^\d{5}$/.test(zip);
 }
 
+import type { InsuranceProfile, CostBreakdown } from "@/types";
+
+/**
+ * Calculate what the user will actually pay out-of-pocket
+ * based on their insurance profile (deductible, coinsurance, OOP max)
+ */
+export function calculateOutOfPocket(
+  procedureCost: number,
+  profile: InsuranceProfile
+): CostBreakdown {
+  let remainingCost = procedureCost;
+  let deductiblePortion = 0;
+  let coinsurancePortion = 0;
+  let remainingDeductible = profile.deductibleRemaining;
+  let remainingOopMax = profile.oopMaxRemaining;
+
+  // If already hit OOP max, user pays nothing
+  if (remainingOopMax <= 0) {
+    return {
+      procedureCost,
+      deductiblePortion: 0,
+      coinsurancePortion: 0,
+      totalOutOfPocket: 0,
+      remainingDeductible,
+      remainingOopMax: 0,
+    };
+  }
+
+  // Step 1: Apply to deductible first
+  if (remainingDeductible > 0) {
+    deductiblePortion = Math.min(remainingCost, remainingDeductible);
+    remainingCost -= deductiblePortion;
+    remainingDeductible -= deductiblePortion;
+  }
+
+  // Step 2: Apply coinsurance to the rest
+  if (remainingCost > 0) {
+    coinsurancePortion = remainingCost * (profile.coinsurancePercent / 100);
+  }
+
+  // Step 3: Calculate total and check against OOP max
+  let totalOutOfPocket = deductiblePortion + coinsurancePortion;
+
+  // Cap at remaining OOP max
+  if (totalOutOfPocket > remainingOopMax) {
+    totalOutOfPocket = remainingOopMax;
+    // Adjust portions proportionally if capped
+    const ratio = remainingOopMax / (deductiblePortion + coinsurancePortion);
+    deductiblePortion = deductiblePortion * ratio;
+    coinsurancePortion = coinsurancePortion * ratio;
+  }
+
+  remainingOopMax -= totalOutOfPocket;
+
+  return {
+    procedureCost,
+    deductiblePortion: Math.round(deductiblePortion),
+    coinsurancePortion: Math.round(coinsurancePortion),
+    totalOutOfPocket: Math.round(totalOutOfPocket),
+    remainingDeductible: Math.round(remainingDeductible),
+    remainingOopMax: Math.round(remainingOopMax),
+  };
+}
+

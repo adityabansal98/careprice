@@ -16,15 +16,100 @@ import {
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { formatCurrency, getDistanceLabel } from "@/lib/utils";
+import { formatCurrency, getDistanceLabel, calculateOutOfPocket } from "@/lib/utils";
 import { ReviewsModal } from "@/components/ReviewsModal";
-import type { HospitalResult, PriceInfo, FinancialAssistance, Review, HCAHPSMetrics } from "@/types";
+import type { HospitalResult, PriceInfo, FinancialAssistance, Review, HCAHPSMetrics, InsuranceProfile, CostBreakdown } from "@/types";
 import reviewsData from "@/data/reviews.json";
 import hcahpsData from "@/data/hcahps.json";
 
 interface HospitalCardProps {
   result: HospitalResult;
   rank: number;
+  insuranceProfile?: InsuranceProfile | null;
+}
+
+// Component to show personalized out-of-pocket cost when insurance profile is set
+function PersonalizedCostDisplay({ 
+  costBreakdown, 
+  priceInfo 
+}: { 
+  costBreakdown: CostBreakdown; 
+  priceInfo: PriceInfo;
+}) {
+  const [showDetails, setShowDetails] = useState(false);
+  
+  return (
+    <div className="bg-gradient-to-r from-violet-50 to-purple-50 dark:from-violet-950/50 dark:to-purple-950/50 rounded-xl p-4 border-2 border-violet-200 dark:border-violet-800">
+      <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-medium text-violet-700 dark:text-violet-300">
+            💰 Your Estimated Cost
+          </span>
+          <button
+            onClick={() => setShowDetails(!showDetails)}
+            className="text-xs text-violet-500 hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-200 underline"
+          >
+            {showDetails ? "Hide details" : "See breakdown"}
+          </button>
+        </div>
+        <Badge variant="info" className="text-xs">Personalized</Badge>
+      </div>
+      
+      <div className="flex items-baseline justify-between">
+        <p className="text-3xl md:text-4xl font-bold text-violet-700 dark:text-violet-400">
+          {formatCurrency(costBreakdown.totalOutOfPocket)}
+        </p>
+        <div className="text-right">
+          <p className="text-xs text-slate-400 mb-1">Insurance Rate</p>
+          <p className="text-lg text-slate-400 line-through">
+            {priceInfo.type === "cash" 
+              ? formatCurrency(priceInfo.value ?? 0)
+              : formatCurrency(priceInfo.min ?? 0)}
+          </p>
+        </div>
+      </div>
+      
+      {/* Expandable breakdown */}
+      {showDetails && (
+        <div className="mt-4 pt-3 border-t border-violet-200 dark:border-violet-700 space-y-2">
+          <div className="flex justify-between text-sm">
+            <span className="text-slate-600 dark:text-slate-400">Procedure cost</span>
+            <span className="font-medium">{formatCurrency(costBreakdown.procedureCost)}</span>
+          </div>
+          {costBreakdown.deductiblePortion > 0 && (
+            <div className="flex justify-between text-sm">
+              <span className="text-slate-600 dark:text-slate-400">Applied to deductible</span>
+              <span className="font-medium text-amber-600">-{formatCurrency(costBreakdown.deductiblePortion)}</span>
+            </div>
+          )}
+          {costBreakdown.coinsurancePortion > 0 && (
+            <div className="flex justify-between text-sm">
+              <span className="text-slate-600 dark:text-slate-400">Your coinsurance</span>
+              <span className="font-medium text-amber-600">-{formatCurrency(costBreakdown.coinsurancePortion)}</span>
+            </div>
+          )}
+          <div className="flex justify-between text-sm pt-2 border-t border-violet-100 dark:border-violet-800">
+            <span className="font-semibold text-violet-700 dark:text-violet-300">You pay</span>
+            <span className="font-bold text-violet-700 dark:text-violet-300">
+              {formatCurrency(costBreakdown.totalOutOfPocket)}
+            </span>
+          </div>
+          
+          {/* Helpful tips */}
+          {costBreakdown.remainingDeductible === 0 && costBreakdown.deductiblePortion > 0 && (
+            <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 flex items-center gap-1">
+              <span>🎉</span> This procedure will meet your deductible!
+            </p>
+          )}
+          {costBreakdown.totalOutOfPocket === 0 && (
+            <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 flex items-center gap-1">
+              <span>✨</span> You&apos;ve hit your OOP max — this is covered 100%!
+            </p>
+          )}
+        </div>
+      )}
+    </div>
+  );
 }
 
 function PriceDisplay({ priceInfo, grossCharge }: { priceInfo: PriceInfo; grossCharge: number }) {
@@ -166,7 +251,7 @@ function FinancialAssistanceInfo({ assistance }: { assistance: FinancialAssistan
   );
 }
 
-export function HospitalCard({ result, rank }: HospitalCardProps) {
+export function HospitalCard({ result, rank, insuranceProfile }: HospitalCardProps) {
   const { hospital, priceInfo, distance, procedure } = result;
   const [reviewsOpen, setReviewsOpen] = useState(false);
   
@@ -179,6 +264,15 @@ export function HospitalCard({ result, rank }: HospitalCardProps) {
   const hospitalHcahps = (hcahpsData as HCAHPSMetrics[]).find(
     (data) => data.hospitalId === hospital.id
   ) || null;
+
+  // Calculate personalized out-of-pocket cost if insurance profile is set
+  const costBreakdown = insuranceProfile ? (() => {
+    // Use the minimum negotiated rate for calculation (most likely scenario)
+    const procedureCost = priceInfo.type === "cash" 
+      ? priceInfo.value ?? 0
+      : priceInfo.min ?? 0;
+    return calculateOutOfPocket(procedureCost, insuranceProfile);
+  })() : null;
 
   const getDistanceBadgeVariant = (dist: "close" | "medium" | "far") => {
     if (dist === "close") return "success";
@@ -262,11 +356,18 @@ export function HospitalCard({ result, rank }: HospitalCardProps) {
         </CardHeader>
 
         <CardContent className="space-y-4">
-          {/* Price Display */}
-          <PriceDisplay
-            priceInfo={priceInfo}
-            grossCharge={hospital.prices[procedure.cpt_code]?.gross_charge || 0}
-          />
+          {/* Price Display - Personalized or Standard */}
+          {costBreakdown && insuranceProfile ? (
+            <PersonalizedCostDisplay 
+              costBreakdown={costBreakdown} 
+              priceInfo={priceInfo}
+            />
+          ) : (
+            <PriceDisplay
+              priceInfo={priceInfo}
+              grossCharge={hospital.prices[procedure.cpt_code]?.gross_charge || 0}
+            />
+          )}
 
           {/* Badges Row */}
           <div className="flex flex-wrap gap-2">

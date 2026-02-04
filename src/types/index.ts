@@ -129,3 +129,22 @@ export type ViewMode = "list" | "map";
 export interface InsurancePlans {
   [provider: string]: string[];
 }
+
+// User's insurance profile for personalized cost calculation
+export interface InsuranceProfile {
+  deductibleTotal: number;      // Total annual deductible (e.g., $2000)
+  deductibleRemaining: number;  // How much is left to pay (e.g., $800)
+  coinsurancePercent: number;   // User's share after deductible (e.g., 20)
+  oopMaxTotal: number;          // Out-of-pocket maximum (e.g., $6000)
+  oopMaxRemaining: number;      // How much until OOP max is hit (e.g., $4500)
+}
+
+// Calculated out-of-pocket cost breakdown
+export interface CostBreakdown {
+  procedureCost: number;        // The insurance-negotiated price
+  deductiblePortion: number;    // Amount applied to deductible
+  coinsurancePortion: number;   // Amount paid as coinsurance
+  totalOutOfPocket: number;     // What user actually pays
+  remainingDeductible: number;  // Deductible left after this procedure
+  remainingOopMax: number;      // OOP max left after this procedure
+}
