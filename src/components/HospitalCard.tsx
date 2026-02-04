@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import {
   MapPin,
   Phone,
@@ -8,12 +11,15 @@ import {
   Heart,
   BadgePercent,
   Info,
+  MessageSquare,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatCurrency, getDistanceLabel } from "@/lib/utils";
-import type { HospitalResult, PriceInfo, FinancialAssistance } from "@/types";
+import { ReviewsModal } from "@/components/ReviewsModal";
+import type { HospitalResult, PriceInfo, FinancialAssistance, Review } from "@/types";
+import reviewsData from "@/data/reviews.json";
 
 interface HospitalCardProps {
   result: HospitalResult;
@@ -161,6 +167,12 @@ function FinancialAssistanceInfo({ assistance }: { assistance: FinancialAssistan
 
 export function HospitalCard({ result, rank }: HospitalCardProps) {
   const { hospital, priceInfo, distance, procedure } = result;
+  const [reviewsOpen, setReviewsOpen] = useState(false);
+  
+  // Get reviews for this hospital
+  const hospitalReviews = (reviewsData as Review[]).filter(
+    (review) => review.hospitalId === hospital.id
+  );
 
   const getDistanceBadgeVariant = (dist: "close" | "medium" | "far") => {
     if (dist === "close") return "success";
@@ -228,10 +240,17 @@ export function HospitalCard({ result, rank }: HospitalCardProps) {
                 {hospital.city}, {hospital.state}
               </span>
               <span className="hidden sm:inline">•</span>
-              <span className="flex items-center gap-1">
+              <button
+                onClick={() => setReviewsOpen(true)}
+                className="flex items-center gap-1.5 hover:bg-amber-50 dark:hover:bg-amber-900/20 px-2 py-1 -mx-2 -my-1 rounded-lg transition-colors group"
+              >
                 <Star className="h-4 w-4 text-amber-400 fill-amber-400" />
-                {hospital.rating.toFixed(1)}
-              </span>
+                <span className="font-medium">{hospital.rating.toFixed(1)}</span>
+                <span className="text-xs text-slate-400 group-hover:text-amber-600 dark:group-hover:text-amber-400 flex items-center gap-0.5">
+                  <MessageSquare className="h-3 w-3" />
+                  {hospitalReviews.length}
+                </span>
+              </button>
             </div>
           </div>
         </CardHeader>
@@ -279,6 +298,15 @@ export function HospitalCard({ result, rank }: HospitalCardProps) {
       {hospital.financialAssistance && (
         <FinancialAssistanceInfo assistance={hospital.financialAssistance} />
       )}
+
+      {/* Reviews Modal */}
+      <ReviewsModal
+        open={reviewsOpen}
+        onOpenChange={setReviewsOpen}
+        hospitalName={hospital.name}
+        hospitalRating={hospital.rating}
+        reviews={hospitalReviews}
+      />
     </div>
   );
 }

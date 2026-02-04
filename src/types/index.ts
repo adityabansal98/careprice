@@ -6,6 +6,18 @@ export interface Procedure {
   insights: string[];
 }
 
+export interface Review {
+  id: string;
+  hospitalId: string;
+  author: string;
+  date: string;
+  rating: number;
+  title: string;
+  content: string;
+  procedureCategory?: string;
+  helpful: number;
+}
+
 // Each plan now has a min/max range
 export interface PlanPriceRange {
   min: number;
