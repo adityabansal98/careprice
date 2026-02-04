@@ -1,0 +1,82 @@
+[
+  {
+    "hospitalId": "hosp_001",
+    "overallRating": 4,
+    "recommendationRate": 78,
+    "surveyResponseCount": 1247,
+    "metrics": {
+      "communicationWithNurses": 4.2,
+      "communicationWithDoctors": 4.4,
+      "responsivenessOfStaff": 3.9,
+      "painManagement": 4.1,
+      "communicationAboutMedicines": 4.0,
+      "cleanlinessRating": 4.3,
+      "quietnessRating": 3.6
+    },
+    "lastUpdated": "Q4 2025"
+  },
+  {
+    "hospitalId": "hosp_002",
+    "overallRating": 5,
+    "recommendationRate": 91,
+    "surveyResponseCount": 2156,
+    "metrics": {
+      "communicationWithNurses": 4.7,
+      "communicationWithDoctors": 4.8,
+      "responsivenessOfStaff": 4.5,
+      "painManagement": 4.6,
+      "communicationAboutMedicines": 4.5,
+      "cleanlinessRating": 4.8,
+      "quietnessRating": 4.2
+    },
+    "lastUpdated": "Q4 2025"
+  },
+  {
+    "hospitalId": "hosp_003",
+    "overallRating": 4,
+    "recommendationRate": 72,
+    "surveyResponseCount": 834,
+    "metrics": {
+      "communicationWithNurses": 4.0,
+      "communicationWithDoctors": 4.1,
+      "responsivenessOfStaff": 3.7,
+      "painManagement": 3.9,
+      "communicationAboutMedicines": 3.8,
+      "cleanlinessRating": 4.0,
+      "quietnessRating": 3.5
+    },
+    "lastUpdated": "Q4 2025"
+  },
+  {
+    "hospitalId": "hosp_004",
+    "overallRating": 5,
+    "recommendationRate": 88,
+    "surveyResponseCount": 1893,
+    "metrics": {
+      "communicationWithNurses": 4.6,
+      "communicationWithDoctors": 4.7,
+      "responsivenessOfStaff": 4.4,
+      "painManagement": 4.5,
+      "communicationAboutMedicines": 4.4,
+      "cleanlinessRating": 4.7,
+      "quietnessRating": 4.1
+    },
+    "lastUpdated": "Q4 2025"
+  },
+  {
+    "hospitalId": "hosp_005",
+    "overallRating": 4,
+    "recommendationRate": 75,
+    "surveyResponseCount": 612,
+    "metrics": {
+      "communicationWithNurses": 4.1,
+      "communicationWithDoctors": 4.2,
+      "responsivenessOfStaff": 3.8,
+      "painManagement": 4.0,
+      "communicationAboutMedicines": 3.9,
+      "cleanlinessRating": 4.1,
+      "quietnessRating": 3.7
+    },
+    "lastUpdated": "Q4 2025"
+  }
+]

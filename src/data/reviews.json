@@ -8,7 +8,8 @@
     "title": "Excellent MRI experience",
     "content": "Had my lumbar MRI here and the staff was incredibly professional. The technician explained every step, and I got my results within 2 days. The pricing was transparent - exactly what they quoted me upfront.",
     "procedureCategory": "Imaging",
-    "helpful": 24
+    "helpful": 24,
+    "source": "google"
   },
   {
     "id": "rev_002",
@@ -19,7 +20,8 @@
     "title": "Good care, long wait",
     "content": "The medical care was excellent and the doctors were thorough. Only downside was the 45-minute wait past my appointment time. Financial counselor helped me understand my bill which was appreciated.",
     "procedureCategory": "Lab Work",
-    "helpful": 18
+    "helpful": 18,
+    "source": "google"
   },
   {
     "id": "rev_003",
@@ -30,7 +32,8 @@
     "title": "Clean facility, helpful staff",
     "content": "Very clean and modern facility. The registration process was quick and the billing department was helpful in setting up a payment plan. Would recommend for imaging services.",
     "procedureCategory": "Imaging",
-    "helpful": 12
+    "helpful": 12,
+    "source": "healthgrades"
   },
   {
     "id": "rev_004",
@@ -41,7 +44,8 @@
     "title": "Average experience",
     "content": "The procedure went fine but communication could be better. Had to call multiple times to get my results. Pricing was fair though.",
     "procedureCategory": "Lab Work",
-    "helpful": 8
+    "helpful": 8,
+    "source": "google"
   },
   {
     "id": "rev_005",
@@ -52,7 +56,8 @@
     "title": "Top-notch cardiac care",
     "content": "Had an echocardiogram done here. The cardiologist took time to explain everything and the imaging team was very gentle. State-of-the-art equipment and the results were ready same day.",
     "procedureCategory": "Cardiac",
-    "helpful": 31
+    "helpful": 31,
+    "source": "google"
   },
   {
     "id": "rev_006",
@@ -63,7 +68,8 @@
     "title": "Best hospital in Manhattan",
     "content": "I've been to several hospitals in the city and this one stands out. Professional staff, minimal wait times, and they actually listen to your concerns. Worth every penny.",
     "procedureCategory": "General",
-    "helpful": 45
+    "helpful": 45,
+    "source": "google"
   },
   {
     "id": "rev_007",
@@ -74,7 +80,8 @@
     "title": "Great doctors, pricey",
     "content": "The quality of care is exceptional but it comes at a premium. Make sure to check with your insurance beforehand. The financial assistance program helped reduce my bill significantly.",
     "procedureCategory": "Imaging",
-    "helpful": 22
+    "helpful": 22,
+    "source": "healthgrades"
   },
   {
     "id": "rev_008",
@@ -85,7 +92,8 @@
     "title": "Modern facility",
     "content": "Very impressed with the new imaging center. Everything is digital and efficient. Staff could be friendlier but the medical care was excellent.",
     "procedureCategory": "Imaging",
-    "helpful": 15
+    "helpful": 15,
+    "source": "google"
   },
   {
     "id": "rev_009",
@@ -96,7 +104,8 @@
     "title": "Good community hospital",
     "content": "For routine procedures, this hospital is great. Not as fancy as the big medical centers but the staff genuinely cares. Prices are reasonable and they work with you on payment.",
     "procedureCategory": "Lab Work",
-    "helpful": 19
+    "helpful": 19,
+    "source": "google"
   },
   {
     "id": "rev_010",
@@ -107,7 +116,8 @@
     "title": "Decent but dated",
     "content": "The hospital could use some updates but the care was adequate. Had blood work done and results took longer than expected. Parking is easy though.",
     "procedureCategory": "Lab Work",
-    "helpful": 11
+    "helpful": 11,
+    "source": "google"
   },
   {
     "id": "rev_011",
@@ -118,7 +128,8 @@
     "title": "Friendly neighborhood hospital",
     "content": "Been coming here for years. The staff knows me by name and the doctors take their time with you. Not the cheapest option but I trust them.",
     "procedureCategory": "General",
-    "helpful": 27
+    "helpful": 27,
+    "source": "healthgrades"
   },
   {
     "id": "rev_012",
@@ -129,7 +140,8 @@
     "title": "Reliable care",
     "content": "Had my CT scan here. Process was smooth and the radiologist called me personally to discuss findings. That personal touch is rare these days.",
     "procedureCategory": "Imaging",
-    "helpful": 16
+    "helpful": 16,
+    "source": "google"
   },
   {
     "id": "rev_013",
@@ -140,7 +152,8 @@
     "title": "Amazing specialty care",
     "content": "Came here for a specialized procedure and was blown away by the expertise. The team was coordinated and I felt like I was in the best hands. Recovery was faster than expected.",
     "procedureCategory": "Specialty",
-    "helpful": 38
+    "helpful": 38,
+    "source": "google"
   },
   {
     "id": "rev_014",
@@ -151,7 +164,8 @@
     "title": "Worth the trip",
     "content": "Traveled from out of state for treatment here. The medical team was excellent and the patient coordinator helped arrange everything. Only complaint is the cafeteria food!",
     "procedureCategory": "Specialty",
-    "helpful": 29
+    "helpful": 29,
+    "source": "google"
   },
   {
     "id": "rev_015",
@@ -162,7 +176,8 @@
     "title": "Cutting-edge technology",
     "content": "This hospital has the latest equipment and it shows in the quality of imaging. My doctor was impressed with how detailed the scans were. Highly recommend for complex cases.",
     "procedureCategory": "Imaging",
-    "helpful": 33
+    "helpful": 33,
+    "source": "healthgrades"
   },
   {
     "id": "rev_016",
@@ -173,7 +188,8 @@
     "title": "Professional but impersonal",
     "content": "Everything runs like clockwork here which is great for efficiency. However, it can feel a bit clinical. The care quality is undeniable though.",
     "procedureCategory": "General",
-    "helpful": 14
+    "helpful": 14,
+    "source": "google"
   },
   {
     "id": "rev_017",
@@ -184,7 +200,8 @@
     "title": "Best value in the area",
     "content": "Compared prices at several hospitals and this one offered the best rates without sacrificing quality. The charity care program also helped cover some costs.",
     "procedureCategory": "Imaging",
-    "helpful": 42
+    "helpful": 42,
+    "source": "google"
   },
   {
     "id": "rev_018",
@@ -195,7 +212,8 @@
     "title": "Solid community option",
     "content": "Nothing fancy but gets the job done well. Staff is friendly and knowledgeable. Wait times can be long on weekends but weekday appointments are quick.",
     "procedureCategory": "Lab Work",
-    "helpful": 20
+    "helpful": 20,
+    "source": "google"
   },
   {
     "id": "rev_019",
@@ -206,7 +224,8 @@
     "title": "Mixed experience",
     "content": "The actual medical care was good but scheduling was a nightmare. Had to reschedule twice due to their errors. Once I got in, everything went smoothly.",
     "procedureCategory": "Imaging",
-    "helpful": 17
+    "helpful": 17,
+    "source": "healthgrades"
   },
   {
     "id": "rev_020",
@@ -217,6 +236,7 @@
     "title": "Exceeded expectations",
     "content": "Didn't expect much from a smaller hospital but was pleasantly surprised. The doctor spent 30 minutes explaining my results and options. True patient-centered care.",
     "procedureCategory": "General",
-    "helpful": 25
+    "helpful": 25,
+    "source": "google"
   }
 ]

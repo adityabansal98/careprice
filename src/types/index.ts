@@ -16,6 +16,25 @@ export interface Review {
   content: string;
   procedureCategory?: string;
   helpful: number;
+  source: "google" | "healthgrades" | "yelp";
+}
+
+// CMS HCAHPS (Hospital Consumer Assessment of Healthcare Providers and Systems)
+export interface HCAHPSMetrics {
+  hospitalId: string;
+  overallRating: number; // 1-5 stars
+  recommendationRate: number; // percentage
+  surveyResponseCount: number;
+  metrics: {
+    communicationWithNurses: number; // 1-5
+    communicationWithDoctors: number; // 1-5
+    responsivenessOfStaff: number; // 1-5
+    painManagement: number; // 1-5
+    communicationAboutMedicines: number; // 1-5
+    cleanlinessRating: number; // 1-5
+    quietnessRating: number; // 1-5
+  };
+  lastUpdated: string; // Quarter like "Q4 2025"
 }
 
 // Each plan now has a min/max range

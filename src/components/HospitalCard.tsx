@@ -18,8 +18,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatCurrency, getDistanceLabel } from "@/lib/utils";
 import { ReviewsModal } from "@/components/ReviewsModal";
-import type { HospitalResult, PriceInfo, FinancialAssistance, Review } from "@/types";
+import type { HospitalResult, PriceInfo, FinancialAssistance, Review, HCAHPSMetrics } from "@/types";
 import reviewsData from "@/data/reviews.json";
+import hcahpsData from "@/data/hcahps.json";
 
 interface HospitalCardProps {
   result: HospitalResult;
@@ -173,6 +174,11 @@ export function HospitalCard({ result, rank }: HospitalCardProps) {
   const hospitalReviews = (reviewsData as Review[]).filter(
     (review) => review.hospitalId === hospital.id
   );
+  
+  // Get HCAHPS data for this hospital
+  const hospitalHcahps = (hcahpsData as HCAHPSMetrics[]).find(
+    (data) => data.hospitalId === hospital.id
+  ) || null;
 
   const getDistanceBadgeVariant = (dist: "close" | "medium" | "far") => {
     if (dist === "close") return "success";
@@ -306,6 +312,7 @@ export function HospitalCard({ result, rank }: HospitalCardProps) {
         hospitalName={hospital.name}
         hospitalRating={hospital.rating}
         reviews={hospitalReviews}
+        hcahpsData={hospitalHcahps}
       />
     </div>
   );
