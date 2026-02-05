@@ -86,17 +86,19 @@ function FitBounds({ results }: { results: HospitalResult[] }) {
 }
 
 function PriceDisplay({ priceInfo }: { priceInfo: HospitalResult["priceInfo"] }) {
-  if (priceInfo.type === "cash") {
+  const isRange = (priceInfo.min ?? 0) !== (priceInfo.max ?? 0);
+  
+  if (isRange) {
     return (
       <span className="text-lg font-bold text-primary-600">
-        {formatCurrency(priceInfo.value ?? 0)}
+        {formatCurrency(priceInfo.min ?? 0)} - {formatCurrency(priceInfo.max ?? 0)}
       </span>
     );
   }
 
   return (
     <span className="text-lg font-bold text-primary-600">
-      {formatCurrency(priceInfo.min ?? 0)} - {formatCurrency(priceInfo.max ?? 0)}
+      {formatCurrency(priceInfo.min ?? 0)}
     </span>
   );
 }
@@ -133,8 +135,8 @@ export function MapView({ results, onSelectHospital }: MapViewProps) {
 
   // Sort results by price to determine best price
   const sortedResults = [...results].sort((a, b) => {
-    const priceA = a.priceInfo.type === "cash" ? a.priceInfo.value ?? 0 : a.priceInfo.min ?? 0;
-    const priceB = b.priceInfo.type === "cash" ? b.priceInfo.value ?? 0 : b.priceInfo.min ?? 0;
+    const priceA = a.priceInfo.min ?? 0;
+    const priceB = b.priceInfo.min ?? 0;
     return priceA - priceB;
   });
   const bestPriceId = sortedResults[0]?.hospital.id;

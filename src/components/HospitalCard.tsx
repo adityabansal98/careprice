@@ -162,9 +162,8 @@ function PersonalizedCostDisplay({
 }
 
 function PriceDisplay({ priceInfo, onAddInsuranceClick }: { priceInfo: PriceInfo; onAddInsuranceClick?: () => void }) {
-  // Cash is the only single value now
-  const isSingleValue = priceInfo.type === "cash";
-  const isInsurance = priceInfo.type !== "cash";
+  const isCash = priceInfo.type === "cash";
+  const isRange = (priceInfo.min ?? 0) !== (priceInfo.max ?? 0);
 
   return (
     <div className="bg-gradient-to-r from-primary-50 to-teal-50 dark:from-primary-950/50 dark:to-teal-950/50 rounded-xl p-4">
@@ -172,11 +171,7 @@ function PriceDisplay({ priceInfo, onAddInsuranceClick }: { priceInfo: PriceInfo
         <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
           Estimated Cost
         </p>
-        {isSingleValue ? (
-          <p className="text-3xl md:text-4xl font-bold text-primary-700 dark:text-primary-400">
-            {formatCurrency(priceInfo.value ?? 0)}
-          </p>
-        ) : (
+        {isRange ? (
           <div className="flex items-center gap-2">
             <span className="text-2xl md:text-3xl font-bold text-primary-700 dark:text-primary-400">
               {formatCurrency(priceInfo.min ?? 0)}
@@ -186,9 +181,13 @@ function PriceDisplay({ priceInfo, onAddInsuranceClick }: { priceInfo: PriceInfo
               {formatCurrency(priceInfo.max ?? 0)}
             </span>
           </div>
+        ) : (
+          <p className="text-3xl md:text-4xl font-bold text-primary-700 dark:text-primary-400">
+            {formatCurrency(priceInfo.min ?? 0)}
+          </p>
         )}
       </div>
-      {isInsurance && (
+      {!isCash && (
         <button
           type="button"
           onClick={onAddInsuranceClick}
@@ -199,7 +198,7 @@ function PriceDisplay({ priceInfo, onAddInsuranceClick }: { priceInfo: PriceInfo
           <span> for a personalized out-of-pocket estimate</span>
         </button>
       )}
-      {isSingleValue && (
+      {isCash && (
         <p className="text-xs text-slate-500 mt-2 flex items-center gap-1">
           <DollarSign className="h-3 w-3" />
           Cash price — pay directly without insurance
@@ -310,22 +309,14 @@ export function HospitalCard({ result, rank, insuranceProfile, onAddInsuranceCli
   const grossChargeMin = hospital.prices[procedure.cpt_code]?.gross_charge_min || 0;
   const grossChargeMax = hospital.prices[procedure.cpt_code]?.gross_charge_max || 0;
 
-  // Get the displayed price based on priceInfo type (for cost breakdown)
-  const displayedPriceMin = priceInfo.type === "cash" 
-    ? priceInfo.value ?? 0
-    : priceInfo.min ?? 0;
-  const displayedPriceMax = priceInfo.type === "cash" 
-    ? priceInfo.value ?? 0
-    : priceInfo.max ?? 0;
+  // Get the displayed price based on priceInfo (for cost breakdown)
+  const displayedPriceMin = priceInfo.min ?? 0;
+  const displayedPriceMax = priceInfo.max ?? 0;
 
   // Calculate personalized out-of-pocket cost range if insurance profile is set
   const costCalculation = insuranceProfile ? (() => {
-    const minCost = priceInfo.type === "cash" 
-      ? priceInfo.value ?? 0
-      : priceInfo.min ?? 0;
-    const maxCost = priceInfo.type === "cash" 
-      ? priceInfo.value ?? 0
-      : priceInfo.max ?? 0;
+    const minCost = priceInfo.min ?? 0;
+    const maxCost = priceInfo.max ?? 0;
     
     const costBreakdownMin = calculateOutOfPocket(minCost, insuranceProfile);
     const costBreakdownMax = calculateOutOfPocket(maxCost, insuranceProfile);

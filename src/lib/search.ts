@@ -21,11 +21,12 @@ function calculatePriceInfo(
   insurance: InsuranceProvider | "cash",
   plan?: string
 ): PriceInfo {
-  // Cash price scenario - single value (no network status)
+  // Cash price scenario - show gross charge range (no network status)
   if (insurance === "cash") {
     return {
       type: "cash",
-      value: cashPrice,
+      min: grossChargeMin,
+      max: grossChargeMax,
     };
   }
 
@@ -82,9 +83,6 @@ function calculatePriceInfo(
  * Get display price for sorting (uses minimum of range or single value)
  */
 export function getDisplayPrice(priceInfo: PriceInfo): number {
-  if (priceInfo.type === "cash") {
-    return priceInfo.value ?? 0;
-  }
   return priceInfo.min ?? 0;
 }
 
