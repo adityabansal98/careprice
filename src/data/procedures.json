@@ -9,6 +9,51 @@
       "Ambulatory surgery centers can save you 40-60% compared to hospital ORs.",
       "Implant choice significantly affects price - ask about different options.",
       "Many patients qualify for bundled payment programs that include rehab."
+    ],
+    "costComponents": [
+      {
+        "id": "surgeon_fee",
+        "name": "Surgeon Fee",
+        "type": "cpt_based",
+        "cptCode": "27447",
+        "description": "The orthopedic surgeon's fee for performing the surgery",
+        "percentOfTotal": { "min": 15, "max": 25 }
+      },
+      {
+        "id": "facility_fee",
+        "name": "Facility Fee",
+        "type": "cpt_based",
+        "description": "Operating room, recovery room, and hospital services",
+        "percentOfTotal": { "min": 30, "max": 40 }
+      },
+      {
+        "id": "anesthesia",
+        "name": "Anesthesia",
+        "type": "cpt_based",
+        "description": "Anesthesiologist services during surgery",
+        "percentOfTotal": { "min": 8, "max": 12 }
+      },
+      {
+        "id": "implant",
+        "name": "Knee Implant",
+        "type": "estimated",
+        "description": "Prosthetic knee components (femoral, tibial, patellar)",
+        "percentOfTotal": { "min": 20, "max": 30 }
+      },
+      {
+        "id": "supplies",
+        "name": "Surgical Supplies",
+        "type": "estimated",
+        "description": "Medications, dressings, surgical tools",
+        "percentOfTotal": { "min": 3, "max": 6 }
+      },
+      {
+        "id": "preop",
+        "name": "Pre-op Testing",
+        "type": "estimated",
+        "description": "Lab work, EKG, medical clearances",
+        "percentOfTotal": { "min": 2, "max": 4 }
+      }
     ]
   },
   {
@@ -21,6 +66,51 @@
       "Recovery time is typically faster than total knee replacement.",
       "Not all patients are candidates - depends on extent of arthritis.",
       "Outpatient partial replacements are becoming increasingly common."
+    ],
+    "costComponents": [
+      {
+        "id": "surgeon_fee",
+        "name": "Surgeon Fee",
+        "type": "cpt_based",
+        "cptCode": "27446",
+        "description": "The orthopedic surgeon's fee for performing the surgery",
+        "percentOfTotal": { "min": 18, "max": 28 }
+      },
+      {
+        "id": "facility_fee",
+        "name": "Facility Fee",
+        "type": "cpt_based",
+        "description": "Operating room, recovery room, and hospital services",
+        "percentOfTotal": { "min": 28, "max": 38 }
+      },
+      {
+        "id": "anesthesia",
+        "name": "Anesthesia",
+        "type": "cpt_based",
+        "description": "Anesthesiologist services during surgery",
+        "percentOfTotal": { "min": 8, "max": 12 }
+      },
+      {
+        "id": "implant",
+        "name": "Partial Knee Implant",
+        "type": "estimated",
+        "description": "Unicompartmental prosthetic components",
+        "percentOfTotal": { "min": 15, "max": 22 }
+      },
+      {
+        "id": "supplies",
+        "name": "Surgical Supplies",
+        "type": "estimated",
+        "description": "Medications, dressings, surgical tools",
+        "percentOfTotal": { "min": 3, "max": 6 }
+      },
+      {
+        "id": "preop",
+        "name": "Pre-op Testing",
+        "type": "estimated",
+        "description": "Lab work, EKG, medical clearances",
+        "percentOfTotal": { "min": 2, "max": 4 }
+      }
     ]
   },
   {
@@ -33,6 +123,44 @@
       "Outpatient surgery centers offer significant savings over hospital ORs.",
       "Physical therapy costs post-surgery should be factored into total expense.",
       "Some surgeons offer cash-pay packages that bundle all related fees."
+    ],
+    "costComponents": [
+      {
+        "id": "surgeon_fee",
+        "name": "Surgeon Fee",
+        "type": "cpt_based",
+        "cptCode": "29881",
+        "description": "The orthopedic surgeon's fee for performing the arthroscopy",
+        "percentOfTotal": { "min": 25, "max": 35 }
+      },
+      {
+        "id": "facility_fee",
+        "name": "Facility Fee",
+        "type": "cpt_based",
+        "description": "Operating room and recovery room services",
+        "percentOfTotal": { "min": 35, "max": 45 }
+      },
+      {
+        "id": "anesthesia",
+        "name": "Anesthesia",
+        "type": "cpt_based",
+        "description": "Anesthesia services (local, regional, or general)",
+        "percentOfTotal": { "min": 12, "max": 18 }
+      },
+      {
+        "id": "supplies",
+        "name": "Surgical Supplies",
+        "type": "estimated",
+        "description": "Arthroscopic equipment, medications, fluids",
+        "percentOfTotal": { "min": 5, "max": 10 }
+      },
+      {
+        "id": "preop",
+        "name": "Pre-op Testing",
+        "type": "estimated",
+        "description": "Lab work and medical clearances",
+        "percentOfTotal": { "min": 2, "max": 4 }
+      }
     ]
   },
   {
@@ -45,6 +173,51 @@
       "Recovery takes 3-6 months compared to 4-6 weeks for meniscus removal.",
       "Younger, active patients typically benefit most from repair vs. removal.",
       "Some facilities offer package pricing that includes post-op physical therapy."
+    ],
+    "costComponents": [
+      {
+        "id": "surgeon_fee",
+        "name": "Surgeon Fee",
+        "type": "cpt_based",
+        "cptCode": "29882",
+        "description": "The orthopedic surgeon's fee for the repair",
+        "percentOfTotal": { "min": 25, "max": 35 }
+      },
+      {
+        "id": "facility_fee",
+        "name": "Facility Fee",
+        "type": "cpt_based",
+        "description": "Operating room and recovery room services",
+        "percentOfTotal": { "min": 32, "max": 42 }
+      },
+      {
+        "id": "anesthesia",
+        "name": "Anesthesia",
+        "type": "cpt_based",
+        "description": "Anesthesia services during surgery",
+        "percentOfTotal": { "min": 10, "max": 15 }
+      },
+      {
+        "id": "implants",
+        "name": "Repair Devices",
+        "type": "estimated",
+        "description": "Meniscal arrows, sutures, anchors",
+        "percentOfTotal": { "min": 5, "max": 10 }
+      },
+      {
+        "id": "supplies",
+        "name": "Surgical Supplies",
+        "type": "estimated",
+        "description": "Arthroscopic equipment, medications",
+        "percentOfTotal": { "min": 4, "max": 8 }
+      },
+      {
+        "id": "preop",
+        "name": "Pre-op Testing",
+        "type": "estimated",
+        "description": "Lab work and medical clearances",
+        "percentOfTotal": { "min": 2, "max": 4 }
+      }
     ]
   },
   {
@@ -57,6 +230,44 @@
       "Recovery is faster - most patients walk within days.",
       "Long-term, removal may increase risk of arthritis compared to repair.",
       "Often performed as outpatient surgery with same-day discharge."
+    ],
+    "costComponents": [
+      {
+        "id": "surgeon_fee",
+        "name": "Surgeon Fee",
+        "type": "cpt_based",
+        "cptCode": "29880",
+        "description": "The orthopedic surgeon's fee for the procedure",
+        "percentOfTotal": { "min": 28, "max": 38 }
+      },
+      {
+        "id": "facility_fee",
+        "name": "Facility Fee",
+        "type": "cpt_based",
+        "description": "Operating room and recovery room services",
+        "percentOfTotal": { "min": 35, "max": 45 }
+      },
+      {
+        "id": "anesthesia",
+        "name": "Anesthesia",
+        "type": "cpt_based",
+        "description": "Anesthesia services during surgery",
+        "percentOfTotal": { "min": 12, "max": 18 }
+      },
+      {
+        "id": "supplies",
+        "name": "Surgical Supplies",
+        "type": "estimated",
+        "description": "Arthroscopic equipment, medications",
+        "percentOfTotal": { "min": 5, "max": 10 }
+      },
+      {
+        "id": "preop",
+        "name": "Pre-op Testing",
+        "type": "estimated",
+        "description": "Lab work and medical clearances",
+        "percentOfTotal": { "min": 2, "max": 4 }
+      }
     ]
   },
   {
@@ -69,6 +280,58 @@
       "Graft choice (autograft vs. allograft) affects both cost and recovery.",
       "Physical therapy is essential - budget 6-9 months of rehab costs.",
       "Many sports medicine centers specialize in ACL surgery at competitive rates."
+    ],
+    "costComponents": [
+      {
+        "id": "surgeon_fee",
+        "name": "Surgeon Fee",
+        "type": "cpt_based",
+        "cptCode": "27428",
+        "description": "The orthopedic surgeon's fee for the reconstruction",
+        "percentOfTotal": { "min": 20, "max": 30 }
+      },
+      {
+        "id": "facility_fee",
+        "name": "Facility Fee",
+        "type": "cpt_based",
+        "description": "Operating room, recovery room, and hospital services",
+        "percentOfTotal": { "min": 30, "max": 40 }
+      },
+      {
+        "id": "anesthesia",
+        "name": "Anesthesia",
+        "type": "cpt_based",
+        "description": "Anesthesia services during surgery",
+        "percentOfTotal": { "min": 8, "max": 12 }
+      },
+      {
+        "id": "graft",
+        "name": "Graft Material",
+        "type": "estimated",
+        "description": "Allograft tissue (if used) or autograft harvesting",
+        "percentOfTotal": { "min": 8, "max": 15 }
+      },
+      {
+        "id": "hardware",
+        "name": "Fixation Hardware",
+        "type": "estimated",
+        "description": "Screws, buttons, and other fixation devices",
+        "percentOfTotal": { "min": 5, "max": 10 }
+      },
+      {
+        "id": "supplies",
+        "name": "Surgical Supplies",
+        "type": "estimated",
+        "description": "Arthroscopic equipment, medications",
+        "percentOfTotal": { "min": 3, "max": 6 }
+      },
+      {
+        "id": "preop",
+        "name": "Pre-op Testing",
+        "type": "estimated",
+        "description": "Lab work, imaging, medical clearances",
+        "percentOfTotal": { "min": 2, "max": 4 }
+      }
     ]
   },
   {
@@ -81,6 +344,58 @@
       "Surgery is typically only needed for complete tears or combined injuries.",
       "Recovery timeline is similar to ACL reconstruction (6-9 months).",
       "Specialized knee surgeons may have better outcomes for this procedure."
+    ],
+    "costComponents": [
+      {
+        "id": "surgeon_fee",
+        "name": "Surgeon Fee",
+        "type": "cpt_based",
+        "cptCode": "27427",
+        "description": "The orthopedic surgeon's fee for the reconstruction",
+        "percentOfTotal": { "min": 20, "max": 30 }
+      },
+      {
+        "id": "facility_fee",
+        "name": "Facility Fee",
+        "type": "cpt_based",
+        "description": "Operating room, recovery room, and hospital services",
+        "percentOfTotal": { "min": 30, "max": 40 }
+      },
+      {
+        "id": "anesthesia",
+        "name": "Anesthesia",
+        "type": "cpt_based",
+        "description": "Anesthesia services during surgery",
+        "percentOfTotal": { "min": 8, "max": 12 }
+      },
+      {
+        "id": "graft",
+        "name": "Graft Material",
+        "type": "estimated",
+        "description": "Allograft tissue (if used) or autograft harvesting",
+        "percentOfTotal": { "min": 8, "max": 15 }
+      },
+      {
+        "id": "hardware",
+        "name": "Fixation Hardware",
+        "type": "estimated",
+        "description": "Screws, buttons, and other fixation devices",
+        "percentOfTotal": { "min": 5, "max": 10 }
+      },
+      {
+        "id": "supplies",
+        "name": "Surgical Supplies",
+        "type": "estimated",
+        "description": "Arthroscopic equipment, medications",
+        "percentOfTotal": { "min": 3, "max": 6 }
+      },
+      {
+        "id": "preop",
+        "name": "Pre-op Testing",
+        "type": "estimated",
+        "description": "Lab work, imaging, medical clearances",
+        "percentOfTotal": { "min": 2, "max": 4 }
+      }
     ]
   },
   {
@@ -93,6 +408,37 @@
       "Less expensive than revision surgery if performed early.",
       "Typically done as outpatient procedure with quick recovery.",
       "Success rates are highest when performed within 3 months of stiffness onset."
+    ],
+    "costComponents": [
+      {
+        "id": "surgeon_fee",
+        "name": "Surgeon Fee",
+        "type": "cpt_based",
+        "cptCode": "27570",
+        "description": "The orthopedic surgeon's fee for the manipulation",
+        "percentOfTotal": { "min": 30, "max": 40 }
+      },
+      {
+        "id": "facility_fee",
+        "name": "Facility Fee",
+        "type": "cpt_based",
+        "description": "Procedure room and recovery services",
+        "percentOfTotal": { "min": 35, "max": 45 }
+      },
+      {
+        "id": "anesthesia",
+        "name": "Anesthesia",
+        "type": "cpt_based",
+        "description": "General or regional anesthesia services",
+        "percentOfTotal": { "min": 15, "max": 22 }
+      },
+      {
+        "id": "supplies",
+        "name": "Supplies & Medications",
+        "type": "estimated",
+        "description": "Post-procedure medications, bracing",
+        "percentOfTotal": { "min": 3, "max": 6 }
+      }
     ]
   },
   {
@@ -105,6 +451,23 @@
       "Freestanding imaging centers charge 40-60% less than hospitals.",
       "Some insurers require trying physical therapy before approving knee MRIs.",
       "Open MRI machines may cost less but provide lower image quality."
+    ],
+    "costComponents": [
+      {
+        "id": "technical_fee",
+        "name": "Technical Fee",
+        "type": "cpt_based",
+        "cptCode": "73721",
+        "description": "MRI equipment operation and facility services",
+        "percentOfTotal": { "min": 70, "max": 80 }
+      },
+      {
+        "id": "professional_fee",
+        "name": "Radiologist Fee",
+        "type": "cpt_based",
+        "description": "Radiologist interpretation and report",
+        "percentOfTotal": { "min": 20, "max": 30 }
+      }
     ]
   },
   {
@@ -117,6 +480,30 @@
       "Adds $100-300 to the base MRI cost for the contrast agent.",
       "Provides better visualization of certain injuries and conditions.",
       "Not always necessary - ask your doctor if contrast is truly needed."
+    ],
+    "costComponents": [
+      {
+        "id": "technical_fee",
+        "name": "Technical Fee",
+        "type": "cpt_based",
+        "cptCode": "73722",
+        "description": "MRI equipment operation and facility services",
+        "percentOfTotal": { "min": 60, "max": 70 }
+      },
+      {
+        "id": "professional_fee",
+        "name": "Radiologist Fee",
+        "type": "cpt_based",
+        "description": "Radiologist interpretation and report",
+        "percentOfTotal": { "min": 18, "max": 25 }
+      },
+      {
+        "id": "contrast",
+        "name": "Contrast Agent",
+        "type": "estimated",
+        "description": "Gadolinium-based contrast dye and administration",
+        "percentOfTotal": { "min": 8, "max": 15 }
+      }
     ]
   },
   {
@@ -129,6 +516,23 @@
       "Best for detecting fractures, arthritis, and bone alignment issues.",
       "Cannot show soft tissue injuries like meniscus or ligament tears.",
       "Often the first imaging step before MRI is ordered."
+    ],
+    "costComponents": [
+      {
+        "id": "technical_fee",
+        "name": "Technical Fee",
+        "type": "cpt_based",
+        "cptCode": "73560",
+        "description": "X-ray equipment operation and facility services",
+        "percentOfTotal": { "min": 60, "max": 75 }
+      },
+      {
+        "id": "professional_fee",
+        "name": "Radiologist Fee",
+        "type": "cpt_based",
+        "description": "Radiologist interpretation and report",
+        "percentOfTotal": { "min": 25, "max": 40 }
+      }
     ]
   },
   {
@@ -141,6 +545,30 @@
       "Office-based injections cost significantly less than hospital settings.",
       "Cortisone provides quick relief but effects may be temporary.",
       "Some insurers limit the number of injections covered per year."
+    ],
+    "costComponents": [
+      {
+        "id": "physician_fee",
+        "name": "Physician Fee",
+        "type": "cpt_based",
+        "cptCode": "20610",
+        "description": "Doctor's fee for performing the injection",
+        "percentOfTotal": { "min": 40, "max": 55 }
+      },
+      {
+        "id": "medication",
+        "name": "Medication",
+        "type": "estimated",
+        "description": "Cortisone, hyaluronic acid, or other injectable",
+        "percentOfTotal": { "min": 30, "max": 45 }
+      },
+      {
+        "id": "supplies",
+        "name": "Supplies",
+        "type": "estimated",
+        "description": "Syringes, antiseptic, bandages",
+        "percentOfTotal": { "min": 8, "max": 15 }
+      }
     ]
   },
   {
@@ -153,6 +581,23 @@
       "Outpatient imaging centers typically charge 40-60% less than hospital-based facilities.",
       "Cash prices are often lower than insurance rates if you haven't met your deductible.",
       "Ask about \"self-pay\" discounts - many facilities offer 20-40% off for upfront payment."
+    ],
+    "costComponents": [
+      {
+        "id": "technical_fee",
+        "name": "Technical Fee",
+        "type": "cpt_based",
+        "cptCode": "72148",
+        "description": "MRI equipment operation and facility services",
+        "percentOfTotal": { "min": 70, "max": 80 }
+      },
+      {
+        "id": "professional_fee",
+        "name": "Radiologist Fee",
+        "type": "cpt_based",
+        "description": "Radiologist interpretation and report",
+        "percentOfTotal": { "min": 20, "max": 30 }
+      }
     ]
   }
 ]

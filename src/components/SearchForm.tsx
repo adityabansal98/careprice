@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo, useEffect, useRef } from "react";
+import { useState, useCallback, useMemo, useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 import { Search, MapPin, Shield, Stethoscope, FileText, ChevronDown, ChevronUp, DollarSign, Percent, HelpCircle, Wallet, Upload, FileUp, CheckCircle, Loader2, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
@@ -16,6 +16,11 @@ interface SearchFormProps {
   isLoading?: boolean;
   insuranceProfile: InsuranceProfile | null;
   onInsuranceProfileChange: (profile: InsuranceProfile | null) => void;
+}
+
+// Ref type for external control
+export interface SearchFormRef {
+  setProcedure: (cptCode: string) => void;
 }
 
 // Typical values by plan type for "Use Typical Values" feature
@@ -68,7 +73,10 @@ const PLAN_OPTIONS: Record<InsuranceProvider, string[]> = {
   humana: ["PPO", "HMO", "EPO"],
 };
 
-export function SearchForm({ onSearch, isLoading = false, insuranceProfile, onInsuranceProfileChange }: SearchFormProps) {
+export const SearchForm = forwardRef<SearchFormRef, SearchFormProps>(function SearchForm(
+  { onSearch, isLoading = false, insuranceProfile, onInsuranceProfileChange },
+  ref
+) {
   const [procedureQuery, setProcedureQuery] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [insurance, setInsurance] = useState<InsuranceProvider | "cash">("cash");
@@ -93,6 +101,17 @@ export function SearchForm({ onSearch, isLoading = false, insuranceProfile, onIn
   const [oopMaxRemaining, setOopMaxRemaining] = useState(insuranceProfile?.oopMaxRemaining?.toString() || "");
 
   const procedures = proceduresData as Procedure[];
+
+  // Expose methods via ref for external control
+  useImperativeHandle(ref, () => ({
+    setProcedure: (cptCode: string) => {
+      const procedure = procedures.find(p => p.cpt_code === cptCode);
+      if (procedure) {
+        setProcedureQuery(`${procedure.name} (${procedure.cpt_code})`);
+        setInputMode("search");
+      }
+    },
+  }), [procedures]);
 
   // Get available plans for selected insurance
   const availablePlans = useMemo(() => {
@@ -698,4 +717,4 @@ export function SearchForm({ onSearch, isLoading = false, insuranceProfile, onIn
       </div>
     </form>
   );
-}
+});

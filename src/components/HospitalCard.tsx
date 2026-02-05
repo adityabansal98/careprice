@@ -17,6 +17,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatCurrency, getDistanceLabel, calculateOutOfPocket } from "@/lib/utils";
 import { ReviewsModal } from "@/components/ReviewsModal";
+import { CostBreakdownDisplay } from "@/components/CostBreakdownDisplay";
 import type { HospitalResult, PriceInfo, FinancialAssistance, Review, HCAHPSMetrics, InsuranceProfile, CostBreakdown } from "@/types";
 import reviewsData from "@/data/reviews.json";
 import hcahpsData from "@/data/hcahps.json";
@@ -289,6 +290,14 @@ export function HospitalCard({ result, rank, insuranceProfile }: HospitalCardPro
   const grossChargeMin = hospital.prices[procedure.cpt_code]?.gross_charge_min || 0;
   const grossChargeMax = hospital.prices[procedure.cpt_code]?.gross_charge_max || 0;
 
+  // Get the displayed price based on priceInfo type (for cost breakdown)
+  const displayedPriceMin = priceInfo.type === "cash" 
+    ? priceInfo.value ?? 0
+    : priceInfo.min ?? 0;
+  const displayedPriceMax = priceInfo.type === "cash" 
+    ? priceInfo.value ?? 0
+    : priceInfo.max ?? 0;
+
   // Calculate personalized out-of-pocket cost range if insurance profile is set
   const costCalculation = insuranceProfile ? (() => {
     const minCost = priceInfo.type === "cash" 
@@ -425,6 +434,17 @@ export function HospitalCard({ result, rank, insuranceProfile }: HospitalCardPro
               CPT: {procedure.cpt_code} • {procedure.category}
             </p>
           </div>
+
+          {/* Detailed Cost Breakdown */}
+          {procedure.costComponents && procedure.costComponents.length > 0 && (
+            <CostBreakdownDisplay
+              costComponents={procedure.costComponents}
+              grossChargeMin={displayedPriceMin}
+              grossChargeMax={displayedPriceMax}
+              insuranceProfile={insuranceProfile}
+              procedureName={procedure.name}
+            />
+          )}
         </CardContent>
 
         <CardFooter className="flex flex-col sm:flex-row gap-3">

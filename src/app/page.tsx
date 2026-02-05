@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useRef } from "react";
 import { Heart, ShieldCheck, TrendingDown, Sparkles, Activity } from "lucide-react";
-import { SearchForm } from "@/components/SearchForm";
+import { SearchForm, SearchFormRef } from "@/components/SearchForm";
 import { ResultsList } from "@/components/ResultsList";
 import { ChatAssistant } from "@/components/ChatAssistant";
 import { searchHospitals } from "@/lib/search";
@@ -24,6 +24,14 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [insuranceProfile, setInsuranceProfile] = useState<InsuranceProfile | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
+  const searchFormRef = useRef<SearchFormRef>(null);
+
+  // Handle quick-select: just pre-fill the procedure, don't search
+  const handleQuickSelect = useCallback((cptCode: string) => {
+    searchFormRef.current?.setProcedure(cptCode);
+    // Scroll to the form
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const handleSearch = useCallback((params: SearchParams) => {
     setIsLoading(true);
@@ -120,7 +128,7 @@ export default function Home() {
                 <button
                   key={proc.cpt}
                   type="button"
-                  onClick={() => handleSearch({ procedure: proc.cpt, zipCode: "", insurance: "cash" })}
+                  onClick={() => handleQuickSelect(proc.cpt)}
                   className="px-4 py-2 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 hover:border-primary-400 hover:text-primary-600 dark:hover:border-primary-500 dark:hover:text-primary-400 transition-all shadow-sm hover:shadow-md"
                 >
                   {proc.shortName}
@@ -135,6 +143,7 @@ export default function Home() {
 
           {/* Search Form */}
           <SearchForm 
+            ref={searchFormRef}
             onSearch={handleSearch} 
             isLoading={isLoading} 
             insuranceProfile={insuranceProfile}

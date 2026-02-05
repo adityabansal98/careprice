@@ -4,6 +4,32 @@ export interface Procedure {
   category: string;
   description: string;
   insights: string[];
+  costComponents?: CostComponentDefinition[];
+}
+
+// Cost component types for detailed breakdown
+export type CostComponentType = "cpt_based" | "estimated";
+
+export interface CostComponentDefinition {
+  id: string;
+  name: string;
+  type: CostComponentType;
+  cptCode?: string; // If CPT-based, the related code
+  description: string;
+  percentOfTotal: { min: number; max: number }; // Typical % range of total cost
+}
+
+// Calculated cost component with actual dollar amounts
+export interface CalculatedCostComponent {
+  id: string;
+  name: string;
+  type: CostComponentType;
+  cptCode?: string;
+  description: string;
+  grossChargeMin: number;
+  grossChargeMax: number;
+  oopMin: number;
+  oopMax: number;
 }
 
 export interface Review {
