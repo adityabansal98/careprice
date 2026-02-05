@@ -359,6 +359,25 @@ export function HospitalCard({ result, rank, insuranceProfile, onAddInsuranceCli
     }
   };
 
+  // Get network status badge
+  const getNetworkBadge = () => {
+    if (priceInfo.type === "cash") return null;
+    
+    if (priceInfo.inNetwork === false) {
+      return (
+        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400 border border-red-200 dark:border-red-800">
+          ⚠️ Out-of-Network
+        </span>
+      );
+    }
+    
+    return (
+      <Badge variant="success" className="bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800">
+        ✓ In-Network
+      </Badge>
+    );
+  };
+
   const getRankStyle = (r: number) => {
     if (r === 1) return "bg-gradient-to-br from-amber-400 to-amber-500 text-white";
     if (r === 2) return "bg-gradient-to-br from-slate-300 to-slate-400 text-slate-700";
@@ -438,12 +457,25 @@ export function HospitalCard({ result, rank, insuranceProfile, onAddInsuranceCli
 
           {/* Badges Row */}
           <div className="flex flex-wrap gap-2">
+            {getNetworkBadge()}
             {getPriceTypeBadge()}
             <Badge variant={getDistanceBadgeVariant(distance)}>
               <MapPin className="h-3 w-3 mr-1" />
               {getDistanceLabel(distance)}
             </Badge>
           </div>
+
+          {/* Out-of-Network Warning */}
+          {priceInfo.inNetwork === false && (
+            <div className="bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 rounded-lg p-3">
+              <p className="text-sm text-red-700 dark:text-red-400 font-medium">
+                ⚠️ This hospital is out-of-network for your insurance
+              </p>
+              <p className="text-xs text-red-600 dark:text-red-500 mt-1">
+                Prices shown are gross charges. Your actual costs may be significantly higher without in-network benefits.
+              </p>
+            </div>
+          )}
 
           {/* Detailed Cost Breakdown */}
           {procedure.costComponents && procedure.costComponents.length > 0 && (

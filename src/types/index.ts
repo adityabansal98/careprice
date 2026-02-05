@@ -140,6 +140,7 @@ export interface PriceInfo {
   min?: number; // For ranges
   max?: number; // For ranges
   planName?: string; // The specific plan if selected
+  inNetwork?: boolean; // Whether hospital is in-network for selected insurance
 }
 
 export interface HospitalResult {

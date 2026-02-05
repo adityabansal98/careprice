@@ -4563,34 +4563,6 @@
                 "gross_charge_max": 52000,
                 "cash_price": 19800,
                 "insurance_rates": {
-                    "aetna": {
-                        "PPO": {
-                            "min": 17200,
-                            "max": 19000
-                        },
-                        "HMO": {
-                            "min": 16400,
-                            "max": 18100
-                        },
-                        "EPO": {
-                            "min": 16800,
-                            "max": 18500
-                        }
-                    },
-                    "bcbs": {
-                        "PPO": {
-                            "min": 17000,
-                            "max": 18800
-                        },
-                        "HMO": {
-                            "min": 16200,
-                            "max": 17900
-                        },
-                        "POS": {
-                            "min": 16600,
-                            "max": 18300
-                        }
-                    },
                     "uhc": {
                         "PPO": {
                             "min": 17400,
@@ -5974,20 +5946,6 @@
                 "gross_charge_max": 48000,
                 "cash_price": 18200,
                 "insurance_rates": {
-                    "aetna": {
-                        "PPO": {
-                            "min": 16000,
-                            "max": 17700
-                        },
-                        "HMO": {
-                            "min": 15200,
-                            "max": 16800
-                        },
-                        "EPO": {
-                            "min": 15600,
-                            "max": 17200
-                        }
-                    },
                     "bcbs": {
                         "PPO": {
                             "min": 15800,

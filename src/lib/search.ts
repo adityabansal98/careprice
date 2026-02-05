@@ -11,14 +11,17 @@ const procedures = proceduresData as Procedure[];
  * - No insurance: Cash price (single value)
  * - Insurance only: Aggregated range across all plans
  * - Insurance + Plan: Range for that specific plan
+ * - Out-of-network: Show gross charge range when no rates exist
  */
 function calculatePriceInfo(
   insuranceRates: InsuranceRates,
   cashPrice: number,
+  grossChargeMin: number,
+  grossChargeMax: number,
   insurance: InsuranceProvider | "cash",
   plan?: string
 ): PriceInfo {
-  // Cash price scenario - single value
+  // Cash price scenario - single value (no network status)
   if (insurance === "cash") {
     return {
       type: "cash",
@@ -28,11 +31,13 @@ function calculatePriceInfo(
 
   const providerRates = insuranceRates[insurance];
 
-  // Insurance provider not found - fall back to cash
+  // Insurance provider not found - OUT OF NETWORK, show gross charge
   if (!providerRates) {
     return {
-      type: "cash",
-      value: cashPrice,
+      type: "insurance_range",
+      min: grossChargeMin,
+      max: grossChargeMax,
+      inNetwork: false,
     };
   }
 
@@ -44,6 +49,7 @@ function calculatePriceInfo(
       min: planRange.min,
       max: planRange.max,
       planName: plan,
+      inNetwork: true,
     };
   }
 
@@ -51,9 +57,12 @@ function calculatePriceInfo(
   const allPlanRanges = Object.values(providerRates) as PlanPriceRange[];
 
   if (allPlanRanges.length === 0) {
+    // No plans available - OUT OF NETWORK
     return {
-      type: "cash",
-      value: cashPrice,
+      type: "insurance_range",
+      min: grossChargeMin,
+      max: grossChargeMax,
+      inNetwork: false,
     };
   }
 
@@ -65,6 +74,7 @@ function calculatePriceInfo(
     type: "insurance_range",
     min: overallMin,
     max: overallMax,
+    inNetwork: true,
   };
 }
 
@@ -105,6 +115,8 @@ export function searchHospitals(params: SearchParams): HospitalResult[] {
     const priceInfo = calculatePriceInfo(
       procedurePrice.insurance_rates,
       procedurePrice.cash_price,
+      procedurePrice.gross_charge_min,
+      procedurePrice.gross_charge_max,
       insurance,
       plan
     );
