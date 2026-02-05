@@ -1,13 +1,15 @@
 "use client";
 
-import { useState, useCallback, useMemo, useEffect } from "react";
-import { Search, MapPin, Shield, Stethoscope, FileText, ChevronDown, ChevronUp, DollarSign, Percent, HelpCircle, Wallet } from "lucide-react";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
+import { Search, MapPin, Shield, Stethoscope, FileText, ChevronDown, ChevronUp, DollarSign, Percent, HelpCircle, Wallet, Upload, FileUp, CheckCircle, Loader2, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { validateZipCode } from "@/lib/utils";
 import type { Procedure, InsuranceProvider, SearchParams, InsuranceProfile } from "@/types";
 import proceduresData from "@/data/procedures.json";
+
+type InputMode = "search" | "upload";
 
 interface SearchFormProps {
   onSearch: (params: SearchParams) => void;
@@ -73,6 +75,13 @@ export function SearchForm({ onSearch, isLoading = false, insuranceProfile, onIn
   const [plan, setPlan] = useState<string>("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [zipError, setZipError] = useState("");
+  
+  // Input mode: search or upload
+  const [inputMode, setInputMode] = useState<InputMode>("search");
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [isProcessingUpload, setIsProcessingUpload] = useState(false);
+  const [extractedProcedure, setExtractedProcedure] = useState<Procedure | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   
   // Insurance details section
   const [showInsuranceDetails, setShowInsuranceDetails] = useState(false);
@@ -149,11 +158,56 @@ export function SearchForm({ onSearch, isLoading = false, insuranceProfile, onIn
   // Check if insurance details are filled
   const hasInsuranceDetails = deductibleTotal || deductibleRemaining || coinsurancePercent || oopMaxTotal || oopMaxRemaining;
 
+  // Handle file upload
+  const handleFileUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    
+    setUploadedFile(file);
+    setIsProcessingUpload(true);
+    setExtractedProcedure(null);
+    
+    // Simulate AI processing - always extract as knee surgery (CPT 29881)
+    setTimeout(() => {
+      const kneeSurgery = procedures.find(p => p.cpt_code === "29881");
+      if (kneeSurgery) {
+        setExtractedProcedure(kneeSurgery);
+        setProcedureQuery(`${kneeSurgery.name} (${kneeSurgery.cpt_code})`);
+      }
+      setIsProcessingUpload(false);
+    }, 2500); // 2.5 second delay to simulate processing
+  }, [procedures]);
+
+  const handleClearUpload = useCallback(() => {
+    setUploadedFile(null);
+    setExtractedProcedure(null);
+    setProcedureQuery("");
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  }, []);
+
+  const handleModeChange = useCallback((mode: InputMode) => {
+    setInputMode(mode);
+    if (mode === "search") {
+      handleClearUpload();
+    } else {
+      setProcedureQuery("");
+      setShowSuggestions(false);
+    }
+  }, [handleClearUpload]);
+
   const handleSubmit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
 
-      if (!procedureQuery.trim()) return;
+      // For upload mode, check if we have an extracted procedure
+      if (inputMode === "upload") {
+        if (!extractedProcedure || isProcessingUpload) return;
+      } else {
+        if (!procedureQuery.trim()) return;
+      }
+      
       if (!validateZipCode(zipCode)) {
         setZipError("Please enter a valid 5-digit ZIP code");
         return;
@@ -171,9 +225,14 @@ export function SearchForm({ onSearch, isLoading = false, insuranceProfile, onIn
         onInsuranceProfileChange(profile);
       }
 
-      // Extract CPT code from selection
-      const cptMatch = procedureQuery.match(/\((\d{5})\)/);
-      const searchProcedure = cptMatch ? cptMatch[1] : procedureQuery;
+      // Get the procedure code
+      let searchProcedure: string;
+      if (inputMode === "upload" && extractedProcedure) {
+        searchProcedure = extractedProcedure.cpt_code;
+      } else {
+        const cptMatch = procedureQuery.match(/\((\d{5})\)/);
+        searchProcedure = cptMatch ? cptMatch[1] : procedureQuery;
+      }
 
       onSearch({
         procedure: searchProcedure,
@@ -182,59 +241,172 @@ export function SearchForm({ onSearch, isLoading = false, insuranceProfile, onIn
         plan: plan || undefined,
       });
     },
-    [procedureQuery, zipCode, insurance, plan, onSearch, hasInsuranceDetails, deductibleTotal, deductibleRemaining, coinsurancePercent, oopMaxTotal, oopMaxRemaining, onInsuranceProfileChange]
+    [procedureQuery, zipCode, insurance, plan, onSearch, hasInsuranceDetails, deductibleTotal, deductibleRemaining, coinsurancePercent, oopMaxTotal, oopMaxRemaining, onInsuranceProfileChange, inputMode, extractedProcedure, isProcessingUpload]
   );
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-4xl mx-auto">
       <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-3xl shadow-2xl shadow-slate-200/60 dark:shadow-slate-900/60 p-6 md:p-8 border-2 border-slate-100 dark:border-slate-800">
+        {/* Mode Toggle */}
+        <div className="flex items-center gap-2 mb-5">
+          <button
+            type="button"
+            onClick={() => handleModeChange("search")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+              inputMode === "search"
+                ? "bg-primary-600 text-white shadow-lg shadow-primary-500/25"
+                : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700"
+            }`}
+          >
+            <Search className="h-4 w-4" />
+            Search Procedure
+          </button>
+          <button
+            type="button"
+            onClick={() => handleModeChange("upload")}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+              inputMode === "upload"
+                ? "bg-primary-600 text-white shadow-lg shadow-primary-500/25"
+                : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700"
+            }`}
+          >
+            <Upload className="h-4 w-4" />
+            Upload Doctor&apos;s Letter
+          </button>
+        </div>
+
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {/* Procedure Input with Autocomplete */}
-          <div className="relative md:col-span-2 lg:col-span-2">
-            <label
-              htmlFor="procedure"
-              className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
-            >
-              <Stethoscope className="inline-block w-4 h-4 mr-1.5 -mt-0.5" />
-              Procedure or CPT Code
-            </label>
-            <Input
-              id="procedure"
-              type="text"
-              placeholder="e.g., MRI, 72148"
-              value={procedureQuery}
-              onChange={(e) => {
-                setProcedureQuery(e.target.value);
-                setShowSuggestions(true);
-              }}
-              onFocus={() => setShowSuggestions(true)}
-              onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-              icon={<Search className="h-5 w-5" />}
-              aria-label="Search for a medical procedure"
-              aria-autocomplete="list"
-              aria-expanded={showSuggestions && filteredProcedures.length > 0}
-            />
-            {/* Autocomplete Dropdown */}
-            {showSuggestions && filteredProcedures.length > 0 && (
-              <div className="absolute z-50 w-full mt-2 bg-white dark:bg-slate-900 rounded-xl border-2 border-slate-200 dark:border-slate-700 shadow-xl overflow-hidden">
-                {filteredProcedures.map((procedure) => (
-                  <button
-                    key={procedure.cpt_code}
-                    type="button"
-                    className="w-full px-4 py-3 text-left hover:bg-primary-50 dark:hover:bg-primary-950 transition-colors border-b border-slate-100 dark:border-slate-800 last:border-b-0"
-                    onClick={() => handleProcedureSelect(procedure)}
-                  >
-                    <div className="font-medium text-slate-900 dark:text-slate-100">
-                      {procedure.name}
+          {/* Procedure Input - Search Mode */}
+          {inputMode === "search" && (
+            <div className="relative md:col-span-2 lg:col-span-2">
+              <label
+                htmlFor="procedure"
+                className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+              >
+                <Stethoscope className="inline-block w-4 h-4 mr-1.5 -mt-0.5" />
+                Procedure or CPT Code
+              </label>
+              <Input
+                id="procedure"
+                type="text"
+                placeholder="e.g., MRI, 72148"
+                value={procedureQuery}
+                onChange={(e) => {
+                  setProcedureQuery(e.target.value);
+                  setShowSuggestions(true);
+                }}
+                onFocus={() => setShowSuggestions(true)}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                icon={<Search className="h-5 w-5" />}
+                aria-label="Search for a medical procedure"
+                aria-autocomplete="list"
+                aria-expanded={showSuggestions && filteredProcedures.length > 0}
+              />
+              {/* Autocomplete Dropdown */}
+              {showSuggestions && filteredProcedures.length > 0 && (
+                <div className="absolute z-50 w-full mt-2 bg-white dark:bg-slate-900 rounded-xl border-2 border-slate-200 dark:border-slate-700 shadow-xl overflow-hidden">
+                  {filteredProcedures.map((procedure) => (
+                    <button
+                      key={procedure.cpt_code}
+                      type="button"
+                      className="w-full px-4 py-3 text-left hover:bg-primary-50 dark:hover:bg-primary-950 transition-colors border-b border-slate-100 dark:border-slate-800 last:border-b-0"
+                      onClick={() => handleProcedureSelect(procedure)}
+                    >
+                      <div className="font-medium text-slate-900 dark:text-slate-100">
+                        {procedure.name}
+                      </div>
+                      <div className="text-sm text-slate-500 dark:text-slate-400">
+                        CPT: {procedure.cpt_code} • {procedure.category}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Upload Mode */}
+          {inputMode === "upload" && (
+            <div className="md:col-span-2 lg:col-span-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                <FileUp className="inline-block w-4 h-4 mr-1.5 -mt-0.5" />
+                Doctor&apos;s Prescription Letter
+              </label>
+              
+              {/* Processing State */}
+              {isProcessingUpload && (
+                <div className="border-2 border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-950/30 rounded-xl p-6 text-center">
+                  <Loader2 className="h-8 w-8 text-primary-600 animate-spin mx-auto mb-3" />
+                  <p className="text-sm font-medium text-primary-700 dark:text-primary-300">
+                    Extracting prescribed surgery...
+                  </p>
+                  <p className="text-xs text-primary-600 dark:text-primary-400 mt-1">
+                    Analyzing your doctor&apos;s letter
+                  </p>
+                </div>
+              )}
+
+              {/* Extracted Procedure Display */}
+              {!isProcessingUpload && extractedProcedure && (
+                <div className="border-2 border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl p-4">
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center">
+                        <CheckCircle className="h-5 w-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+                          Procedure Identified
+                        </p>
+                        <p className="font-semibold text-slate-800 dark:text-slate-200">
+                          {extractedProcedure.name}
+                        </p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">
+                          CPT: {extractedProcedure.cpt_code} • {extractedProcedure.category}
+                        </p>
+                      </div>
                     </div>
-                    <div className="text-sm text-slate-500 dark:text-slate-400">
-                      CPT: {procedure.cpt_code} • {procedure.category}
-                    </div>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+                    <button
+                      type="button"
+                      onClick={handleClearUpload}
+                      className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+                    >
+                      <X className="h-5 w-5" />
+                    </button>
+                  </div>
+                  {uploadedFile && (
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-3 flex items-center gap-1">
+                      <FileText className="h-3 w-3" />
+                      {uploadedFile.name}
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {/* Upload Area */}
+              {!isProcessingUpload && !extractedProcedure && (
+                <div
+                  className="border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-xl p-6 text-center hover:border-primary-400 dark:hover:border-primary-500 transition-colors cursor-pointer"
+                  onClick={() => fileInputRef.current?.click()}
+                >
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                    onChange={handleFileUpload}
+                    className="hidden"
+                  />
+                  <Upload className="h-8 w-8 text-slate-400 mx-auto mb-2" />
+                  <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
+                    Click to upload your doctor&apos;s letter
+                  </p>
+                  <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">
+                    PDF, JPG, PNG, DOC up to 10MB
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* ZIP Code Input */}
           <div className="md:col-span-1 lg:col-span-2">
@@ -496,13 +668,24 @@ export function SearchForm({ onSearch, isLoading = false, insuranceProfile, onIn
           <Button
             type="submit"
             size="lg"
-            disabled={isLoading || !procedureQuery.trim() || !zipCode}
+            disabled={
+              isLoading || 
+              isProcessingUpload ||
+              !zipCode ||
+              (inputMode === "search" && !procedureQuery.trim()) ||
+              (inputMode === "upload" && !extractedProcedure)
+            }
             className="w-full md:w-auto min-w-[200px]"
           >
             {isLoading ? (
               <>
                 <span className="animate-spin mr-2">⏳</span>
                 Searching...
+              </>
+            ) : isProcessingUpload ? (
+              <>
+                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                Processing...
               </>
             ) : (
               <>
