@@ -15,10 +15,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CarePrice - Healthcare Price Comparison",
+  title: "KneePrice - Knee Surgery Price Comparison",
   description:
-    "Compare medical procedure costs across hospitals. Find the best prices for MRIs, X-Rays, Lab tests and more based on your insurance.",
-  keywords: ["healthcare", "medical prices", "hospital costs", "insurance rates", "MRI cost"],
+    "Compare knee surgery costs across hospitals. Find the best prices for knee replacements, arthroscopy, ACL repairs, meniscus surgery and more based on your insurance.",
+  keywords: ["knee surgery cost", "knee replacement price", "ACL surgery cost", "arthroscopy price", "meniscus surgery cost", "orthopedic surgery prices"],
 };
 
 export default function RootLayout({
