@@ -88,6 +88,7 @@ export interface Hospital {
   state: string;
   zip: string;
   phone: string;
+  website: string;
   rating: number;
   dataFreshness: string;
   coordinates: Coordinates;

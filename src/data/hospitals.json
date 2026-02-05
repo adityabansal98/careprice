@@ -637,7 +637,8 @@
                 "gross_charge_min": 95,
                 "gross_charge_max": 117
             }
-        }
+        },
+        "website": "https://www.generalcityhospital.org"
     },
     {
         "id": "hosp_002",
@@ -1277,7 +1278,8 @@
                 "gross_charge_min": 85,
                 "gross_charge_max": 106
             }
-        }
+        },
+        "website": "https://www.metrohealthmedicalcenter.org"
     },
     {
         "id": "hosp_003",
@@ -1917,7 +1919,8 @@
                 "gross_charge_min": 75,
                 "gross_charge_max": 87
             }
-        }
+        },
+        "website": "https://www.sunrisecommunityhospital.org"
     },
     {
         "id": "hosp_004",
@@ -2553,7 +2556,8 @@
                 "gross_charge_min": 120,
                 "gross_charge_max": 145
             }
-        }
+        },
+        "website": "https://www.premiumcareinstitute.org"
     },
     {
         "id": "hosp_005",
@@ -3193,6 +3197,7 @@
                 "gross_charge_min": 65,
                 "gross_charge_max": 81
             }
-        }
+        },
+        "website": "https://www.valleymedicalassociates.org"
     }
 ]

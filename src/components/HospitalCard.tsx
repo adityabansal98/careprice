@@ -5,13 +5,12 @@ import {
   MapPin,
   Phone,
   Star,
-  TrendingUp,
   DollarSign,
   ArrowRight,
   Heart,
-  BadgePercent,
   Info,
   MessageSquare,
+  ExternalLink,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -433,10 +432,15 @@ export function HospitalCard({ result, rank, insuranceProfile }: HospitalCardPro
             <Phone className="h-4 w-4 mr-2" />
             {hospital.phone}
           </Button>
-          <Button variant="ghost" size="sm" className="w-full sm:w-auto">
-            <TrendingUp className="h-4 w-4 mr-2" />
-            View Details
-          </Button>
+          <a 
+            href={hospital.website} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-xl bg-primary-600 text-white hover:bg-primary-700 transition-colors w-full sm:w-auto"
+          >
+            <ExternalLink className="h-4 w-4" />
+            Visit Website
+          </a>
         </CardFooter>
       </Card>
 
