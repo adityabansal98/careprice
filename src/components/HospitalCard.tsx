@@ -206,68 +206,73 @@ function PriceDisplay({ priceInfo }: { priceInfo: PriceInfo }) {
 function FinancialAssistanceInfo({ assistance }: { assistance: FinancialAssistance }) {
   if (!assistance.available) return null;
 
-  // Generate personalized eligibility reasons based on the program
-  const getEligibilityReasons = () => {
-    const reasons: string[] = [];
-    
-    if (assistance.discountPercent && assistance.discountPercent >= 75) {
-      reasons.push("Your household income falls within the assistance threshold");
-      reasons.push("You are currently uninsured or underinsured");
-      reasons.push("You reside in the hospital's service area");
-    } else if (assistance.discountPercent && assistance.discountPercent >= 50) {
-      reasons.push("Your income is below 200% of the Federal Poverty Level");
-      reasons.push("You have demonstrated financial hardship");
-    } else {
-      reasons.push("You qualify based on your insurance status");
-      reasons.push("Your income meets the program requirements");
-    }
-    
-    return reasons;
-  };
-
-  const reasons = getEligibilityReasons();
+  const programName = assistance.programName || "Hospital Financial Assistance Program";
 
   return (
     <div className="mt-3 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30 border-2 border-emerald-200 dark:border-emerald-800 rounded-xl p-4">
-      <div className="flex items-start gap-3">
-        <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-          <Heart className="h-5 w-5 text-white" />
+      {/* Header */}
+      <div className="flex items-center gap-2 mb-3">
+        <div className="w-8 h-8 bg-gradient-to-br from-emerald-500 to-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+          <DollarSign className="h-4 w-4 text-white" />
         </div>
-        <div className="flex-1">
-          <div className="flex flex-wrap items-center gap-2 mb-2">
-            <h4 className="font-bold text-emerald-800 dark:text-emerald-200 text-base">
-              🎉 Great news! You&apos;re eligible for {assistance.discountPercent}% off
-            </h4>
-          </div>
-          
-          {assistance.programName && (
-            <p className="text-sm text-emerald-700 dark:text-emerald-400 mb-3">
-              Through the <strong>{assistance.programName}</strong>
-            </p>
-          )}
-          
-          <div className="bg-white/60 dark:bg-slate-900/40 rounded-lg p-3 mb-3">
-            <p className="text-xs font-semibold text-emerald-700 dark:text-emerald-300 mb-2 uppercase tracking-wide">
-              You qualify because:
-            </p>
-            <ul className="space-y-1.5">
-              {reasons.map((reason, index) => (
-                <li key={index} className="flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-400">
-                  <span className="w-5 h-5 bg-emerald-100 dark:bg-emerald-900/50 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-emerald-600 dark:text-emerald-400 text-xs">✓</span>
-                  </span>
-                  {reason}
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <p className="text-xs text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
-            <Info className="h-3.5 w-3.5" />
-            Contact the hospital&apos;s financial services to confirm eligibility and apply.
-          </p>
+        <div>
+          <h4 className="font-bold text-emerald-800 dark:text-emerald-200 text-base">
+            Potential Savings Alert: Financial Assistance
+          </h4>
         </div>
       </div>
+      
+      {/* Sub-header */}
+      <p className="text-sm text-emerald-700 dark:text-emerald-400 mb-4">
+        You may be eligible for reduced pricing through the <strong>{programName}</strong>.
+      </p>
+      
+      {/* Body - Why you might qualify */}
+      <div className="bg-white/60 dark:bg-slate-900/40 rounded-lg p-4 mb-4">
+        <p className="text-sm font-semibold text-emerald-800 dark:text-emerald-300 mb-3">
+          Why you might qualify:
+        </p>
+        <ul className="space-y-3">
+          <li className="flex items-start gap-3">
+            <span className="w-6 h-6 bg-emerald-100 dark:bg-emerald-900/50 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-emerald-600 dark:text-emerald-400 text-xs font-bold">$</span>
+            </span>
+            <div>
+              <span className="font-medium text-sm text-emerald-800 dark:text-emerald-300">Income Eligibility:</span>
+              <span className="text-sm text-emerald-600 dark:text-emerald-400 ml-1">
+                Financial assistance is often available for households with income up to 500% of the Federal Poverty Level.
+              </span>
+            </div>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="w-6 h-6 bg-emerald-100 dark:bg-emerald-900/50 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <Heart className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
+            </span>
+            <div>
+              <span className="font-medium text-sm text-emerald-800 dark:text-emerald-300">Insurance Status:</span>
+              <span className="text-sm text-emerald-600 dark:text-emerald-400 ml-1">
+                Policies typically cover patients who are uninsured or underinsured (where medical bills exceed a certain % of income).
+              </span>
+            </div>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="w-6 h-6 bg-emerald-100 dark:bg-emerald-900/50 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <MapPin className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
+            </span>
+            <div>
+              <span className="font-medium text-sm text-emerald-800 dark:text-emerald-300">Local Residency:</span>
+              <span className="text-sm text-emerald-600 dark:text-emerald-400 ml-1">
+                Eligibility generally requires residing in the hospital&apos;s designated service area.
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      {/* Footer disclaimer */}
+      <p className="text-xs text-emerald-600/80 dark:text-emerald-400/80 italic">
+        Eligibility is not guaranteed. Contact the hospital&apos;s Financial Counseling department to verify and apply.
+      </p>
     </div>
   );
 }
