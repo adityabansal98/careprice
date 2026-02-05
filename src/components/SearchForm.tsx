@@ -1,18 +1,52 @@
 "use client";
 
 import { useState, useCallback, useMemo, useEffect } from "react";
-import { Search, MapPin, Shield, Stethoscope, FileText } from "lucide-react";
+import { Search, MapPin, Shield, Stethoscope, FileText, ChevronDown, ChevronUp, DollarSign, Percent, HelpCircle, Wallet } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { validateZipCode } from "@/lib/utils";
-import type { Procedure, InsuranceProvider, SearchParams } from "@/types";
+import type { Procedure, InsuranceProvider, SearchParams, InsuranceProfile } from "@/types";
 import proceduresData from "@/data/procedures.json";
 
 interface SearchFormProps {
   onSearch: (params: SearchParams) => void;
   isLoading?: boolean;
+  insuranceProfile: InsuranceProfile | null;
+  onInsuranceProfileChange: (profile: InsuranceProfile | null) => void;
 }
+
+// Typical values by plan type for "Use Typical Values" feature
+const TYPICAL_VALUES: Record<string, InsuranceProfile> = {
+  PPO: {
+    deductibleTotal: 2000,
+    deductibleRemaining: 2000,
+    coinsurancePercent: 20,
+    oopMaxTotal: 6000,
+    oopMaxRemaining: 6000,
+  },
+  HMO: {
+    deductibleTotal: 1500,
+    deductibleRemaining: 1500,
+    coinsurancePercent: 20,
+    oopMaxTotal: 5000,
+    oopMaxRemaining: 5000,
+  },
+  EPO: {
+    deductibleTotal: 1750,
+    deductibleRemaining: 1750,
+    coinsurancePercent: 20,
+    oopMaxTotal: 5500,
+    oopMaxRemaining: 5500,
+  },
+  POS: {
+    deductibleTotal: 2000,
+    deductibleRemaining: 2000,
+    coinsurancePercent: 25,
+    oopMaxTotal: 6500,
+    oopMaxRemaining: 6500,
+  },
+};
 
 const INSURANCE_OPTIONS: Array<{ value: InsuranceProvider | "cash"; label: string }> = [
   { value: "cash", label: "Cash Price (No Insurance)" },
@@ -32,13 +66,22 @@ const PLAN_OPTIONS: Record<InsuranceProvider, string[]> = {
   humana: ["PPO", "HMO", "EPO"],
 };
 
-export function SearchForm({ onSearch, isLoading = false }: SearchFormProps) {
+export function SearchForm({ onSearch, isLoading = false, insuranceProfile, onInsuranceProfileChange }: SearchFormProps) {
   const [procedureQuery, setProcedureQuery] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [insurance, setInsurance] = useState<InsuranceProvider | "cash">("cash");
   const [plan, setPlan] = useState<string>("");
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [zipError, setZipError] = useState("");
+  
+  // Insurance details section
+  const [showInsuranceDetails, setShowInsuranceDetails] = useState(false);
+  const [showHelp, setShowHelp] = useState(false);
+  const [deductibleTotal, setDeductibleTotal] = useState(insuranceProfile?.deductibleTotal?.toString() || "");
+  const [deductibleRemaining, setDeductibleRemaining] = useState(insuranceProfile?.deductibleRemaining?.toString() || "");
+  const [coinsurancePercent, setCoinsurancePercent] = useState(insuranceProfile?.coinsurancePercent?.toString() || "");
+  const [oopMaxTotal, setOopMaxTotal] = useState(insuranceProfile?.oopMaxTotal?.toString() || "");
+  const [oopMaxRemaining, setOopMaxRemaining] = useState(insuranceProfile?.oopMaxRemaining?.toString() || "");
 
   const procedures = proceduresData as Procedure[];
 
@@ -83,6 +126,29 @@ export function SearchForm({ onSearch, isLoading = false }: SearchFormProps) {
     setInsurance(value as InsuranceProvider | "cash");
   }, []);
 
+  const handleUseTipicalValues = useCallback((planType: string) => {
+    const typical = TYPICAL_VALUES[planType];
+    if (typical) {
+      setDeductibleTotal(typical.deductibleTotal.toString());
+      setDeductibleRemaining(typical.deductibleRemaining.toString());
+      setCoinsurancePercent(typical.coinsurancePercent.toString());
+      setOopMaxTotal(typical.oopMaxTotal.toString());
+      setOopMaxRemaining(typical.oopMaxRemaining.toString());
+    }
+  }, []);
+
+  const handleClearInsuranceDetails = useCallback(() => {
+    setDeductibleTotal("");
+    setDeductibleRemaining("");
+    setCoinsurancePercent("");
+    setOopMaxTotal("");
+    setOopMaxRemaining("");
+    onInsuranceProfileChange(null);
+  }, [onInsuranceProfileChange]);
+
+  // Check if insurance details are filled
+  const hasInsuranceDetails = deductibleTotal || deductibleRemaining || coinsurancePercent || oopMaxTotal || oopMaxRemaining;
+
   const handleSubmit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
@@ -91,6 +157,18 @@ export function SearchForm({ onSearch, isLoading = false }: SearchFormProps) {
       if (!validateZipCode(zipCode)) {
         setZipError("Please enter a valid 5-digit ZIP code");
         return;
+      }
+
+      // Save insurance profile if details are provided
+      if (hasInsuranceDetails && insurance !== "cash") {
+        const profile: InsuranceProfile = {
+          deductibleTotal: parseFloat(deductibleTotal) || 0,
+          deductibleRemaining: parseFloat(deductibleRemaining) || 0,
+          coinsurancePercent: parseFloat(coinsurancePercent) || 20,
+          oopMaxTotal: parseFloat(oopMaxTotal) || 0,
+          oopMaxRemaining: parseFloat(oopMaxRemaining) || 0,
+        };
+        onInsuranceProfileChange(profile);
       }
 
       // Extract CPT code from selection
@@ -104,7 +182,7 @@ export function SearchForm({ onSearch, isLoading = false }: SearchFormProps) {
         plan: plan || undefined,
       });
     },
-    [procedureQuery, zipCode, insurance, plan, onSearch]
+    [procedureQuery, zipCode, insurance, plan, onSearch, hasInsuranceDetails, deductibleTotal, deductibleRemaining, coinsurancePercent, oopMaxTotal, oopMaxRemaining, onInsuranceProfileChange]
   );
 
   return (
@@ -242,6 +320,176 @@ export function SearchForm({ onSearch, isLoading = false }: SearchFormProps) {
             )}
           </div>
         </div>
+
+        {/* Insurance Details Collapsible Section */}
+        {insurance !== "cash" && (
+          <div className="mt-5 border-t border-slate-200 dark:border-slate-700 pt-5">
+            <button
+              type="button"
+              onClick={() => setShowInsuranceDetails(!showInsuranceDetails)}
+              className="w-full flex items-center justify-between text-left group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 bg-gradient-to-br from-violet-500 to-purple-500 rounded-xl flex items-center justify-center shadow-md shadow-violet-500/20">
+                  <Wallet className="h-4 w-4 text-white" />
+                </div>
+                <div>
+                  <p className="font-medium text-slate-700 dark:text-slate-300 text-sm group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                    Know your insurance details? Add them for a better estimate
+                  </p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    {hasInsuranceDetails ? "Details added - will calculate your actual out-of-pocket cost" : "Optional - enter deductible & coinsurance for personalized costs"}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                {hasInsuranceDetails && (
+                  <span className="text-xs bg-violet-100 dark:bg-violet-900/40 text-violet-700 dark:text-violet-300 px-2 py-1 rounded-full font-medium">
+                    Active
+                  </span>
+                )}
+                {showInsuranceDetails ? (
+                  <ChevronUp className="h-5 w-5 text-slate-400" />
+                ) : (
+                  <ChevronDown className="h-5 w-5 text-slate-400" />
+                )}
+              </div>
+            </button>
+
+            {/* Expanded Insurance Details Form */}
+            {showInsuranceDetails && (
+              <div className="mt-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+                {/* Help Section */}
+                <button
+                  type="button"
+                  onClick={() => setShowHelp(!showHelp)}
+                  className="flex items-center gap-1.5 text-sm text-violet-600 dark:text-violet-400 mb-4 hover:underline"
+                >
+                  <HelpCircle className="h-4 w-4" />
+                  Where do I find these numbers?
+                </button>
+                
+                {showHelp && (
+                  <div className="bg-white dark:bg-slate-900/50 rounded-lg p-3 mb-4 text-sm text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
+                    <p className="font-medium mb-2">Find your numbers in:</p>
+                    <ul className="space-y-1 text-xs">
+                      <li>📱 Your insurance app (Aetna, UHC, etc.) - usually on home screen</li>
+                      <li>💳 Back of your insurance card</li>
+                      <li>📄 Summary of Benefits from your employer</li>
+                      <li>📞 Call the number on your card</li>
+                    </ul>
+                  </div>
+                )}
+
+                {/* Quick Fill Buttons */}
+                <div className="mb-4">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">Don&apos;t know? Use typical values:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {Object.keys(TYPICAL_VALUES).map((planType) => (
+                      <button
+                        key={planType}
+                        type="button"
+                        onClick={() => handleUseTipicalValues(planType)}
+                        className="px-3 py-1.5 text-xs font-medium bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-lg hover:bg-violet-100 dark:hover:bg-violet-900/30 hover:text-violet-700 dark:hover:text-violet-300 transition-colors border border-slate-200 dark:border-slate-700"
+                      >
+                        Typical {planType}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Form Fields */}
+                <div className="space-y-4">
+                  {/* Deductible */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1.5">
+                        <DollarSign className="inline h-3 w-3 mr-1" />
+                        Total Deductible
+                      </label>
+                      <Input
+                        type="number"
+                        placeholder="e.g., 2000"
+                        value={deductibleTotal}
+                        onChange={(e) => setDeductibleTotal(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1.5">
+                        <DollarSign className="inline h-3 w-3 mr-1" />
+                        Deductible Remaining
+                      </label>
+                      <Input
+                        type="number"
+                        placeholder="e.g., 800"
+                        value={deductibleRemaining}
+                        onChange={(e) => setDeductibleRemaining(e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Coinsurance */}
+                  <div>
+                    <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1.5">
+                      <Percent className="inline h-3 w-3 mr-1" />
+                      Your Coinsurance % (what you pay after deductible)
+                    </label>
+                    <Input
+                      type="number"
+                      placeholder="e.g., 20"
+                      value={coinsurancePercent}
+                      onChange={(e) => setCoinsurancePercent(e.target.value)}
+                    />
+                    <p className="text-xs text-slate-400 mt-1">
+                      If your plan is 80/20, enter 20 (you pay 20%)
+                    </p>
+                  </div>
+
+                  {/* OOP Max */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1.5">
+                        <Shield className="inline h-3 w-3 mr-1" />
+                        Out-of-Pocket Max
+                      </label>
+                      <Input
+                        type="number"
+                        placeholder="e.g., 6000"
+                        value={oopMaxTotal}
+                        onChange={(e) => setOopMaxTotal(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1.5">
+                        <Shield className="inline h-3 w-3 mr-1" />
+                        OOP Max Remaining
+                      </label>
+                      <Input
+                        type="number"
+                        placeholder="e.g., 4500"
+                        value={oopMaxRemaining}
+                        onChange={(e) => setOopMaxRemaining(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Clear Button */}
+                {hasInsuranceDetails && (
+                  <div className="mt-4 flex justify-end">
+                    <button
+                      type="button"
+                      onClick={handleClearInsuranceDetails}
+                      className="text-xs text-slate-500 hover:text-red-500 transition-colors"
+                    >
+                      Clear insurance details
+                    </button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Search Button */}
         <div className="mt-6 flex justify-center">

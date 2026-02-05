@@ -98,7 +98,12 @@ export default function Home() {
           </p>
 
           {/* Search Form */}
-          <SearchForm onSearch={handleSearch} isLoading={isLoading} />
+          <SearchForm 
+            onSearch={handleSearch} 
+            isLoading={isLoading} 
+            insuranceProfile={insuranceProfile}
+            onInsuranceProfileChange={setInsuranceProfile}
+          />
 
           {/* Trust Indicators */}
           <div className="mt-12 flex flex-wrap justify-center gap-6 md:gap-10">
