@@ -180,9 +180,9 @@ export const SearchForm = forwardRef<SearchFormRef, SearchFormProps>(function Se
     setIsProcessingUpload(true);
     setExtractedProcedure(null);
     
-    // Simulate AI processing - always extract as knee surgery (CPT 29881)
+    // Simulate AI processing - always extract as Total Knee Replacement (CPT 27447)
     setTimeout(() => {
-      const kneeSurgery = procedures.find(p => p.cpt_code === "29881");
+      const kneeSurgery = procedures.find(p => p.cpt_code === "27447");
       if (kneeSurgery) {
         setExtractedProcedure(kneeSurgery);
         setProcedureQuery(`${kneeSurgery.name} (${kneeSurgery.cpt_code})`);
