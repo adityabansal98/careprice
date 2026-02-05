@@ -23,6 +23,7 @@
         "id": "facility_fee",
         "name": "Facility Fee",
         "type": "cpt_based",
+        "cptCode": "27447-F",
         "description": "Operating room, recovery room, and hospital services",
         "percentOfTotal": { "min": 30, "max": 40 }
       },
@@ -30,6 +31,7 @@
         "id": "anesthesia",
         "name": "Anesthesia",
         "type": "cpt_based",
+        "cptCode": "01402",
         "description": "Anesthesiologist services during surgery",
         "percentOfTotal": { "min": 8, "max": 12 }
       },
@@ -80,6 +82,7 @@
         "id": "facility_fee",
         "name": "Facility Fee",
         "type": "cpt_based",
+        "cptCode": "27446-F",
         "description": "Operating room, recovery room, and hospital services",
         "percentOfTotal": { "min": 28, "max": 38 }
       },
@@ -87,6 +90,7 @@
         "id": "anesthesia",
         "name": "Anesthesia",
         "type": "cpt_based",
+        "cptCode": "01402",
         "description": "Anesthesiologist services during surgery",
         "percentOfTotal": { "min": 8, "max": 12 }
       },
@@ -137,6 +141,7 @@
         "id": "facility_fee",
         "name": "Facility Fee",
         "type": "cpt_based",
+        "cptCode": "29881-F",
         "description": "Operating room and recovery room services",
         "percentOfTotal": { "min": 35, "max": 45 }
       },
@@ -144,6 +149,7 @@
         "id": "anesthesia",
         "name": "Anesthesia",
         "type": "cpt_based",
+        "cptCode": "01382",
         "description": "Anesthesia services (local, regional, or general)",
         "percentOfTotal": { "min": 12, "max": 18 }
       },
@@ -187,6 +193,7 @@
         "id": "facility_fee",
         "name": "Facility Fee",
         "type": "cpt_based",
+        "cptCode": "29882-F",
         "description": "Operating room and recovery room services",
         "percentOfTotal": { "min": 32, "max": 42 }
       },
@@ -194,6 +201,7 @@
         "id": "anesthesia",
         "name": "Anesthesia",
         "type": "cpt_based",
+        "cptCode": "01382",
         "description": "Anesthesia services during surgery",
         "percentOfTotal": { "min": 10, "max": 15 }
       },
@@ -244,6 +252,7 @@
         "id": "facility_fee",
         "name": "Facility Fee",
         "type": "cpt_based",
+        "cptCode": "29880-F",
         "description": "Operating room and recovery room services",
         "percentOfTotal": { "min": 35, "max": 45 }
       },
@@ -251,6 +260,7 @@
         "id": "anesthesia",
         "name": "Anesthesia",
         "type": "cpt_based",
+        "cptCode": "01382",
         "description": "Anesthesia services during surgery",
         "percentOfTotal": { "min": 12, "max": 18 }
       },
@@ -294,6 +304,7 @@
         "id": "facility_fee",
         "name": "Facility Fee",
         "type": "cpt_based",
+        "cptCode": "27428-F",
         "description": "Operating room, recovery room, and hospital services",
         "percentOfTotal": { "min": 30, "max": 40 }
       },
@@ -301,6 +312,7 @@
         "id": "anesthesia",
         "name": "Anesthesia",
         "type": "cpt_based",
+        "cptCode": "01382",
         "description": "Anesthesia services during surgery",
         "percentOfTotal": { "min": 8, "max": 12 }
       },
@@ -358,6 +370,7 @@
         "id": "facility_fee",
         "name": "Facility Fee",
         "type": "cpt_based",
+        "cptCode": "27427-F",
         "description": "Operating room, recovery room, and hospital services",
         "percentOfTotal": { "min": 30, "max": 40 }
       },
@@ -365,6 +378,7 @@
         "id": "anesthesia",
         "name": "Anesthesia",
         "type": "cpt_based",
+        "cptCode": "01382",
         "description": "Anesthesia services during surgery",
         "percentOfTotal": { "min": 8, "max": 12 }
       },
@@ -422,6 +436,7 @@
         "id": "facility_fee",
         "name": "Facility Fee",
         "type": "cpt_based",
+        "cptCode": "27570-F",
         "description": "Procedure room and recovery services",
         "percentOfTotal": { "min": 35, "max": 45 }
       },
@@ -429,6 +444,7 @@
         "id": "anesthesia",
         "name": "Anesthesia",
         "type": "cpt_based",
+        "cptCode": "01382",
         "description": "General or regional anesthesia services",
         "percentOfTotal": { "min": 15, "max": 22 }
       },
@@ -465,6 +481,7 @@
         "id": "professional_fee",
         "name": "Radiologist Fee",
         "type": "cpt_based",
+        "cptCode": "73721-26",
         "description": "Radiologist interpretation and report",
         "percentOfTotal": { "min": 20, "max": 30 }
       }
@@ -494,6 +511,7 @@
         "id": "professional_fee",
         "name": "Radiologist Fee",
         "type": "cpt_based",
+        "cptCode": "73722-26",
         "description": "Radiologist interpretation and report",
         "percentOfTotal": { "min": 18, "max": 25 }
       },
@@ -530,6 +548,7 @@
         "id": "professional_fee",
         "name": "Radiologist Fee",
         "type": "cpt_based",
+        "cptCode": "73560-26",
         "description": "Radiologist interpretation and report",
         "percentOfTotal": { "min": 25, "max": 40 }
       }
@@ -595,6 +614,7 @@
         "id": "professional_fee",
         "name": "Radiologist Fee",
         "type": "cpt_based",
+        "cptCode": "72148-26",
         "description": "Radiologist interpretation and report",
         "percentOfTotal": { "min": 20, "max": 30 }
       }
