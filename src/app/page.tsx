@@ -25,12 +25,15 @@ export default function Home() {
   const [insuranceProfile, setInsuranceProfile] = useState<InsuranceProfile | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
   const searchFormRef = useRef<SearchFormRef>(null);
+  const formSectionRef = useRef<HTMLDivElement>(null);
 
   // Handle quick-select: just pre-fill the procedure, don't search
   const handleQuickSelect = useCallback((cptCode: string) => {
     searchFormRef.current?.setProcedure(cptCode);
-    // Scroll to the form
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Scroll to the form section
+    setTimeout(() => {
+      formSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
   }, []);
 
   // Handle click on "Add insurance details" link in results
@@ -142,13 +145,15 @@ export default function Home() {
           </p>
 
           {/* Search Form */}
-          <SearchForm 
-            ref={searchFormRef}
-            onSearch={handleSearch} 
-            isLoading={isLoading} 
-            insuranceProfile={insuranceProfile}
-            onInsuranceProfileChange={setInsuranceProfile}
-          />
+          <div ref={formSectionRef}>
+            <SearchForm 
+              ref={searchFormRef}
+              onSearch={handleSearch} 
+              isLoading={isLoading} 
+              insuranceProfile={insuranceProfile}
+              onInsuranceProfileChange={setInsuranceProfile}
+            />
+          </div>
 
           {/* Trust Indicators */}
           <div className="mt-12 flex flex-wrap justify-center gap-6 md:gap-10">
