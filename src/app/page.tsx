@@ -155,21 +155,6 @@ export default function Home() {
             />
           </div>
 
-          {/* Trust Indicators */}
-          <div className="mt-12 flex flex-wrap justify-center gap-6 md:gap-10">
-            <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
-              <ShieldCheck className="h-5 w-5 text-emerald-500" />
-              <span className="text-sm">100% Free to Use</span>
-            </div>
-            <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
-              <TrendingDown className="h-5 w-5 text-primary-500" />
-              <span className="text-sm">Average savings of $4,200 on knee surgery</span>
-            </div>
-            <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
-              <Activity className="h-5 w-5 text-rose-500" />
-              <span className="text-sm">Trusted by 15,000+ knee surgery patients</span>
-            </div>
-          </div>
         </div>
       </section>
 
