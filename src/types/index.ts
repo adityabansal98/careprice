@@ -59,7 +59,8 @@ export interface InsuranceRates {
 }
 
 export interface ProcedurePrice {
-  gross_charge: number;
+  gross_charge_min: number;
+  gross_charge_max: number;
   cash_price: number;
   insurance_rates: InsuranceRates;
 }

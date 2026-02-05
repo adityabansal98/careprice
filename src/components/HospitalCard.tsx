@@ -30,13 +30,24 @@ interface HospitalCardProps {
 
 // Component to show personalized out-of-pocket cost when insurance profile is set
 function PersonalizedCostDisplay({ 
-  costBreakdown, 
-  priceInfo 
+  oopMin,
+  oopMax,
+  grossChargeMin,
+  grossChargeMax,
+  costBreakdownMin,
+  costBreakdownMax,
 }: { 
-  costBreakdown: CostBreakdown; 
-  priceInfo: PriceInfo;
+  oopMin: number;
+  oopMax: number;
+  grossChargeMin: number;
+  grossChargeMax: number;
+  costBreakdownMin: CostBreakdown;
+  costBreakdownMax: CostBreakdown;
 }) {
   const [showDetails, setShowDetails] = useState(false);
+  const isOopRange = oopMin !== oopMax;
+  const isGrossRange = grossChargeMin !== grossChargeMax;
+  const isProcedureCostRange = costBreakdownMin.procedureCost !== costBreakdownMax.procedureCost;
   
   return (
     <div className="bg-gradient-to-r from-violet-50 to-purple-50 dark:from-violet-950/50 dark:to-purple-950/50 rounded-xl p-4 border-2 border-violet-200 dark:border-violet-800">
@@ -56,16 +67,35 @@ function PersonalizedCostDisplay({
       </div>
       
       <div className="flex items-baseline justify-between">
-        <p className="text-3xl md:text-4xl font-bold text-violet-700 dark:text-violet-400">
-          {formatCurrency(costBreakdown.totalOutOfPocket)}
-        </p>
+        <div>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">OOP</p>
+          {isOopRange ? (
+            <div className="flex items-center gap-2">
+              <span className="text-2xl md:text-3xl font-bold text-violet-700 dark:text-violet-400">
+                {formatCurrency(oopMin)}
+              </span>
+              <ArrowRight className="h-5 w-5 text-slate-400" />
+              <span className="text-2xl md:text-3xl font-bold text-violet-700 dark:text-violet-400">
+                {formatCurrency(oopMax)}
+              </span>
+            </div>
+          ) : (
+            <p className="text-3xl md:text-4xl font-bold text-violet-700 dark:text-violet-400">
+              {formatCurrency(oopMin)}
+            </p>
+          )}
+        </div>
         <div className="text-right">
-          <p className="text-xs text-slate-400 mb-1">Insurance Rate</p>
-          <p className="text-lg text-slate-400 line-through">
-            {priceInfo.type === "cash" 
-              ? formatCurrency(priceInfo.value ?? 0)
-              : formatCurrency(priceInfo.min ?? 0)}
-          </p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Gross Charge</p>
+          {isGrossRange ? (
+            <p className="text-lg text-slate-400 line-through">
+              {formatCurrency(grossChargeMin)} - {formatCurrency(grossChargeMax)}
+            </p>
+          ) : (
+            <p className="text-lg text-slate-400 line-through">
+              {formatCurrency(grossChargeMin)}
+            </p>
+          )}
         </div>
       </div>
       
@@ -73,35 +103,53 @@ function PersonalizedCostDisplay({
       {showDetails && (
         <div className="mt-4 pt-3 border-t border-violet-200 dark:border-violet-700 space-y-2">
           <div className="flex justify-between text-sm">
-            <span className="text-slate-600 dark:text-slate-400">Procedure cost</span>
-            <span className="font-medium">{formatCurrency(costBreakdown.procedureCost)}</span>
+            <span className="text-slate-600 dark:text-slate-400">Negotiated rate</span>
+            <span className="font-medium">
+              {isProcedureCostRange 
+                ? `${formatCurrency(costBreakdownMin.procedureCost)} - ${formatCurrency(costBreakdownMax.procedureCost)}`
+                : formatCurrency(costBreakdownMin.procedureCost)
+              }
+            </span>
           </div>
-          {costBreakdown.deductiblePortion > 0 && (
+          {(costBreakdownMin.deductiblePortion > 0 || costBreakdownMax.deductiblePortion > 0) && (
             <div className="flex justify-between text-sm">
               <span className="text-slate-600 dark:text-slate-400">Applied to deductible</span>
-              <span className="font-medium text-amber-600">-{formatCurrency(costBreakdown.deductiblePortion)}</span>
+              <span className="font-medium text-amber-600">
+                {costBreakdownMin.deductiblePortion === costBreakdownMax.deductiblePortion
+                  ? formatCurrency(costBreakdownMin.deductiblePortion)
+                  : `${formatCurrency(costBreakdownMin.deductiblePortion)} - ${formatCurrency(costBreakdownMax.deductiblePortion)}`
+                }
+              </span>
             </div>
           )}
-          {costBreakdown.coinsurancePortion > 0 && (
+          {(costBreakdownMin.coinsurancePortion > 0 || costBreakdownMax.coinsurancePortion > 0) && (
             <div className="flex justify-between text-sm">
               <span className="text-slate-600 dark:text-slate-400">Your coinsurance</span>
-              <span className="font-medium text-amber-600">-{formatCurrency(costBreakdown.coinsurancePortion)}</span>
+              <span className="font-medium text-amber-600">
+                {costBreakdownMin.coinsurancePortion === costBreakdownMax.coinsurancePortion
+                  ? formatCurrency(costBreakdownMin.coinsurancePortion)
+                  : `${formatCurrency(costBreakdownMin.coinsurancePortion)} - ${formatCurrency(costBreakdownMax.coinsurancePortion)}`
+                }
+              </span>
             </div>
           )}
           <div className="flex justify-between text-sm pt-2 border-t border-violet-100 dark:border-violet-800">
             <span className="font-semibold text-violet-700 dark:text-violet-300">You pay</span>
             <span className="font-bold text-violet-700 dark:text-violet-300">
-              {formatCurrency(costBreakdown.totalOutOfPocket)}
+              {isOopRange
+                ? `${formatCurrency(oopMin)} - ${formatCurrency(oopMax)}`
+                : formatCurrency(oopMin)
+              }
             </span>
           </div>
           
           {/* Helpful tips */}
-          {costBreakdown.remainingDeductible === 0 && costBreakdown.deductiblePortion > 0 && (
+          {costBreakdownMin.remainingDeductible === 0 && costBreakdownMin.deductiblePortion > 0 && (
             <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 flex items-center gap-1">
               <span>🎉</span> This procedure will meet your deductible!
             </p>
           )}
-          {costBreakdown.totalOutOfPocket === 0 && (
+          {oopMax === 0 && (
             <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 flex items-center gap-1">
               <span>✨</span> You&apos;ve hit your OOP max — this is covered 100%!
             </p>
@@ -112,70 +160,43 @@ function PersonalizedCostDisplay({
   );
 }
 
-function PriceDisplay({ priceInfo, grossCharge }: { priceInfo: PriceInfo; grossCharge: number }) {
-  const getPriceLabel = () => {
-    switch (priceInfo.type) {
-      case "cash":
-        return "Cash Price";
-      case "plan_range":
-        return `${priceInfo.planName} Plan Rate`;
-      case "insurance_range":
-        return "Insurance Rate Range";
-      default:
-        return "Estimated Price";
-    }
-  };
-
-  const getPriceSubtext = () => {
-    switch (priceInfo.type) {
-      case "cash":
-        return "Pay directly without insurance";
-      case "plan_range":
-        return "Negotiated rate range for your plan";
-      case "insurance_range":
-        return "Range across all plan types";
-      default:
-        return null;
-    }
-  };
-
+function PriceDisplay({ priceInfo }: { priceInfo: PriceInfo }) {
   // Cash is the only single value now
   const isSingleValue = priceInfo.type === "cash";
+  const isInsurance = priceInfo.type !== "cash";
 
   return (
     <div className="bg-gradient-to-r from-primary-50 to-teal-50 dark:from-primary-950/50 dark:to-teal-950/50 rounded-xl p-4">
-      <div className="flex items-baseline justify-between">
-        <div>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
-            {getPriceLabel()}
+      <div>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">
+          Estimated Cost
+        </p>
+        {isSingleValue ? (
+          <p className="text-3xl md:text-4xl font-bold text-primary-700 dark:text-primary-400">
+            {formatCurrency(priceInfo.value ?? 0)}
           </p>
-          {isSingleValue ? (
-            <p className="text-3xl md:text-4xl font-bold text-primary-700 dark:text-primary-400">
-              {formatCurrency(priceInfo.value ?? 0)}
-            </p>
-          ) : (
-            <div className="flex items-center gap-2">
-              <span className="text-2xl md:text-3xl font-bold text-primary-700 dark:text-primary-400">
-                {formatCurrency(priceInfo.min ?? 0)}
-              </span>
-              <ArrowRight className="h-5 w-5 text-slate-400" />
-              <span className="text-2xl md:text-3xl font-bold text-primary-700 dark:text-primary-400">
-                {formatCurrency(priceInfo.max ?? 0)}
-              </span>
-            </div>
-          )}
-        </div>
-        <div className="text-right">
-          <p className="text-xs text-slate-400 mb-1">Gross Charge</p>
-          <p className="text-lg text-slate-400 line-through">
-            {formatCurrency(grossCharge)}
-          </p>
-        </div>
+        ) : (
+          <div className="flex items-center gap-2">
+            <span className="text-2xl md:text-3xl font-bold text-primary-700 dark:text-primary-400">
+              {formatCurrency(priceInfo.min ?? 0)}
+            </span>
+            <ArrowRight className="h-5 w-5 text-slate-400" />
+            <span className="text-2xl md:text-3xl font-bold text-primary-700 dark:text-primary-400">
+              {formatCurrency(priceInfo.max ?? 0)}
+            </span>
+          </div>
+        )}
       </div>
-      {getPriceSubtext() && (
+      {isInsurance && (
+        <p className="text-xs text-violet-600 dark:text-violet-400 mt-3 flex items-center gap-1.5 bg-violet-50 dark:bg-violet-950/30 px-2 py-1.5 rounded-lg">
+          <Info className="h-3.5 w-3.5 flex-shrink-0" />
+          Add your insurance details above for a personalized out-of-pocket estimate
+        </p>
+      )}
+      {isSingleValue && (
         <p className="text-xs text-slate-500 mt-2 flex items-center gap-1">
           <DollarSign className="h-3 w-3" />
-          {getPriceSubtext()}
+          Cash price — pay directly without insurance
         </p>
       )}
     </div>
@@ -265,13 +286,30 @@ export function HospitalCard({ result, rank, insuranceProfile }: HospitalCardPro
     (data) => data.hospitalId === hospital.id
   ) || null;
 
-  // Calculate personalized out-of-pocket cost if insurance profile is set
-  const costBreakdown = insuranceProfile ? (() => {
-    // Use the minimum negotiated rate for calculation (most likely scenario)
-    const procedureCost = priceInfo.type === "cash" 
+  // Get the actual gross charge range from hospital data
+  const grossChargeMin = hospital.prices[procedure.cpt_code]?.gross_charge_min || 0;
+  const grossChargeMax = hospital.prices[procedure.cpt_code]?.gross_charge_max || 0;
+
+  // Calculate personalized out-of-pocket cost range if insurance profile is set
+  const costCalculation = insuranceProfile ? (() => {
+    const minCost = priceInfo.type === "cash" 
       ? priceInfo.value ?? 0
       : priceInfo.min ?? 0;
-    return calculateOutOfPocket(procedureCost, insuranceProfile);
+    const maxCost = priceInfo.type === "cash" 
+      ? priceInfo.value ?? 0
+      : priceInfo.max ?? 0;
+    
+    const costBreakdownMin = calculateOutOfPocket(minCost, insuranceProfile);
+    const costBreakdownMax = calculateOutOfPocket(maxCost, insuranceProfile);
+    
+    return {
+      oopMin: costBreakdownMin.totalOutOfPocket,
+      oopMax: costBreakdownMax.totalOutOfPocket,
+      grossChargeMin,
+      grossChargeMax,
+      costBreakdownMin,
+      costBreakdownMax,
+    };
   })() : null;
 
   const getDistanceBadgeVariant = (dist: "close" | "medium" | "far") => {
@@ -357,16 +395,17 @@ export function HospitalCard({ result, rank, insuranceProfile }: HospitalCardPro
 
         <CardContent className="space-y-4">
           {/* Price Display - Personalized or Standard */}
-          {costBreakdown && insuranceProfile ? (
+          {costCalculation && insuranceProfile ? (
             <PersonalizedCostDisplay 
-              costBreakdown={costBreakdown} 
-              priceInfo={priceInfo}
+              oopMin={costCalculation.oopMin}
+              oopMax={costCalculation.oopMax}
+              grossChargeMin={costCalculation.grossChargeMin}
+              grossChargeMax={costCalculation.grossChargeMax}
+              costBreakdownMin={costCalculation.costBreakdownMin}
+              costBreakdownMax={costCalculation.costBreakdownMax}
             />
           ) : (
-            <PriceDisplay
-              priceInfo={priceInfo}
-              grossCharge={hospital.prices[procedure.cpt_code]?.gross_charge || 0}
-            />
+            <PriceDisplay priceInfo={priceInfo} />
           )}
 
           {/* Badges Row */}
