@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KneePrice - Knee Surgery Price Comparison",
+  title: "CarePrice - Healthcare Price Comparison",
   description:
     "Compare knee surgery costs across hospitals. Find the best prices for knee replacements, arthroscopy, ACL repairs, meniscus surgery and more based on your insurance.",
   keywords: ["knee surgery cost", "knee replacement price", "ACL surgery cost", "arthroscopy price", "meniscus surgery cost", "orthopedic surgery prices"],

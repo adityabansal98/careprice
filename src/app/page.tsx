@@ -60,14 +60,9 @@ export default function Home() {
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-teal-500 flex items-center justify-center shadow-lg shadow-primary-500/25">
                 <Activity className="h-5 w-5 text-white" />
               </div>
-              <div>
-                <span className="text-xl font-bold bg-gradient-to-r from-primary-600 to-teal-600 bg-clip-text text-transparent">
-                  KneePrice
-                </span>
-                <span className="hidden sm:inline text-xs text-slate-500 dark:text-slate-400 ml-2">
-                  Knee Surgery Price Experts
-                </span>
-              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-primary-600 to-teal-600 bg-clip-text text-transparent">
+                CarePrice
+              </span>
             </div>
             <nav className="hidden md:flex items-center gap-6">
               <a
@@ -203,7 +198,7 @@ export default function Home() {
         <section className="pb-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-center text-slate-900 dark:text-slate-100 mb-4">
-              Why Choose KneePrice?
+              Why Choose CarePrice?
             </h2>
             <p className="text-center text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
               We specialize exclusively in knee surgeries, giving you the most accurate and comprehensive pricing data available.
@@ -255,10 +250,10 @@ export default function Home() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-teal-500 flex items-center justify-center">
                 <Activity className="h-4 w-4 text-white" />
               </div>
-              <span className="text-lg font-bold text-white">KneePrice</span>
+              <span className="text-lg font-bold text-white">CarePrice</span>
             </div>
             <p className="text-sm text-center md:text-right">
-              © {new Date().getFullYear()} KneePrice. The Knee Surgery Price Experts.
+              © {new Date().getFullYear()} CarePrice. All rights reserved.
               <br />
               <span className="text-xs">
                 Prices shown are estimates based on publicly available hospital data.
