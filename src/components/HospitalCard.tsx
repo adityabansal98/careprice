@@ -276,9 +276,18 @@ function FinancialAssistanceInfo({ assistance }: { assistance: FinancialAssistan
       </div>
       
       {/* Footer disclaimer */}
-      <p className="text-xs text-emerald-600/80 dark:text-emerald-400/80 italic">
+      <p className="text-xs text-emerald-600/80 dark:text-emerald-400/80 italic mb-3">
         Eligibility is not guaranteed. Contact the hospital&apos;s Financial Counseling department to verify and apply.
       </p>
+      
+      {/* Learn more button */}
+      <button
+        type="button"
+        className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium rounded-lg transition-colors"
+      >
+        Learn more
+        <ExternalLink className="h-3.5 w-3.5" />
+      </button>
     </div>
   );
 }
