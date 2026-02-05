@@ -69,7 +69,7 @@ function PersonalizedCostDisplay({
       
       <div className="flex items-baseline justify-between">
         <div>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">OOP</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Out of Pocket Expenses</p>
           {isOopRange ? (
             <div className="flex items-center gap-2">
               <span className="text-2xl md:text-3xl font-bold text-violet-700 dark:text-violet-400">
@@ -152,7 +152,7 @@ function PersonalizedCostDisplay({
           )}
           {oopMax === 0 && (
             <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 flex items-center gap-1">
-              <span>✨</span> You&apos;ve hit your OOP max — this is covered 100%!
+              <span>✨</span> You&apos;ve hit your out-of-pocket max — this is covered 100%!
             </p>
           )}
         </div>

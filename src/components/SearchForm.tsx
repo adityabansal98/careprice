@@ -29,22 +29,22 @@ const TYPICAL_VALUES: Record<string, InsuranceProfile> = {
   PPO: {
     deductibleRemaining: 2000,
     coinsurancePercent: 20,
-    oopMaxRemaining: 6000,
+    oopMaxRemaining: 10000,
   },
   HMO: {
     deductibleRemaining: 1500,
     coinsurancePercent: 20,
-    oopMaxRemaining: 5000,
+    oopMaxRemaining: 10000,
   },
   EPO: {
     deductibleRemaining: 1750,
     coinsurancePercent: 20,
-    oopMaxRemaining: 5500,
+    oopMaxRemaining: 10000,
   },
   POS: {
     deductibleRemaining: 2000,
     coinsurancePercent: 25,
-    oopMaxRemaining: 6500,
+    oopMaxRemaining: 10000,
   },
 };
 
