@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, MapPin, Receipt, AlertCircle, Stethoscope, Lightbulb } from "lucide-react";
+import { Sparkles, MapPin, AlertCircle, UserCheck, Lightbulb } from "lucide-react";
 import type { Procedure } from "@/types";
 
 interface AIInsightsProps {
@@ -10,7 +10,7 @@ interface AIInsightsProps {
 // AI Insight types
 interface AIInsight {
   id: string;
-  icon: "location" | "cost_driver" | "separate_bills" | "tip";
+  icon: "location" | "separate_bills" | "physician";
   title: string;
   description: string;
 }
@@ -24,7 +24,6 @@ function generateInsights(procedure: Procedure): AIInsight[] {
   const facilityFee = costComponents.find(c => c.id === "facility_fee");
   const anesthesia = costComponents.find(c => c.id === "anesthesia");
   const implant = costComponents.find(c => c.id === "implant" || c.id === "hardware" || c.id === "graft");
-  const estimatedComponents = costComponents.filter(c => c.type === "estimated");
   
   // Calculate facility fee percentage
   const facilityPercent = facilityFee 
@@ -41,17 +40,7 @@ function generateInsights(procedure: Procedure): AIInsight[] {
     });
   }
   
-  // Insight 2: Hidden Variable (facility fee is biggest driver)
-  if (facilityFee && facilityPercent >= 30) {
-    insights.push({
-      id: "hidden_variable",
-      icon: "cost_driver",
-      title: "The Hidden Variable",
-      description: `The Facility Fee is the biggest cost driver (${facilityPercent}% of your total) and varies wildly between locations. Ask your surgeon if they have privileges at an independent surgery center to avoid the higher "Hospital Markup."`,
-    });
-  }
-  
-  // Insight 3: Separate Bills Warning
+  // Insight 2: Separate Bills Warning
   if (anesthesia || implant) {
     const separateBillItems: string[] = [];
     
@@ -75,22 +64,13 @@ function generateInsights(procedure: Procedure): AIInsight[] {
     }
   }
   
-  // Insight 4: Estimated costs tip
-  if (estimatedComponents.length > 0) {
-    const estimatedPercent = estimatedComponents.reduce(
-      (sum, c) => sum + (c.percentOfTotal.min + c.percentOfTotal.max) / 2,
-      0
-    );
-    
-    if (estimatedPercent >= 15) {
-      insights.push({
-        id: "ask_for_bundle",
-        icon: "tip",
-        title: "Pro Tip: Ask for a Bundled Price",
-        description: `About ${Math.round(estimatedPercent)}% of your cost comes from estimated items (supplies, implants, etc.). Ask the facility for a "bundled" or "all-inclusive" quote that covers everything to avoid surprise charges.`,
-      });
-    }
-  }
+  // Insight 3: Physician Independent Contractor Check
+  insights.push({
+    id: "physician_check",
+    icon: "physician",
+    title: "Pro Tip: Check The Hidden Variable",
+    description: `Ask if your physician is an independent contractor. If so, you have the right to ask for a change of physician as hiring an independent contractor would cause significant surcharges.`,
+  });
   
   return insights;
 }
@@ -101,12 +81,10 @@ function InsightCard({ insight }: { insight: AIInsight }) {
     switch (insight.icon) {
       case "location":
         return <MapPin className="h-4 w-4" />;
-      case "cost_driver":
-        return <Receipt className="h-4 w-4" />;
       case "separate_bills":
         return <AlertCircle className="h-4 w-4" />;
-      case "tip":
-        return <Stethoscope className="h-4 w-4" />;
+      case "physician":
+        return <UserCheck className="h-4 w-4" />;
       default:
         return <Lightbulb className="h-4 w-4" />;
     }
@@ -116,12 +94,10 @@ function InsightCard({ insight }: { insight: AIInsight }) {
     switch (insight.icon) {
       case "location":
         return "bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400";
-      case "cost_driver":
-        return "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-400";
       case "separate_bills":
         return "bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-400";
-      case "tip":
-        return "bg-violet-50 dark:bg-violet-900/20 border-violet-200 dark:border-violet-800 text-violet-700 dark:text-violet-400";
+      case "physician":
+        return "bg-cyan-50 dark:bg-cyan-900/20 border-cyan-200 dark:border-cyan-800 text-cyan-700 dark:text-cyan-400";
       default:
         return "bg-slate-50 dark:bg-slate-900/20 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-400";
     }
@@ -131,12 +107,10 @@ function InsightCard({ insight }: { insight: AIInsight }) {
     switch (insight.icon) {
       case "location":
         return "bg-emerald-100 dark:bg-emerald-900/50";
-      case "cost_driver":
-        return "bg-blue-100 dark:bg-blue-900/50";
       case "separate_bills":
         return "bg-amber-100 dark:bg-amber-900/50";
-      case "tip":
-        return "bg-violet-100 dark:bg-violet-900/50";
+      case "physician":
+        return "bg-cyan-100 dark:bg-cyan-900/50";
       default:
         return "bg-slate-100 dark:bg-slate-900/50";
     }
