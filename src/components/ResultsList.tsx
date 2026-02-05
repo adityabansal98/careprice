@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import dynamic from "next/dynamic";
-import { ArrowUpDown, DollarSign, MapPin, Star, AlertCircle, List, Map } from "lucide-react";
+import { ArrowUpDown, DollarSign, MapPin, Star, List, Map } from "lucide-react";
 import { HospitalCard } from "@/components/HospitalCard";
 import { AIInsights } from "@/components/AIInsights";
 import { InsuranceProfileForm } from "@/components/InsuranceProfileForm";
@@ -161,21 +161,6 @@ export function ResultsList({
             ))}
           </div>
         )}
-      </div>
-
-      {/* Price Transparency Notice */}
-      <div className="bg-amber-50 dark:bg-amber-950/30 border-2 border-amber-200 dark:border-amber-900 rounded-xl p-4 flex items-start gap-3">
-        <AlertCircle className="h-5 w-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
-        <div className="text-sm">
-          <p className="font-medium text-amber-800 dark:text-amber-300">
-            Price Transparency Notice
-          </p>
-          <p className="text-amber-700 dark:text-amber-400 mt-1">
-            {isCash
-              ? "Cash prices shown are self-pay rates. These may vary based on services rendered."
-              : "Price ranges shown represent the minimum and maximum negotiated rates. Your actual cost depends on your specific plan details, deductible status, and services required. Always verify with the hospital before scheduling."}
-          </p>
-        </div>
       </div>
 
       {/* Map View */}
