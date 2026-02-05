@@ -5,7 +5,6 @@ import dynamic from "next/dynamic";
 import { ArrowUpDown, DollarSign, MapPin, Star, List, Map } from "lucide-react";
 import { HospitalCard } from "@/components/HospitalCard";
 import { AIInsights } from "@/components/AIInsights";
-import { InsuranceProfileForm } from "@/components/InsuranceProfileForm";
 import { Button } from "@/components/ui/button";
 import { getDisplayPrice } from "@/lib/search";
 import type { HospitalResult, SortOption, ViewMode, InsuranceProfile } from "@/types";
@@ -24,7 +23,6 @@ interface ResultsListProps {
   results: HospitalResult[];
   isLoading?: boolean;
   insuranceProfile: InsuranceProfile | null;
-  onInsuranceProfileChange: (profile: InsuranceProfile | null) => void;
 }
 
 const SORT_OPTIONS: Array<{ value: SortOption; label: string; icon: React.ReactNode }> = [
@@ -42,7 +40,6 @@ export function ResultsList({
   results, 
   isLoading = false,
   insuranceProfile,
-  onInsuranceProfileChange,
 }: ResultsListProps) {
   const [sortBy, setSortBy] = useState<SortOption>("price");
   const [viewMode, setViewMode] = useState<ViewMode>("list");
@@ -105,13 +102,6 @@ export function ResultsList({
     <div className="w-full max-w-4xl mx-auto mt-8 space-y-6">
       {/* AI Insights */}
       {procedure && <AIInsights procedure={procedure} />}
-
-      {/* Insurance Profile Form */}
-      <InsuranceProfileForm
-        profile={insuranceProfile}
-        onSave={onInsuranceProfileChange}
-        onClear={() => onInsuranceProfileChange(null)}
-      />
 
       {/* Results Header */}
       <div className="flex flex-col gap-4">

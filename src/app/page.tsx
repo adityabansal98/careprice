@@ -171,7 +171,6 @@ export default function Home() {
               results={results}
               isLoading={isLoading}
               insuranceProfile={insuranceProfile}
-              onInsuranceProfileChange={setInsuranceProfile}
             />
             {!isLoading && results.length === 0 && (
               <div className="max-w-4xl mx-auto mt-8">
