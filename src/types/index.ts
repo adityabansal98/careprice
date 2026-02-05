@@ -160,10 +160,8 @@ export interface InsurancePlans {
 
 // User's insurance profile for personalized cost calculation
 export interface InsuranceProfile {
-  deductibleTotal: number;      // Total annual deductible (e.g., $2000)
-  deductibleRemaining: number;  // How much is left to pay (e.g., $800)
+  deductibleRemaining: number;  // How much deductible is left to pay (e.g., $800)
   coinsurancePercent: number;   // User's share after deductible (e.g., 20)
-  oopMaxTotal: number;          // Out-of-pocket maximum (e.g., $6000)
   oopMaxRemaining: number;      // How much until OOP max is hit (e.g., $4500)
 }
 

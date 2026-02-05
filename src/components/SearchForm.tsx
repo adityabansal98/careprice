@@ -27,31 +27,23 @@ export interface SearchFormRef {
 // Typical values by plan type for "Use Typical Values" feature
 const TYPICAL_VALUES: Record<string, InsuranceProfile> = {
   PPO: {
-    deductibleTotal: 2000,
     deductibleRemaining: 2000,
     coinsurancePercent: 20,
-    oopMaxTotal: 6000,
     oopMaxRemaining: 6000,
   },
   HMO: {
-    deductibleTotal: 1500,
     deductibleRemaining: 1500,
     coinsurancePercent: 20,
-    oopMaxTotal: 5000,
     oopMaxRemaining: 5000,
   },
   EPO: {
-    deductibleTotal: 1750,
     deductibleRemaining: 1750,
     coinsurancePercent: 20,
-    oopMaxTotal: 5500,
     oopMaxRemaining: 5500,
   },
   POS: {
-    deductibleTotal: 2000,
     deductibleRemaining: 2000,
     coinsurancePercent: 25,
-    oopMaxTotal: 6500,
     oopMaxRemaining: 6500,
   },
 };
@@ -96,10 +88,8 @@ export const SearchForm = forwardRef<SearchFormRef, SearchFormProps>(function Se
   const [showInsuranceDetails, setShowInsuranceDetails] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const insuranceDetailsRef = useRef<HTMLDivElement>(null);
-  const [deductibleTotal, setDeductibleTotal] = useState(insuranceProfile?.deductibleTotal?.toString() || "");
   const [deductibleRemaining, setDeductibleRemaining] = useState(insuranceProfile?.deductibleRemaining?.toString() || "");
   const [coinsurancePercent, setCoinsurancePercent] = useState(insuranceProfile?.coinsurancePercent?.toString() || "");
-  const [oopMaxTotal, setOopMaxTotal] = useState(insuranceProfile?.oopMaxTotal?.toString() || "");
   const [oopMaxRemaining, setOopMaxRemaining] = useState(insuranceProfile?.oopMaxRemaining?.toString() || "");
 
   const procedures = proceduresData as Procedure[];
@@ -165,25 +155,21 @@ export const SearchForm = forwardRef<SearchFormRef, SearchFormProps>(function Se
   const handleUseTipicalValues = useCallback((planType: string) => {
     const typical = TYPICAL_VALUES[planType];
     if (typical) {
-      setDeductibleTotal(typical.deductibleTotal.toString());
       setDeductibleRemaining(typical.deductibleRemaining.toString());
       setCoinsurancePercent(typical.coinsurancePercent.toString());
-      setOopMaxTotal(typical.oopMaxTotal.toString());
       setOopMaxRemaining(typical.oopMaxRemaining.toString());
     }
   }, []);
 
   const handleClearInsuranceDetails = useCallback(() => {
-    setDeductibleTotal("");
     setDeductibleRemaining("");
     setCoinsurancePercent("");
-    setOopMaxTotal("");
     setOopMaxRemaining("");
     onInsuranceProfileChange(null);
   }, [onInsuranceProfileChange]);
 
   // Check if insurance details are filled
-  const hasInsuranceDetails = deductibleTotal || deductibleRemaining || coinsurancePercent || oopMaxTotal || oopMaxRemaining;
+  const hasInsuranceDetails = deductibleRemaining || coinsurancePercent || oopMaxRemaining;
 
   // Handle file upload
   const handleFileUpload = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -243,10 +229,8 @@ export const SearchForm = forwardRef<SearchFormRef, SearchFormProps>(function Se
       // Save insurance profile if details are provided
       if (hasInsuranceDetails && insurance !== "cash") {
         const profile: InsuranceProfile = {
-          deductibleTotal: parseFloat(deductibleTotal) || 0,
           deductibleRemaining: parseFloat(deductibleRemaining) || 0,
           coinsurancePercent: parseFloat(coinsurancePercent) || 20,
-          oopMaxTotal: parseFloat(oopMaxTotal) || 0,
           oopMaxRemaining: parseFloat(oopMaxRemaining) || 0,
         };
         onInsuranceProfileChange(profile);
@@ -268,7 +252,7 @@ export const SearchForm = forwardRef<SearchFormRef, SearchFormProps>(function Se
         plan: plan || undefined,
       });
     },
-    [procedureQuery, zipCode, insurance, plan, onSearch, hasInsuranceDetails, deductibleTotal, deductibleRemaining, coinsurancePercent, oopMaxTotal, oopMaxRemaining, onInsuranceProfileChange, inputMode, extractedProcedure, isProcessingUpload]
+    [procedureQuery, zipCode, insurance, plan, onSearch, hasInsuranceDetails, deductibleRemaining, coinsurancePercent, oopMaxRemaining, onInsuranceProfileChange, inputMode, extractedProcedure, isProcessingUpload]
   );
 
   return (
@@ -599,32 +583,21 @@ export const SearchForm = forwardRef<SearchFormRef, SearchFormProps>(function Se
 
                 {/* Form Fields */}
                 <div className="space-y-4">
-                  {/* Deductible */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1.5">
-                        <DollarSign className="inline h-3 w-3 mr-1" />
-                        Total Deductible
-                      </label>
-                      <Input
-                        type="number"
-                        placeholder="e.g., 2000"
-                        value={deductibleTotal}
-                        onChange={(e) => setDeductibleTotal(e.target.value)}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1.5">
-                        <DollarSign className="inline h-3 w-3 mr-1" />
-                        Deductible Remaining
-                      </label>
-                      <Input
-                        type="number"
-                        placeholder="e.g., 800"
-                        value={deductibleRemaining}
-                        onChange={(e) => setDeductibleRemaining(e.target.value)}
-                      />
-                    </div>
+                  {/* Deductible Remaining */}
+                  <div>
+                    <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1.5">
+                      <DollarSign className="inline h-3 w-3 mr-1" />
+                      Deductible Remaining
+                    </label>
+                    <Input
+                      type="number"
+                      placeholder="e.g., 800"
+                      value={deductibleRemaining}
+                      onChange={(e) => setDeductibleRemaining(e.target.value)}
+                    />
+                    <p className="text-xs text-slate-400 mt-1">
+                      How much of your annual deductible is left to pay
+                    </p>
                   </div>
 
                   {/* Coinsurance */}
@@ -644,32 +617,21 @@ export const SearchForm = forwardRef<SearchFormRef, SearchFormProps>(function Se
                     </p>
                   </div>
 
-                  {/* OOP Max */}
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1.5">
-                        <Shield className="inline h-3 w-3 mr-1" />
-                        Out-of-Pocket Max
-                      </label>
-                      <Input
-                        type="number"
-                        placeholder="e.g., 6000"
-                        value={oopMaxTotal}
-                        onChange={(e) => setOopMaxTotal(e.target.value)}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1.5">
-                        <Shield className="inline h-3 w-3 mr-1" />
-                        OOP Max Remaining
-                      </label>
-                      <Input
-                        type="number"
-                        placeholder="e.g., 4500"
-                        value={oopMaxRemaining}
-                        onChange={(e) => setOopMaxRemaining(e.target.value)}
-                      />
-                    </div>
+                  {/* OOP Max Remaining */}
+                  <div>
+                    <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1.5">
+                      <Shield className="inline h-3 w-3 mr-1" />
+                      Out-of-Pocket Max Remaining
+                    </label>
+                    <Input
+                      type="number"
+                      placeholder="e.g., 4500"
+                      value={oopMaxRemaining}
+                      onChange={(e) => setOopMaxRemaining(e.target.value)}
+                    />
+                    <p className="text-xs text-slate-400 mt-1">
+                      How much until you hit your annual out-of-pocket maximum
+                    </p>
                   </div>
                 </div>
 
