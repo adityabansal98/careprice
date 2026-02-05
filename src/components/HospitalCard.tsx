@@ -436,16 +436,6 @@ export function HospitalCard({ result, rank, insuranceProfile, onAddInsuranceCli
             </Badge>
           </div>
 
-          {/* Procedure Info */}
-          <div className="text-sm text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800/50 rounded-lg p-3">
-            <p className="font-medium text-slate-700 dark:text-slate-300">
-              {procedure.name}
-            </p>
-            <p className="text-xs mt-1">
-              CPT: {procedure.cpt_code} • {procedure.category}
-            </p>
-          </div>
-
           {/* Detailed Cost Breakdown */}
           {procedure.costComponents && procedure.costComponents.length > 0 && (
             <CostBreakdownDisplay
