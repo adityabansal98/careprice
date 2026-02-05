@@ -1,5 +1,149 @@
 [
   {
+    "cpt_code": "27447",
+    "name": "Total Knee Replacement",
+    "category": "Knee Surgery",
+    "description": "Complete replacement of the knee joint with artificial components",
+    "insights": [
+      "Total knee replacement costs range from $20,000 to $70,000 depending on facility.",
+      "Ambulatory surgery centers can save you 40-60% compared to hospital ORs.",
+      "Implant choice significantly affects price - ask about different options.",
+      "Many patients qualify for bundled payment programs that include rehab."
+    ]
+  },
+  {
+    "cpt_code": "27446",
+    "name": "Partial Knee Replacement",
+    "category": "Knee Surgery",
+    "description": "Replacement of only the damaged portion of the knee joint",
+    "insights": [
+      "Partial replacements cost 20-30% less than total knee replacements.",
+      "Recovery time is typically faster than total knee replacement.",
+      "Not all patients are candidates - depends on extent of arthritis.",
+      "Outpatient partial replacements are becoming increasingly common."
+    ]
+  },
+  {
+    "cpt_code": "29881",
+    "name": "Knee Arthroscopy",
+    "category": "Knee Surgery",
+    "description": "Minimally invasive surgery to examine or treat knee joint",
+    "insights": [
+      "Arthroscopy costs can range from $5,000 to $15,000+ depending on location.",
+      "Outpatient surgery centers offer significant savings over hospital ORs.",
+      "Physical therapy costs post-surgery should be factored into total expense.",
+      "Some surgeons offer cash-pay packages that bundle all related fees."
+    ]
+  },
+  {
+    "cpt_code": "29882",
+    "name": "Meniscus Repair",
+    "category": "Knee Surgery",
+    "description": "Arthroscopic surgery to repair torn meniscus cartilage",
+    "insights": [
+      "Meniscus repair preserves the cartilage and is preferred over removal when possible.",
+      "Recovery takes 3-6 months compared to 4-6 weeks for meniscus removal.",
+      "Younger, active patients typically benefit most from repair vs. removal.",
+      "Some facilities offer package pricing that includes post-op physical therapy."
+    ]
+  },
+  {
+    "cpt_code": "29880",
+    "name": "Meniscus Removal (Meniscectomy)",
+    "category": "Knee Surgery",
+    "description": "Arthroscopic surgery to remove damaged meniscus cartilage",
+    "insights": [
+      "Meniscectomy is less expensive than meniscus repair.",
+      "Recovery is faster - most patients walk within days.",
+      "Long-term, removal may increase risk of arthritis compared to repair.",
+      "Often performed as outpatient surgery with same-day discharge."
+    ]
+  },
+  {
+    "cpt_code": "27428",
+    "name": "ACL Reconstruction",
+    "category": "Knee Surgery",
+    "description": "Surgical reconstruction of torn anterior cruciate ligament",
+    "insights": [
+      "ACL reconstruction costs range from $15,000 to $50,000.",
+      "Graft choice (autograft vs. allograft) affects both cost and recovery.",
+      "Physical therapy is essential - budget 6-9 months of rehab costs.",
+      "Many sports medicine centers specialize in ACL surgery at competitive rates."
+    ]
+  },
+  {
+    "cpt_code": "27427",
+    "name": "PCL Reconstruction",
+    "category": "Knee Surgery",
+    "description": "Surgical reconstruction of torn posterior cruciate ligament",
+    "insights": [
+      "PCL injuries are less common than ACL tears.",
+      "Surgery is typically only needed for complete tears or combined injuries.",
+      "Recovery timeline is similar to ACL reconstruction (6-9 months).",
+      "Specialized knee surgeons may have better outcomes for this procedure."
+    ]
+  },
+  {
+    "cpt_code": "27570",
+    "name": "Knee Manipulation Under Anesthesia",
+    "category": "Knee Surgery",
+    "description": "Procedure to break up scar tissue and improve knee motion",
+    "insights": [
+      "Often performed when knee becomes stiff after surgery or injury.",
+      "Less expensive than revision surgery if performed early.",
+      "Typically done as outpatient procedure with quick recovery.",
+      "Success rates are highest when performed within 3 months of stiffness onset."
+    ]
+  },
+  {
+    "cpt_code": "73721",
+    "name": "MRI Knee w/o Dye",
+    "category": "Knee Imaging",
+    "description": "Magnetic resonance imaging of the knee without contrast",
+    "insights": [
+      "Knee MRIs are essential for diagnosing ligament and cartilage injuries.",
+      "Freestanding imaging centers charge 40-60% less than hospitals.",
+      "Some insurers require trying physical therapy before approving knee MRIs.",
+      "Open MRI machines may cost less but provide lower image quality."
+    ]
+  },
+  {
+    "cpt_code": "73722",
+    "name": "MRI Knee w/ Dye",
+    "category": "Knee Imaging",
+    "description": "Magnetic resonance imaging of the knee with contrast",
+    "insights": [
+      "Contrast MRI may be needed for complex cases or surgical planning.",
+      "Adds $100-300 to the base MRI cost for the contrast agent.",
+      "Provides better visualization of certain injuries and conditions.",
+      "Not always necessary - ask your doctor if contrast is truly needed."
+    ]
+  },
+  {
+    "cpt_code": "73560",
+    "name": "Knee X-Ray (3+ Views)",
+    "category": "Knee Imaging",
+    "description": "X-ray examination of the knee from multiple angles",
+    "insights": [
+      "X-rays are the most affordable knee imaging option.",
+      "Best for detecting fractures, arthritis, and bone alignment issues.",
+      "Cannot show soft tissue injuries like meniscus or ligament tears.",
+      "Often the first imaging step before MRI is ordered."
+    ]
+  },
+  {
+    "cpt_code": "20610",
+    "name": "Knee Joint Injection",
+    "category": "Knee Treatment",
+    "description": "Injection of medication into the knee joint",
+    "insights": [
+      "Can include cortisone, hyaluronic acid, or PRP injections.",
+      "Office-based injections cost significantly less than hospital settings.",
+      "Cortisone provides quick relief but effects may be temporary.",
+      "Some insurers limit the number of injections covered per year."
+    ]
+  },
+  {
     "cpt_code": "72148",
     "name": "MRI Lumbar Spine w/o Dye",
     "category": "Radiology",
@@ -9,90 +153,6 @@
       "Outpatient imaging centers typically charge 40-60% less than hospital-based facilities.",
       "Cash prices are often lower than insurance rates if you haven't met your deductible.",
       "Ask about \"self-pay\" discounts - many facilities offer 20-40% off for upfront payment."
-    ]
-  },
-  {
-    "cpt_code": "70553",
-    "name": "MRI Brain w/ & w/o Dye",
-    "category": "Radiology",
-    "description": "Magnetic resonance imaging of the brain with and without contrast",
-    "insights": [
-      "Brain MRIs with contrast typically cost 20-30% more than without contrast.",
-      "The contrast dye (gadolinium) adds $100-300 to the total cost.",
-      "Some insurance plans require prior authorization for brain MRIs.",
-      "Freestanding imaging centers often have shorter wait times and lower prices."
-    ]
-  },
-  {
-    "cpt_code": "71046",
-    "name": "Chest X-Ray 2 Views",
-    "category": "Radiology",
-    "description": "X-ray examination of the chest, frontal and lateral views",
-    "insights": [
-      "Chest X-rays are one of the most affordable imaging tests available.",
-      "Urgent care centers often offer competitive pricing for routine X-rays.",
-      "Prices can double at hospital emergency departments vs. outpatient facilities.",
-      "Most insurance plans cover chest X-rays with minimal or no copay."
-    ]
-  },
-  {
-    "cpt_code": "80053",
-    "name": "Comprehensive Metabolic Panel",
-    "category": "Laboratory",
-    "description": "Blood test measuring glucose, calcium, proteins, and electrolytes",
-    "insights": [
-      "Lab test prices vary dramatically - the same test can cost $20 or $200.",
-      "Direct-to-consumer lab services often offer the lowest cash prices.",
-      "Hospital labs typically charge 3-5x more than independent labs.",
-      "Many pharmacies now offer basic blood panels at competitive rates."
-    ]
-  },
-  {
-    "cpt_code": "85025",
-    "name": "Complete Blood Count (CBC)",
-    "category": "Laboratory",
-    "description": "Blood test measuring red cells, white cells, and platelets",
-    "insights": [
-      "CBC is one of the most common and affordable blood tests.",
-      "Results are usually available within 24 hours.",
-      "Independent labs like Quest or LabCorp often have the best cash prices.",
-      "Some primary care offices include CBC in annual wellness visits at no extra cost."
-    ]
-  },
-  {
-    "cpt_code": "73721",
-    "name": "MRI Knee w/o Dye",
-    "category": "Radiology",
-    "description": "Magnetic resonance imaging of the knee without contrast",
-    "insights": [
-      "Knee MRIs are among the most commonly ordered orthopedic imaging studies.",
-      "Open MRI machines may cost less but provide lower image quality.",
-      "Some insurers require trying physical therapy before approving knee MRIs.",
-      "Athletic and sports medicine clinics may offer package deals for knee imaging."
-    ]
-  },
-  {
-    "cpt_code": "43239",
-    "name": "Upper GI Endoscopy w/ Biopsy",
-    "category": "Gastroenterology",
-    "description": "Examination of the upper digestive tract with tissue sample",
-    "insights": [
-      "Endoscopy costs include facility fee, physician fee, and anesthesia separately.",
-      "Ambulatory surgery centers typically charge 40-50% less than hospitals.",
-      "Biopsy pathology fees are often billed separately and can add $200-500.",
-      "Some GI practices offer bundled pricing that includes all fees upfront."
-    ]
-  },
-  {
-    "cpt_code": "29881",
-    "name": "Knee Arthroscopy",
-    "category": "Orthopedics",
-    "description": "Minimally invasive surgery to examine or treat knee joint",
-    "insights": [
-      "Arthroscopy costs can range from $5,000 to $15,000+ depending on location.",
-      "Outpatient surgery centers offer significant savings over hospital ORs.",
-      "Physical therapy costs post-surgery should be factored into total expense.",
-      "Some surgeons offer cash-pay packages that bundle all related fees."
     ]
   }
 ]

@@ -21,6 +21,545 @@
             "incomeThreshold": "Under $60,000/year for family of 4"
         },
         "prices": {
+            "20610": {
+                "gross_charge_min": 542,
+                "gross_charge_max": 652,
+                "cash_price": 181,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 253,
+                            "max": 282
+                        },
+                        "HMO": {
+                            "min": 215,
+                            "max": 240
+                        },
+                        "EPO": {
+                            "min": 233,
+                            "max": 247
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 253,
+                            "max": 269
+                        },
+                        "HMO": {
+                            "min": 215,
+                            "max": 229
+                        },
+                        "POS": {
+                            "min": 233,
+                            "max": 245
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 253,
+                            "max": 280
+                        },
+                        "HMO": {
+                            "min": 215,
+                            "max": 246
+                        },
+                        "EPO": {
+                            "min": 233,
+                            "max": 266
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 253,
+                            "max": 277
+                        },
+                        "HMO": {
+                            "min": 215,
+                            "max": 232
+                        },
+                        "POS": {
+                            "min": 233,
+                            "max": 253
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 253,
+                            "max": 277
+                        },
+                        "HMO": {
+                            "min": 215,
+                            "max": 233
+                        },
+                        "EPO": {
+                            "min": 233,
+                            "max": 268
+                        }
+                    }
+                }
+            },
+            "27427": {
+                "gross_charge_min": 34492,
+                "gross_charge_max": 40582,
+                "cash_price": 17246,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 14012,
+                            "max": 14992
+                        },
+                        "HMO": {
+                            "min": 11911,
+                            "max": 12576
+                        },
+                        "EPO": {
+                            "min": 12891,
+                            "max": 14247
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 14012,
+                            "max": 14756
+                        },
+                        "HMO": {
+                            "min": 11911,
+                            "max": 13350
+                        },
+                        "POS": {
+                            "min": 12891,
+                            "max": 14001
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 14012,
+                            "max": 14953
+                        },
+                        "HMO": {
+                            "min": 11911,
+                            "max": 13437
+                        },
+                        "EPO": {
+                            "min": 12891,
+                            "max": 13995
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 14012,
+                            "max": 15459
+                        },
+                        "HMO": {
+                            "min": 11911,
+                            "max": 13143
+                        },
+                        "POS": {
+                            "min": 12891,
+                            "max": 14268
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 14012,
+                            "max": 15140
+                        },
+                        "HMO": {
+                            "min": 11911,
+                            "max": 13618
+                        },
+                        "EPO": {
+                            "min": 12891,
+                            "max": 14586
+                        }
+                    }
+                }
+            },
+            "27428": {
+                "gross_charge_min": 33867,
+                "gross_charge_max": 40189,
+                "cash_price": 16934,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 13547,
+                            "max": 14277
+                        },
+                        "HMO": {
+                            "min": 11515,
+                            "max": 12656
+                        },
+                        "EPO": {
+                            "min": 12463,
+                            "max": 13378
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 13547,
+                            "max": 14593
+                        },
+                        "HMO": {
+                            "min": 11515,
+                            "max": 12339
+                        },
+                        "POS": {
+                            "min": 12463,
+                            "max": 13503
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 13547,
+                            "max": 14466
+                        },
+                        "HMO": {
+                            "min": 11515,
+                            "max": 12520
+                        },
+                        "EPO": {
+                            "min": 12463,
+                            "max": 13793
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 13547,
+                            "max": 14868
+                        },
+                        "HMO": {
+                            "min": 11515,
+                            "max": 13134
+                        },
+                        "POS": {
+                            "min": 12463,
+                            "max": 14210
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 13547,
+                            "max": 15106
+                        },
+                        "HMO": {
+                            "min": 11515,
+                            "max": 12731
+                        },
+                        "EPO": {
+                            "min": 12463,
+                            "max": 13135
+                        }
+                    }
+                }
+            },
+            "27446": {
+                "gross_charge_min": 31128,
+                "gross_charge_max": 36969,
+                "cash_price": 15119,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 12451,
+                            "max": 13930
+                        },
+                        "HMO": {
+                            "min": 10583,
+                            "max": 11666
+                        },
+                        "EPO": {
+                            "min": 11455,
+                            "max": 12576
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 12451,
+                            "max": 13318
+                        },
+                        "HMO": {
+                            "min": 10583,
+                            "max": 11374
+                        },
+                        "POS": {
+                            "min": 11455,
+                            "max": 12684
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 12451,
+                            "max": 13430
+                        },
+                        "HMO": {
+                            "min": 10583,
+                            "max": 11974
+                        },
+                        "EPO": {
+                            "min": 11455,
+                            "max": 12056
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 12451,
+                            "max": 14016
+                        },
+                        "HMO": {
+                            "min": 10583,
+                            "max": 11124
+                        },
+                        "POS": {
+                            "min": 11455,
+                            "max": 12093
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 12451,
+                            "max": 13242
+                        },
+                        "HMO": {
+                            "min": 10583,
+                            "max": 12121
+                        },
+                        "EPO": {
+                            "min": 11455,
+                            "max": 12607
+                        }
+                    }
+                }
+            },
+            "27447": {
+                "gross_charge_min": 46133,
+                "gross_charge_max": 55452,
+                "cash_price": 22554,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 18453,
+                            "max": 21046
+                        },
+                        "HMO": {
+                            "min": 15685,
+                            "max": 16888
+                        },
+                        "EPO": {
+                            "min": 16977,
+                            "max": 19320
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 18453,
+                            "max": 20874
+                        },
+                        "HMO": {
+                            "min": 15685,
+                            "max": 17256
+                        },
+                        "POS": {
+                            "min": 16977,
+                            "max": 19021
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 18453,
+                            "max": 19477
+                        },
+                        "HMO": {
+                            "min": 15685,
+                            "max": 16759
+                        },
+                        "EPO": {
+                            "min": 16977,
+                            "max": 18349
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 18453,
+                            "max": 20062
+                        },
+                        "HMO": {
+                            "min": 15685,
+                            "max": 16949
+                        },
+                        "POS": {
+                            "min": 16977,
+                            "max": 19443
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 18453,
+                            "max": 20784
+                        },
+                        "HMO": {
+                            "min": 15685,
+                            "max": 17218
+                        },
+                        "EPO": {
+                            "min": 16977,
+                            "max": 19034
+                        }
+                    }
+                }
+            },
+            "27570": {
+                "gross_charge_min": 4456,
+                "gross_charge_max": 5402,
+                "cash_price": 2228,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 1782,
+                            "max": 1959
+                        },
+                        "HMO": {
+                            "min": 1515,
+                            "max": 1651
+                        },
+                        "EPO": {
+                            "min": 1640,
+                            "max": 1844
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 1782,
+                            "max": 1962
+                        },
+                        "HMO": {
+                            "min": 1515,
+                            "max": 1602
+                        },
+                        "POS": {
+                            "min": 1640,
+                            "max": 1736
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 1782,
+                            "max": 2016
+                        },
+                        "HMO": {
+                            "min": 1515,
+                            "max": 1734
+                        },
+                        "EPO": {
+                            "min": 1640,
+                            "max": 1820
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 1782,
+                            "max": 1967
+                        },
+                        "HMO": {
+                            "min": 1515,
+                            "max": 1710
+                        },
+                        "POS": {
+                            "min": 1640,
+                            "max": 1752
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 1782,
+                            "max": 1994
+                        },
+                        "HMO": {
+                            "min": 1515,
+                            "max": 1608
+                        },
+                        "EPO": {
+                            "min": 1640,
+                            "max": 1779
+                        }
+                    }
+                }
+            },
+            "29880": {
+                "gross_charge_min": 9012,
+                "gross_charge_max": 10369,
+                "cash_price": 4005,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 3504,
+                            "max": 4018
+                        },
+                        "HMO": {
+                            "min": 2979,
+                            "max": 3380
+                        },
+                        "EPO": {
+                            "min": 3224,
+                            "max": 3624
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 3504,
+                            "max": 3884
+                        },
+                        "HMO": {
+                            "min": 2979,
+                            "max": 3389
+                        },
+                        "POS": {
+                            "min": 3224,
+                            "max": 3408
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 3504,
+                            "max": 3827
+                        },
+                        "HMO": {
+                            "min": 2979,
+                            "max": 3338
+                        },
+                        "EPO": {
+                            "min": 3224,
+                            "max": 3456
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 3504,
+                            "max": 3940
+                        },
+                        "HMO": {
+                            "min": 2979,
+                            "max": 3148
+                        },
+                        "POS": {
+                            "min": 3224,
+                            "max": 3452
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 3504,
+                            "max": 3958
+                        },
+                        "HMO": {
+                            "min": 2979,
+                            "max": 3301
+                        },
+                        "EPO": {
+                            "min": 3224,
+                            "max": 3644
+                        }
+                    }
+                }
+            },
             "29881": {
                 "cash_price": 5500,
                 "insurance_rates": {
@@ -97,6 +636,83 @@
                 },
                 "gross_charge_min": 12000,
                 "gross_charge_max": 14242
+            },
+            "29882": {
+                "gross_charge_min": 12520,
+                "gross_charge_max": 14455,
+                "cash_price": 5738,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 4695,
+                            "max": 4972
+                        },
+                        "HMO": {
+                            "min": 3991,
+                            "max": 4367
+                        },
+                        "EPO": {
+                            "min": 4319,
+                            "max": 4687
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 4695,
+                            "max": 5349
+                        },
+                        "HMO": {
+                            "min": 3991,
+                            "max": 4282
+                        },
+                        "POS": {
+                            "min": 4319,
+                            "max": 4602
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 4695,
+                            "max": 5197
+                        },
+                        "HMO": {
+                            "min": 3991,
+                            "max": 4192
+                        },
+                        "EPO": {
+                            "min": 4319,
+                            "max": 4891
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 4695,
+                            "max": 5312
+                        },
+                        "HMO": {
+                            "min": 3991,
+                            "max": 4558
+                        },
+                        "POS": {
+                            "min": 4319,
+                            "max": 4771
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 4695,
+                            "max": 5027
+                        },
+                        "HMO": {
+                            "min": 3991,
+                            "max": 4589
+                        },
+                        "EPO": {
+                            "min": 4319,
+                            "max": 4733
+                        }
+                    }
+                }
             },
             "43239": {
                 "cash_price": 1800,
@@ -406,6 +1022,83 @@
                 "gross_charge_min": 2500,
                 "gross_charge_max": 2892
             },
+            "73560": {
+                "gross_charge_min": 381,
+                "gross_charge_max": 469,
+                "cash_price": 114,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 171,
+                            "max": 188
+                        },
+                        "HMO": {
+                            "min": 146,
+                            "max": 156
+                        },
+                        "EPO": {
+                            "min": 158,
+                            "max": 167
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 171,
+                            "max": 185
+                        },
+                        "HMO": {
+                            "min": 146,
+                            "max": 159
+                        },
+                        "POS": {
+                            "min": 158,
+                            "max": 182
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 171,
+                            "max": 188
+                        },
+                        "HMO": {
+                            "min": 146,
+                            "max": 157
+                        },
+                        "EPO": {
+                            "min": 158,
+                            "max": 172
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 171,
+                            "max": 184
+                        },
+                        "HMO": {
+                            "min": 146,
+                            "max": 165
+                        },
+                        "POS": {
+                            "min": 158,
+                            "max": 181
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 171,
+                            "max": 186
+                        },
+                        "HMO": {
+                            "min": 146,
+                            "max": 161
+                        },
+                        "EPO": {
+                            "min": 158,
+                            "max": 169
+                        }
+                    }
+                }
+            },
             "73721": {
                 "cash_price": 720,
                 "insurance_rates": {
@@ -482,6 +1175,83 @@
                 },
                 "gross_charge_min": 2200,
                 "gross_charge_max": 2654
+            },
+            "73722": {
+                "gross_charge_min": 3812,
+                "gross_charge_max": 4506,
+                "cash_price": 980,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 1525,
+                            "max": 1728
+                        },
+                        "HMO": {
+                            "min": 1296,
+                            "max": 1451
+                        },
+                        "EPO": {
+                            "min": 1403,
+                            "max": 1499
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 1525,
+                            "max": 1606
+                        },
+                        "HMO": {
+                            "min": 1296,
+                            "max": 1426
+                        },
+                        "POS": {
+                            "min": 1403,
+                            "max": 1610
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 1525,
+                            "max": 1636
+                        },
+                        "HMO": {
+                            "min": 1296,
+                            "max": 1470
+                        },
+                        "EPO": {
+                            "min": 1403,
+                            "max": 1560
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 1525,
+                            "max": 1610
+                        },
+                        "HMO": {
+                            "min": 1296,
+                            "max": 1381
+                        },
+                        "POS": {
+                            "min": 1403,
+                            "max": 1529
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 1525,
+                            "max": 1739
+                        },
+                        "HMO": {
+                            "min": 1296,
+                            "max": 1367
+                        },
+                        "EPO": {
+                            "min": 1403,
+                            "max": 1503
+                        }
+                    }
+                }
             },
             "80053": {
                 "cash_price": 45,
@@ -662,6 +1432,545 @@
             "incomeThreshold": "Under $75,000/year for family of 4"
         },
         "prices": {
+            "20610": {
+                "gross_charge_min": 619,
+                "gross_charge_max": 718,
+                "cash_price": 206,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 289,
+                            "max": 313
+                        },
+                        "HMO": {
+                            "min": 245,
+                            "max": 279
+                        },
+                        "EPO": {
+                            "min": 266,
+                            "max": 291
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 289,
+                            "max": 329
+                        },
+                        "HMO": {
+                            "min": 245,
+                            "max": 274
+                        },
+                        "POS": {
+                            "min": 266,
+                            "max": 291
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 289,
+                            "max": 331
+                        },
+                        "HMO": {
+                            "min": 245,
+                            "max": 265
+                        },
+                        "EPO": {
+                            "min": 266,
+                            "max": 284
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 289,
+                            "max": 313
+                        },
+                        "HMO": {
+                            "min": 245,
+                            "max": 260
+                        },
+                        "POS": {
+                            "min": 266,
+                            "max": 303
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 289,
+                            "max": 312
+                        },
+                        "HMO": {
+                            "min": 245,
+                            "max": 275
+                        },
+                        "EPO": {
+                            "min": 266,
+                            "max": 299
+                        }
+                    }
+                }
+            },
+            "27427": {
+                "gross_charge_min": 33340,
+                "gross_charge_max": 40005,
+                "cash_price": 16670,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 13544,
+                            "max": 14766
+                        },
+                        "HMO": {
+                            "min": 11513,
+                            "max": 12254
+                        },
+                        "EPO": {
+                            "min": 12461,
+                            "max": 13383
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 13544,
+                            "max": 15026
+                        },
+                        "HMO": {
+                            "min": 11513,
+                            "max": 12990
+                        },
+                        "POS": {
+                            "min": 12461,
+                            "max": 13323
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 13544,
+                            "max": 14374
+                        },
+                        "HMO": {
+                            "min": 11513,
+                            "max": 13206
+                        },
+                        "EPO": {
+                            "min": 12461,
+                            "max": 13941
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 13544,
+                            "max": 15540
+                        },
+                        "HMO": {
+                            "min": 11513,
+                            "max": 12311
+                        },
+                        "POS": {
+                            "min": 12461,
+                            "max": 14153
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 13544,
+                            "max": 15451
+                        },
+                        "HMO": {
+                            "min": 11513,
+                            "max": 13204
+                        },
+                        "EPO": {
+                            "min": 12461,
+                            "max": 14106
+                        }
+                    }
+                }
+            },
+            "27428": {
+                "gross_charge_min": 25935,
+                "gross_charge_max": 31752,
+                "cash_price": 12967,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 10374,
+                            "max": 11470
+                        },
+                        "HMO": {
+                            "min": 8818,
+                            "max": 9325
+                        },
+                        "EPO": {
+                            "min": 9544,
+                            "max": 10642
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 10374,
+                            "max": 11532
+                        },
+                        "HMO": {
+                            "min": 8818,
+                            "max": 9584
+                        },
+                        "POS": {
+                            "min": 9544,
+                            "max": 10135
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 10374,
+                            "max": 11401
+                        },
+                        "HMO": {
+                            "min": 8818,
+                            "max": 9260
+                        },
+                        "EPO": {
+                            "min": 9544,
+                            "max": 10394
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 10374,
+                            "max": 11015
+                        },
+                        "HMO": {
+                            "min": 8818,
+                            "max": 9289
+                        },
+                        "POS": {
+                            "min": 9544,
+                            "max": 10143
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 10374,
+                            "max": 11916
+                        },
+                        "HMO": {
+                            "min": 8818,
+                            "max": 9957
+                        },
+                        "EPO": {
+                            "min": 9544,
+                            "max": 10938
+                        }
+                    }
+                }
+            },
+            "27446": {
+                "gross_charge_min": 32044,
+                "gross_charge_max": 39949,
+                "cash_price": 15564,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 12817,
+                            "max": 13783
+                        },
+                        "HMO": {
+                            "min": 10895,
+                            "max": 12218
+                        },
+                        "EPO": {
+                            "min": 11792,
+                            "max": 12454
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 12817,
+                            "max": 14536
+                        },
+                        "HMO": {
+                            "min": 10895,
+                            "max": 11927
+                        },
+                        "POS": {
+                            "min": 11792,
+                            "max": 13076
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 12817,
+                            "max": 14641
+                        },
+                        "HMO": {
+                            "min": 10895,
+                            "max": 12155
+                        },
+                        "EPO": {
+                            "min": 11792,
+                            "max": 13186
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 12817,
+                            "max": 13484
+                        },
+                        "HMO": {
+                            "min": 10895,
+                            "max": 12070
+                        },
+                        "POS": {
+                            "min": 11792,
+                            "max": 13175
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 12817,
+                            "max": 14041
+                        },
+                        "HMO": {
+                            "min": 10895,
+                            "max": 12401
+                        },
+                        "EPO": {
+                            "min": 11792,
+                            "max": 13517
+                        }
+                    }
+                }
+            },
+            "27447": {
+                "gross_charge_min": 40846,
+                "gross_charge_max": 47046,
+                "cash_price": 19969,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 16339,
+                            "max": 18620
+                        },
+                        "HMO": {
+                            "min": 13888,
+                            "max": 15339
+                        },
+                        "EPO": {
+                            "min": 15032,
+                            "max": 16288
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 16339,
+                            "max": 17917
+                        },
+                        "HMO": {
+                            "min": 13888,
+                            "max": 15694
+                        },
+                        "POS": {
+                            "min": 15032,
+                            "max": 17108
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 16339,
+                            "max": 17334
+                        },
+                        "HMO": {
+                            "min": 13888,
+                            "max": 15063
+                        },
+                        "EPO": {
+                            "min": 15032,
+                            "max": 16432
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 16339,
+                            "max": 17986
+                        },
+                        "HMO": {
+                            "min": 13888,
+                            "max": 15177
+                        },
+                        "POS": {
+                            "min": 15032,
+                            "max": 16051
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 16339,
+                            "max": 18717
+                        },
+                        "HMO": {
+                            "min": 13888,
+                            "max": 14691
+                        },
+                        "EPO": {
+                            "min": 15032,
+                            "max": 16963
+                        }
+                    }
+                }
+            },
+            "27570": {
+                "gross_charge_min": 4276,
+                "gross_charge_max": 5257,
+                "cash_price": 2138,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 1710,
+                            "max": 1875
+                        },
+                        "HMO": {
+                            "min": 1454,
+                            "max": 1642
+                        },
+                        "EPO": {
+                            "min": 1574,
+                            "max": 1656
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 1710,
+                            "max": 1809
+                        },
+                        "HMO": {
+                            "min": 1454,
+                            "max": 1541
+                        },
+                        "POS": {
+                            "min": 1574,
+                            "max": 1766
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 1710,
+                            "max": 1883
+                        },
+                        "HMO": {
+                            "min": 1454,
+                            "max": 1618
+                        },
+                        "EPO": {
+                            "min": 1574,
+                            "max": 1653
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 1710,
+                            "max": 1801
+                        },
+                        "HMO": {
+                            "min": 1454,
+                            "max": 1560
+                        },
+                        "POS": {
+                            "min": 1574,
+                            "max": 1806
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 1710,
+                            "max": 1827
+                        },
+                        "HMO": {
+                            "min": 1454,
+                            "max": 1598
+                        },
+                        "EPO": {
+                            "min": 1574,
+                            "max": 1654
+                        }
+                    }
+                }
+            },
+            "29880": {
+                "gross_charge_min": 9325,
+                "gross_charge_max": 11514,
+                "cash_price": 4145,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 3626,
+                            "max": 4089
+                        },
+                        "HMO": {
+                            "min": 3083,
+                            "max": 3309
+                        },
+                        "EPO": {
+                            "min": 3336,
+                            "max": 3683
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 3626,
+                            "max": 4090
+                        },
+                        "HMO": {
+                            "min": 3083,
+                            "max": 3271
+                        },
+                        "POS": {
+                            "min": 3336,
+                            "max": 3619
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 3626,
+                            "max": 4008
+                        },
+                        "HMO": {
+                            "min": 3083,
+                            "max": 3408
+                        },
+                        "EPO": {
+                            "min": 3336,
+                            "max": 3543
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 3626,
+                            "max": 4015
+                        },
+                        "HMO": {
+                            "min": 3083,
+                            "max": 3356
+                        },
+                        "POS": {
+                            "min": 3336,
+                            "max": 3602
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 3626,
+                            "max": 4055
+                        },
+                        "HMO": {
+                            "min": 3083,
+                            "max": 3525
+                        },
+                        "EPO": {
+                            "min": 3336,
+                            "max": 3537
+                        }
+                    }
+                }
+            },
             "29881": {
                 "cash_price": 5200,
                 "insurance_rates": {
@@ -738,6 +2047,83 @@
                 },
                 "gross_charge_min": 11500,
                 "gross_charge_max": 13890
+            },
+            "29882": {
+                "gross_charge_min": 13175,
+                "gross_charge_max": 15733,
+                "cash_price": 6038,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 4940,
+                            "max": 5307
+                        },
+                        "HMO": {
+                            "min": 4199,
+                            "max": 4701
+                        },
+                        "EPO": {
+                            "min": 4545,
+                            "max": 4798
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 4940,
+                            "max": 5220
+                        },
+                        "HMO": {
+                            "min": 4199,
+                            "max": 4596
+                        },
+                        "POS": {
+                            "min": 4545,
+                            "max": 4937
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 4940,
+                            "max": 5343
+                        },
+                        "HMO": {
+                            "min": 4199,
+                            "max": 4475
+                        },
+                        "EPO": {
+                            "min": 4545,
+                            "max": 4801
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 4940,
+                            "max": 5388
+                        },
+                        "HMO": {
+                            "min": 4199,
+                            "max": 4508
+                        },
+                        "POS": {
+                            "min": 4545,
+                            "max": 5204
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 4940,
+                            "max": 5636
+                        },
+                        "HMO": {
+                            "min": 4199,
+                            "max": 4503
+                        },
+                        "EPO": {
+                            "min": 4545,
+                            "max": 5031
+                        }
+                    }
+                }
             },
             "43239": {
                 "cash_price": 1650,
@@ -1047,6 +2433,83 @@
                 "gross_charge_min": 2800,
                 "gross_charge_max": 3279
             },
+            "73560": {
+                "gross_charge_min": 456,
+                "gross_charge_max": 533,
+                "cash_price": 137,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 205,
+                            "max": 222
+                        },
+                        "HMO": {
+                            "min": 174,
+                            "max": 189
+                        },
+                        "EPO": {
+                            "min": 189,
+                            "max": 199
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 205,
+                            "max": 224
+                        },
+                        "HMO": {
+                            "min": 174,
+                            "max": 199
+                        },
+                        "POS": {
+                            "min": 189,
+                            "max": 216
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 205,
+                            "max": 222
+                        },
+                        "HMO": {
+                            "min": 174,
+                            "max": 191
+                        },
+                        "EPO": {
+                            "min": 189,
+                            "max": 202
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 205,
+                            "max": 233
+                        },
+                        "HMO": {
+                            "min": 174,
+                            "max": 195
+                        },
+                        "POS": {
+                            "min": 189,
+                            "max": 214
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 205,
+                            "max": 235
+                        },
+                        "HMO": {
+                            "min": 174,
+                            "max": 200
+                        },
+                        "EPO": {
+                            "min": 189,
+                            "max": 206
+                        }
+                    }
+                }
+            },
             "73721": {
                 "cash_price": 680,
                 "insurance_rates": {
@@ -1123,6 +2586,83 @@
                 },
                 "gross_charge_min": 2400,
                 "gross_charge_max": 2993
+            },
+            "73722": {
+                "gross_charge_min": 3356,
+                "gross_charge_max": 4183,
+                "cash_price": 863,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 1342,
+                            "max": 1438
+                        },
+                        "HMO": {
+                            "min": 1141,
+                            "max": 1272
+                        },
+                        "EPO": {
+                            "min": 1235,
+                            "max": 1403
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 1342,
+                            "max": 1456
+                        },
+                        "HMO": {
+                            "min": 1141,
+                            "max": 1240
+                        },
+                        "POS": {
+                            "min": 1235,
+                            "max": 1351
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 1342,
+                            "max": 1516
+                        },
+                        "HMO": {
+                            "min": 1141,
+                            "max": 1224
+                        },
+                        "EPO": {
+                            "min": 1235,
+                            "max": 1369
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 1342,
+                            "max": 1522
+                        },
+                        "HMO": {
+                            "min": 1141,
+                            "max": 1312
+                        },
+                        "POS": {
+                            "min": 1235,
+                            "max": 1397
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 1342,
+                            "max": 1497
+                        },
+                        "HMO": {
+                            "min": 1141,
+                            "max": 1295
+                        },
+                        "EPO": {
+                            "min": 1235,
+                            "max": 1309
+                        }
+                    }
+                }
             },
             "80053": {
                 "cash_price": 52,
@@ -1303,6 +2843,545 @@
             "incomeThreshold": "Free care under $31,200/year for family of 4; discounts up to $93,600/year"
         },
         "prices": {
+            "20610": {
+                "gross_charge_min": 535,
+                "gross_charge_max": 616,
+                "cash_price": 178,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 250,
+                            "max": 280
+                        },
+                        "HMO": {
+                            "min": 212,
+                            "max": 235
+                        },
+                        "EPO": {
+                            "min": 230,
+                            "max": 247
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 250,
+                            "max": 269
+                        },
+                        "HMO": {
+                            "min": 212,
+                            "max": 230
+                        },
+                        "POS": {
+                            "min": 230,
+                            "max": 251
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 250,
+                            "max": 282
+                        },
+                        "HMO": {
+                            "min": 212,
+                            "max": 233
+                        },
+                        "EPO": {
+                            "min": 230,
+                            "max": 255
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 250,
+                            "max": 283
+                        },
+                        "HMO": {
+                            "min": 212,
+                            "max": 239
+                        },
+                        "POS": {
+                            "min": 230,
+                            "max": 245
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 250,
+                            "max": 282
+                        },
+                        "HMO": {
+                            "min": 212,
+                            "max": 230
+                        },
+                        "EPO": {
+                            "min": 230,
+                            "max": 246
+                        }
+                    }
+                }
+            },
+            "27427": {
+                "gross_charge_min": 34362,
+                "gross_charge_max": 41379,
+                "cash_price": 17181,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 13960,
+                            "max": 15754
+                        },
+                        "HMO": {
+                            "min": 11866,
+                            "max": 12679
+                        },
+                        "EPO": {
+                            "min": 12843,
+                            "max": 14006
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 13960,
+                            "max": 15627
+                        },
+                        "HMO": {
+                            "min": 11866,
+                            "max": 12934
+                        },
+                        "POS": {
+                            "min": 12843,
+                            "max": 14234
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 13960,
+                            "max": 16021
+                        },
+                        "HMO": {
+                            "min": 11866,
+                            "max": 13045
+                        },
+                        "EPO": {
+                            "min": 12843,
+                            "max": 14093
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 13960,
+                            "max": 15861
+                        },
+                        "HMO": {
+                            "min": 11866,
+                            "max": 12870
+                        },
+                        "POS": {
+                            "min": 12843,
+                            "max": 14044
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 13960,
+                            "max": 15412
+                        },
+                        "HMO": {
+                            "min": 11866,
+                            "max": 12669
+                        },
+                        "EPO": {
+                            "min": 12843,
+                            "max": 13568
+                        }
+                    }
+                }
+            },
+            "27428": {
+                "gross_charge_min": 33694,
+                "gross_charge_max": 39002,
+                "cash_price": 16847,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 13477,
+                            "max": 15401
+                        },
+                        "HMO": {
+                            "min": 11456,
+                            "max": 12052
+                        },
+                        "EPO": {
+                            "min": 12399,
+                            "max": 13747
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 13477,
+                            "max": 15326
+                        },
+                        "HMO": {
+                            "min": 11456,
+                            "max": 12575
+                        },
+                        "POS": {
+                            "min": 12399,
+                            "max": 13144
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 13477,
+                            "max": 14234
+                        },
+                        "HMO": {
+                            "min": 11456,
+                            "max": 12624
+                        },
+                        "EPO": {
+                            "min": 12399,
+                            "max": 13073
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 13477,
+                            "max": 15417
+                        },
+                        "HMO": {
+                            "min": 11456,
+                            "max": 12901
+                        },
+                        "POS": {
+                            "min": 12399,
+                            "max": 13025
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 13477,
+                            "max": 14312
+                        },
+                        "HMO": {
+                            "min": 11456,
+                            "max": 12700
+                        },
+                        "EPO": {
+                            "min": 12399,
+                            "max": 14108
+                        }
+                    }
+                }
+            },
+            "27446": {
+                "gross_charge_min": 30662,
+                "gross_charge_max": 35340,
+                "cash_price": 14893,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 12265,
+                            "max": 13452
+                        },
+                        "HMO": {
+                            "min": 10425,
+                            "max": 11902
+                        },
+                        "EPO": {
+                            "min": 11284,
+                            "max": 12896
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 12265,
+                            "max": 13084
+                        },
+                        "HMO": {
+                            "min": 10425,
+                            "max": 10965
+                        },
+                        "POS": {
+                            "min": 11284,
+                            "max": 12361
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 12265,
+                            "max": 12899
+                        },
+                        "HMO": {
+                            "min": 10425,
+                            "max": 11496
+                        },
+                        "EPO": {
+                            "min": 11284,
+                            "max": 12307
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 12265,
+                            "max": 13458
+                        },
+                        "HMO": {
+                            "min": 10425,
+                            "max": 11605
+                        },
+                        "POS": {
+                            "min": 11284,
+                            "max": 12529
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 12265,
+                            "max": 13651
+                        },
+                        "HMO": {
+                            "min": 10425,
+                            "max": 11152
+                        },
+                        "EPO": {
+                            "min": 11284,
+                            "max": 12441
+                        }
+                    }
+                }
+            },
+            "27447": {
+                "gross_charge_min": 43154,
+                "gross_charge_max": 51149,
+                "cash_price": 21098,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 17262,
+                            "max": 19767
+                        },
+                        "HMO": {
+                            "min": 14672,
+                            "max": 15556
+                        },
+                        "EPO": {
+                            "min": 15881,
+                            "max": 17920
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 17262,
+                            "max": 18584
+                        },
+                        "HMO": {
+                            "min": 14672,
+                            "max": 15930
+                        },
+                        "POS": {
+                            "min": 15881,
+                            "max": 18262
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 17262,
+                            "max": 18178
+                        },
+                        "HMO": {
+                            "min": 14672,
+                            "max": 16075
+                        },
+                        "EPO": {
+                            "min": 15881,
+                            "max": 17736
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 17262,
+                            "max": 18620
+                        },
+                        "HMO": {
+                            "min": 14672,
+                            "max": 16551
+                        },
+                        "POS": {
+                            "min": 15881,
+                            "max": 17729
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 17262,
+                            "max": 18485
+                        },
+                        "HMO": {
+                            "min": 14672,
+                            "max": 16078
+                        },
+                        "EPO": {
+                            "min": 15881,
+                            "max": 18050
+                        }
+                    }
+                }
+            },
+            "27570": {
+                "gross_charge_min": 4302,
+                "gross_charge_max": 5287,
+                "cash_price": 2151,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 1721,
+                            "max": 1919
+                        },
+                        "HMO": {
+                            "min": 1463,
+                            "max": 1558
+                        },
+                        "EPO": {
+                            "min": 1583,
+                            "max": 1741
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 1721,
+                            "max": 1865
+                        },
+                        "HMO": {
+                            "min": 1463,
+                            "max": 1653
+                        },
+                        "POS": {
+                            "min": 1583,
+                            "max": 1759
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 1721,
+                            "max": 1830
+                        },
+                        "HMO": {
+                            "min": 1463,
+                            "max": 1679
+                        },
+                        "EPO": {
+                            "min": 1583,
+                            "max": 1752
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 1721,
+                            "max": 1948
+                        },
+                        "HMO": {
+                            "min": 1463,
+                            "max": 1652
+                        },
+                        "POS": {
+                            "min": 1583,
+                            "max": 1753
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 1721,
+                            "max": 1885
+                        },
+                        "HMO": {
+                            "min": 1463,
+                            "max": 1569
+                        },
+                        "EPO": {
+                            "min": 1583,
+                            "max": 1745
+                        }
+                    }
+                }
+            },
+            "29880": {
+                "gross_charge_min": 7796,
+                "gross_charge_max": 9446,
+                "cash_price": 3465,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 3032,
+                            "max": 3213
+                        },
+                        "HMO": {
+                            "min": 2577,
+                            "max": 2742
+                        },
+                        "EPO": {
+                            "min": 2789,
+                            "max": 2981
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 3032,
+                            "max": 3424
+                        },
+                        "HMO": {
+                            "min": 2577,
+                            "max": 2873
+                        },
+                        "POS": {
+                            "min": 2789,
+                            "max": 2980
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 3032,
+                            "max": 3392
+                        },
+                        "HMO": {
+                            "min": 2577,
+                            "max": 2744
+                        },
+                        "EPO": {
+                            "min": 2789,
+                            "max": 3140
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 3032,
+                            "max": 3383
+                        },
+                        "HMO": {
+                            "min": 2577,
+                            "max": 2774
+                        },
+                        "POS": {
+                            "min": 2789,
+                            "max": 3000
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 3032,
+                            "max": 3268
+                        },
+                        "HMO": {
+                            "min": 2577,
+                            "max": 2888
+                        },
+                        "EPO": {
+                            "min": 2789,
+                            "max": 2969
+                        }
+                    }
+                }
+            },
             "29881": {
                 "cash_price": 4800,
                 "insurance_rates": {
@@ -1379,6 +3458,83 @@
                 },
                 "gross_charge_min": 10500,
                 "gross_charge_max": 12573
+            },
+            "29882": {
+                "gross_charge_min": 12334,
+                "gross_charge_max": 15417,
+                "cash_price": 5653,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 4625,
+                            "max": 5107
+                        },
+                        "HMO": {
+                            "min": 3932,
+                            "max": 4482
+                        },
+                        "EPO": {
+                            "min": 4255,
+                            "max": 4750
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 4625,
+                            "max": 5123
+                        },
+                        "HMO": {
+                            "min": 3932,
+                            "max": 4372
+                        },
+                        "POS": {
+                            "min": 4255,
+                            "max": 4552
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 4625,
+                            "max": 5073
+                        },
+                        "HMO": {
+                            "min": 3932,
+                            "max": 4262
+                        },
+                        "EPO": {
+                            "min": 4255,
+                            "max": 4574
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 4625,
+                            "max": 5027
+                        },
+                        "HMO": {
+                            "min": 3932,
+                            "max": 4490
+                        },
+                        "POS": {
+                            "min": 4255,
+                            "max": 4541
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 4625,
+                            "max": 5018
+                        },
+                        "HMO": {
+                            "min": 3932,
+                            "max": 4489
+                        },
+                        "EPO": {
+                            "min": 4255,
+                            "max": 4705
+                        }
+                    }
+                }
             },
             "43239": {
                 "cash_price": 1450,
@@ -1688,6 +3844,83 @@
                 "gross_charge_min": 2200,
                 "gross_charge_max": 2717
             },
+            "73560": {
+                "gross_charge_min": 374,
+                "gross_charge_max": 464,
+                "cash_price": 112,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 168,
+                            "max": 188
+                        },
+                        "HMO": {
+                            "min": 143,
+                            "max": 163
+                        },
+                        "EPO": {
+                            "min": 155,
+                            "max": 171
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 168,
+                            "max": 184
+                        },
+                        "HMO": {
+                            "min": 143,
+                            "max": 162
+                        },
+                        "POS": {
+                            "min": 155,
+                            "max": 177
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 168,
+                            "max": 183
+                        },
+                        "HMO": {
+                            "min": 143,
+                            "max": 160
+                        },
+                        "EPO": {
+                            "min": 155,
+                            "max": 174
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 168,
+                            "max": 190
+                        },
+                        "HMO": {
+                            "min": 143,
+                            "max": 163
+                        },
+                        "POS": {
+                            "min": 155,
+                            "max": 176
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 168,
+                            "max": 190
+                        },
+                        "HMO": {
+                            "min": 143,
+                            "max": 155
+                        },
+                        "EPO": {
+                            "min": 155,
+                            "max": 167
+                        }
+                    }
+                }
+            },
             "73721": {
                 "cash_price": 550,
                 "insurance_rates": {
@@ -1764,6 +3997,83 @@
                 },
                 "gross_charge_min": 1950,
                 "gross_charge_max": 2359
+            },
+            "73722": {
+                "gross_charge_min": 3174,
+                "gross_charge_max": 3752,
+                "cash_price": 816,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 1269,
+                            "max": 1420
+                        },
+                        "HMO": {
+                            "min": 1079,
+                            "max": 1238
+                        },
+                        "EPO": {
+                            "min": 1168,
+                            "max": 1226
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 1269,
+                            "max": 1449
+                        },
+                        "HMO": {
+                            "min": 1079,
+                            "max": 1167
+                        },
+                        "POS": {
+                            "min": 1168,
+                            "max": 1318
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 1269,
+                            "max": 1410
+                        },
+                        "HMO": {
+                            "min": 1079,
+                            "max": 1196
+                        },
+                        "EPO": {
+                            "min": 1168,
+                            "max": 1310
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 1269,
+                            "max": 1399
+                        },
+                        "HMO": {
+                            "min": 1079,
+                            "max": 1189
+                        },
+                        "POS": {
+                            "min": 1168,
+                            "max": 1332
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 1269,
+                            "max": 1384
+                        },
+                        "HMO": {
+                            "min": 1079,
+                            "max": 1175
+                        },
+                        "EPO": {
+                            "min": 1168,
+                            "max": 1330
+                        }
+                    }
+                }
             },
             "80053": {
                 "cash_price": 38,
@@ -1940,6 +4250,545 @@
             "available": false
         },
         "prices": {
+            "20610": {
+                "gross_charge_min": 514,
+                "gross_charge_max": 638,
+                "cash_price": 171,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 240,
+                            "max": 265
+                        },
+                        "HMO": {
+                            "min": 204,
+                            "max": 233
+                        },
+                        "EPO": {
+                            "min": 221,
+                            "max": 246
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 240,
+                            "max": 260
+                        },
+                        "HMO": {
+                            "min": 204,
+                            "max": 220
+                        },
+                        "POS": {
+                            "min": 221,
+                            "max": 251
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 240,
+                            "max": 274
+                        },
+                        "HMO": {
+                            "min": 204,
+                            "max": 225
+                        },
+                        "EPO": {
+                            "min": 221,
+                            "max": 254
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 240,
+                            "max": 255
+                        },
+                        "HMO": {
+                            "min": 204,
+                            "max": 223
+                        },
+                        "POS": {
+                            "min": 221,
+                            "max": 235
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 240,
+                            "max": 255
+                        },
+                        "HMO": {
+                            "min": 204,
+                            "max": 221
+                        },
+                        "EPO": {
+                            "min": 221,
+                            "max": 236
+                        }
+                    }
+                }
+            },
+            "27427": {
+                "gross_charge_min": 32865,
+                "gross_charge_max": 40621,
+                "cash_price": 16433,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 13352,
+                            "max": 14367
+                        },
+                        "HMO": {
+                            "min": 11349,
+                            "max": 12714
+                        },
+                        "EPO": {
+                            "min": 12283,
+                            "max": 13985
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 13352,
+                            "max": 14325
+                        },
+                        "HMO": {
+                            "min": 11349,
+                            "max": 12471
+                        },
+                        "POS": {
+                            "min": 12283,
+                            "max": 14096
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 13352,
+                            "max": 14148
+                        },
+                        "HMO": {
+                            "min": 11349,
+                            "max": 12349
+                        },
+                        "EPO": {
+                            "min": 12283,
+                            "max": 13520
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 13352,
+                            "max": 14048
+                        },
+                        "HMO": {
+                            "min": 11349,
+                            "max": 12745
+                        },
+                        "POS": {
+                            "min": 12283,
+                            "max": 13410
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 13352,
+                            "max": 14941
+                        },
+                        "HMO": {
+                            "min": 11349,
+                            "max": 13004
+                        },
+                        "EPO": {
+                            "min": 12283,
+                            "max": 14116
+                        }
+                    }
+                }
+            },
+            "27428": {
+                "gross_charge_min": 32271,
+                "gross_charge_max": 39897,
+                "cash_price": 16136,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 12909,
+                            "max": 14633
+                        },
+                        "HMO": {
+                            "min": 10972,
+                            "max": 11983
+                        },
+                        "EPO": {
+                            "min": 11876,
+                            "max": 13121
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 12909,
+                            "max": 13784
+                        },
+                        "HMO": {
+                            "min": 10972,
+                            "max": 12337
+                        },
+                        "POS": {
+                            "min": 11876,
+                            "max": 13569
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 12909,
+                            "max": 13560
+                        },
+                        "HMO": {
+                            "min": 10972,
+                            "max": 12116
+                        },
+                        "EPO": {
+                            "min": 11876,
+                            "max": 13273
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 12909,
+                            "max": 14377
+                        },
+                        "HMO": {
+                            "min": 10972,
+                            "max": 11913
+                        },
+                        "POS": {
+                            "min": 11876,
+                            "max": 13620
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 12909,
+                            "max": 13714
+                        },
+                        "HMO": {
+                            "min": 10972,
+                            "max": 11852
+                        },
+                        "EPO": {
+                            "min": 11876,
+                            "max": 12699
+                        }
+                    }
+                }
+            },
+            "27446": {
+                "gross_charge_min": 35761,
+                "gross_charge_max": 43975,
+                "cash_price": 17370,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 14304,
+                            "max": 15227
+                        },
+                        "HMO": {
+                            "min": 12159,
+                            "max": 13902
+                        },
+                        "EPO": {
+                            "min": 13160,
+                            "max": 13847
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 14304,
+                            "max": 15362
+                        },
+                        "HMO": {
+                            "min": 12159,
+                            "max": 13439
+                        },
+                        "POS": {
+                            "min": 13160,
+                            "max": 13838
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 14304,
+                            "max": 15192
+                        },
+                        "HMO": {
+                            "min": 12159,
+                            "max": 13796
+                        },
+                        "EPO": {
+                            "min": 13160,
+                            "max": 14505
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 14304,
+                            "max": 15510
+                        },
+                        "HMO": {
+                            "min": 12159,
+                            "max": 13005
+                        },
+                        "POS": {
+                            "min": 13160,
+                            "max": 14111
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 14304,
+                            "max": 16221
+                        },
+                        "HMO": {
+                            "min": 12159,
+                            "max": 12826
+                        },
+                        "EPO": {
+                            "min": 13160,
+                            "max": 14191
+                        }
+                    }
+                }
+            },
+            "27447": {
+                "gross_charge_min": 42544,
+                "gross_charge_max": 50569,
+                "cash_price": 20799,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 17017,
+                            "max": 18920
+                        },
+                        "HMO": {
+                            "min": 14465,
+                            "max": 15574
+                        },
+                        "EPO": {
+                            "min": 15656,
+                            "max": 17484
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 17017,
+                            "max": 18807
+                        },
+                        "HMO": {
+                            "min": 14465,
+                            "max": 15990
+                        },
+                        "POS": {
+                            "min": 15656,
+                            "max": 17024
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 17017,
+                            "max": 19521
+                        },
+                        "HMO": {
+                            "min": 14465,
+                            "max": 16634
+                        },
+                        "EPO": {
+                            "min": 15656,
+                            "max": 16472
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 17017,
+                            "max": 19239
+                        },
+                        "HMO": {
+                            "min": 14465,
+                            "max": 16088
+                        },
+                        "POS": {
+                            "min": 15656,
+                            "max": 17625
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 17017,
+                            "max": 19291
+                        },
+                        "HMO": {
+                            "min": 14465,
+                            "max": 16419
+                        },
+                        "EPO": {
+                            "min": 15656,
+                            "max": 17834
+                        }
+                    }
+                }
+            },
+            "27570": {
+                "gross_charge_min": 4744,
+                "gross_charge_max": 5684,
+                "cash_price": 2372,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 1897,
+                            "max": 2014
+                        },
+                        "HMO": {
+                            "min": 1613,
+                            "max": 1745
+                        },
+                        "EPO": {
+                            "min": 1746,
+                            "max": 1977
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 1897,
+                            "max": 2146
+                        },
+                        "HMO": {
+                            "min": 1613,
+                            "max": 1757
+                        },
+                        "POS": {
+                            "min": 1746,
+                            "max": 1878
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 1897,
+                            "max": 2053
+                        },
+                        "HMO": {
+                            "min": 1613,
+                            "max": 1708
+                        },
+                        "EPO": {
+                            "min": 1746,
+                            "max": 1994
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 1897,
+                            "max": 2086
+                        },
+                        "HMO": {
+                            "min": 1613,
+                            "max": 1763
+                        },
+                        "POS": {
+                            "min": 1746,
+                            "max": 1989
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 1897,
+                            "max": 2165
+                        },
+                        "HMO": {
+                            "min": 1613,
+                            "max": 1840
+                        },
+                        "EPO": {
+                            "min": 1746,
+                            "max": 1840
+                        }
+                    }
+                }
+            },
+            "29880": {
+                "gross_charge_min": 7703,
+                "gross_charge_max": 9031,
+                "cash_price": 3424,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 2996,
+                            "max": 3233
+                        },
+                        "HMO": {
+                            "min": 2546,
+                            "max": 2675
+                        },
+                        "EPO": {
+                            "min": 2756,
+                            "max": 2994
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 2996,
+                            "max": 3235
+                        },
+                        "HMO": {
+                            "min": 2546,
+                            "max": 2764
+                        },
+                        "POS": {
+                            "min": 2756,
+                            "max": 2963
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 2996,
+                            "max": 3402
+                        },
+                        "HMO": {
+                            "min": 2546,
+                            "max": 2766
+                        },
+                        "EPO": {
+                            "min": 2756,
+                            "max": 2897
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 2996,
+                            "max": 3163
+                        },
+                        "HMO": {
+                            "min": 2546,
+                            "max": 2679
+                        },
+                        "POS": {
+                            "min": 2756,
+                            "max": 3108
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 2996,
+                            "max": 3412
+                        },
+                        "HMO": {
+                            "min": 2546,
+                            "max": 2824
+                        },
+                        "EPO": {
+                            "min": 2756,
+                            "max": 3022
+                        }
+                    }
+                }
+            },
             "29881": {
                 "cash_price": 7200,
                 "insurance_rates": {
@@ -2016,6 +4865,83 @@
                 },
                 "gross_charge_min": 15000,
                 "gross_charge_max": 17523
+            },
+            "29882": {
+                "gross_charge_min": 12260,
+                "gross_charge_max": 15049,
+                "cash_price": 5619,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 4598,
+                            "max": 5228
+                        },
+                        "HMO": {
+                            "min": 3908,
+                            "max": 4479
+                        },
+                        "EPO": {
+                            "min": 4230,
+                            "max": 4845
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 4598,
+                            "max": 5182
+                        },
+                        "HMO": {
+                            "min": 3908,
+                            "max": 4246
+                        },
+                        "POS": {
+                            "min": 4230,
+                            "max": 4515
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 4598,
+                            "max": 4951
+                        },
+                        "HMO": {
+                            "min": 3908,
+                            "max": 4198
+                        },
+                        "EPO": {
+                            "min": 4230,
+                            "max": 4812
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 4598,
+                            "max": 5115
+                        },
+                        "HMO": {
+                            "min": 3908,
+                            "max": 4400
+                        },
+                        "POS": {
+                            "min": 4230,
+                            "max": 4559
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 4598,
+                            "max": 5217
+                        },
+                        "HMO": {
+                            "min": 3908,
+                            "max": 4334
+                        },
+                        "EPO": {
+                            "min": 4230,
+                            "max": 4452
+                        }
+                    }
+                }
             },
             "43239": {
                 "cash_price": 2200,
@@ -2325,6 +5251,83 @@
                 "gross_charge_min": 3200,
                 "gross_charge_max": 3869
             },
+            "73560": {
+                "gross_charge_min": 430,
+                "gross_charge_max": 496,
+                "cash_price": 129,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 193,
+                            "max": 214
+                        },
+                        "HMO": {
+                            "min": 164,
+                            "max": 185
+                        },
+                        "EPO": {
+                            "min": 178,
+                            "max": 197
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 193,
+                            "max": 208
+                        },
+                        "HMO": {
+                            "min": 164,
+                            "max": 183
+                        },
+                        "POS": {
+                            "min": 178,
+                            "max": 201
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 193,
+                            "max": 212
+                        },
+                        "HMO": {
+                            "min": 164,
+                            "max": 185
+                        },
+                        "EPO": {
+                            "min": 178,
+                            "max": 200
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 193,
+                            "max": 208
+                        },
+                        "HMO": {
+                            "min": 164,
+                            "max": 184
+                        },
+                        "POS": {
+                            "min": 178,
+                            "max": 188
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 193,
+                            "max": 209
+                        },
+                        "HMO": {
+                            "min": 164,
+                            "max": 181
+                        },
+                        "EPO": {
+                            "min": 178,
+                            "max": 200
+                        }
+                    }
+                }
+            },
             "73721": {
                 "cash_price": 950,
                 "insurance_rates": {
@@ -2401,6 +5404,83 @@
                 },
                 "gross_charge_min": 2800,
                 "gross_charge_max": 3329
+            },
+            "73722": {
+                "gross_charge_min": 3210,
+                "gross_charge_max": 3901,
+                "cash_price": 825,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 1284,
+                            "max": 1440
+                        },
+                        "HMO": {
+                            "min": 1091,
+                            "max": 1173
+                        },
+                        "EPO": {
+                            "min": 1181,
+                            "max": 1242
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 1284,
+                            "max": 1461
+                        },
+                        "HMO": {
+                            "min": 1091,
+                            "max": 1206
+                        },
+                        "POS": {
+                            "min": 1181,
+                            "max": 1251
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 1284,
+                            "max": 1402
+                        },
+                        "HMO": {
+                            "min": 1091,
+                            "max": 1155
+                        },
+                        "EPO": {
+                            "min": 1181,
+                            "max": 1346
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 1284,
+                            "max": 1389
+                        },
+                        "HMO": {
+                            "min": 1091,
+                            "max": 1156
+                        },
+                        "POS": {
+                            "min": 1181,
+                            "max": 1246
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 1284,
+                            "max": 1363
+                        },
+                        "HMO": {
+                            "min": 1091,
+                            "max": 1217
+                        },
+                        "EPO": {
+                            "min": 1181,
+                            "max": 1337
+                        }
+                    }
+                }
             },
             "80053": {
                 "cash_price": 68,
@@ -2581,6 +5661,545 @@
             "incomeThreshold": "Under $124,800/year for family of 4"
         },
         "prices": {
+            "20610": {
+                "gross_charge_min": 510,
+                "gross_charge_max": 623,
+                "cash_price": 170,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 238,
+                            "max": 261
+                        },
+                        "HMO": {
+                            "min": 202,
+                            "max": 230
+                        },
+                        "EPO": {
+                            "min": 219,
+                            "max": 236
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 238,
+                            "max": 272
+                        },
+                        "HMO": {
+                            "min": 202,
+                            "max": 217
+                        },
+                        "POS": {
+                            "min": 219,
+                            "max": 245
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 238,
+                            "max": 266
+                        },
+                        "HMO": {
+                            "min": 202,
+                            "max": 214
+                        },
+                        "EPO": {
+                            "min": 219,
+                            "max": 238
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 238,
+                            "max": 252
+                        },
+                        "HMO": {
+                            "min": 202,
+                            "max": 232
+                        },
+                        "POS": {
+                            "min": 219,
+                            "max": 241
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 238,
+                            "max": 258
+                        },
+                        "HMO": {
+                            "min": 202,
+                            "max": 223
+                        },
+                        "EPO": {
+                            "min": 219,
+                            "max": 234
+                        }
+                    }
+                }
+            },
+            "27427": {
+                "gross_charge_min": 29382,
+                "gross_charge_max": 35018,
+                "cash_price": 14691,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 11937,
+                            "max": 13656
+                        },
+                        "HMO": {
+                            "min": 10146,
+                            "max": 10719
+                        },
+                        "EPO": {
+                            "min": 10982,
+                            "max": 11809
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 11937,
+                            "max": 12779
+                        },
+                        "HMO": {
+                            "min": 10146,
+                            "max": 11614
+                        },
+                        "POS": {
+                            "min": 10982,
+                            "max": 12494
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 11937,
+                            "max": 12623
+                        },
+                        "HMO": {
+                            "min": 10146,
+                            "max": 10692
+                        },
+                        "EPO": {
+                            "min": 10982,
+                            "max": 11776
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 11937,
+                            "max": 12755
+                        },
+                        "HMO": {
+                            "min": 10146,
+                            "max": 11580
+                        },
+                        "POS": {
+                            "min": 10982,
+                            "max": 11894
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 11937,
+                            "max": 13071
+                        },
+                        "HMO": {
+                            "min": 10146,
+                            "max": 11189
+                        },
+                        "EPO": {
+                            "min": 10982,
+                            "max": 11799
+                        }
+                    }
+                }
+            },
+            "27428": {
+                "gross_charge_min": 31182,
+                "gross_charge_max": 38962,
+                "cash_price": 15591,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 12473,
+                            "max": 14312
+                        },
+                        "HMO": {
+                            "min": 10602,
+                            "max": 11493
+                        },
+                        "EPO": {
+                            "min": 11475,
+                            "max": 13030
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 12473,
+                            "max": 14187
+                        },
+                        "HMO": {
+                            "min": 10602,
+                            "max": 11230
+                        },
+                        "POS": {
+                            "min": 11475,
+                            "max": 12613
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 12473,
+                            "max": 14163
+                        },
+                        "HMO": {
+                            "min": 10602,
+                            "max": 11715
+                        },
+                        "EPO": {
+                            "min": 11475,
+                            "max": 12960
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 12473,
+                            "max": 13474
+                        },
+                        "HMO": {
+                            "min": 10602,
+                            "max": 11402
+                        },
+                        "POS": {
+                            "min": 11475,
+                            "max": 12320
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 12473,
+                            "max": 13611
+                        },
+                        "HMO": {
+                            "min": 10602,
+                            "max": 12016
+                        },
+                        "EPO": {
+                            "min": 11475,
+                            "max": 12950
+                        }
+                    }
+                }
+            },
+            "27446": {
+                "gross_charge_min": 32233,
+                "gross_charge_max": 37544,
+                "cash_price": 15656,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 12893,
+                            "max": 14206
+                        },
+                        "HMO": {
+                            "min": 10959,
+                            "max": 11705
+                        },
+                        "EPO": {
+                            "min": 11862,
+                            "max": 13392
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 12893,
+                            "max": 14711
+                        },
+                        "HMO": {
+                            "min": 10959,
+                            "max": 12254
+                        },
+                        "POS": {
+                            "min": 11862,
+                            "max": 13268
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 12893,
+                            "max": 13767
+                        },
+                        "HMO": {
+                            "min": 10959,
+                            "max": 12036
+                        },
+                        "EPO": {
+                            "min": 11862,
+                            "max": 13502
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 12893,
+                            "max": 13811
+                        },
+                        "HMO": {
+                            "min": 10959,
+                            "max": 11946
+                        },
+                        "POS": {
+                            "min": 11862,
+                            "max": 13599
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 12893,
+                            "max": 14140
+                        },
+                        "HMO": {
+                            "min": 10959,
+                            "max": 12150
+                        },
+                        "EPO": {
+                            "min": 11862,
+                            "max": 12547
+                        }
+                    }
+                }
+            },
+            "27447": {
+                "gross_charge_min": 40033,
+                "gross_charge_max": 47383,
+                "cash_price": 19572,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 16013,
+                            "max": 17450
+                        },
+                        "HMO": {
+                            "min": 13611,
+                            "max": 15149
+                        },
+                        "EPO": {
+                            "min": 14732,
+                            "max": 16279
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 16013,
+                            "max": 17635
+                        },
+                        "HMO": {
+                            "min": 13611,
+                            "max": 15628
+                        },
+                        "POS": {
+                            "min": 14732,
+                            "max": 15737
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 16013,
+                            "max": 16896
+                        },
+                        "HMO": {
+                            "min": 13611,
+                            "max": 15370
+                        },
+                        "EPO": {
+                            "min": 14732,
+                            "max": 15960
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 16013,
+                            "max": 16937
+                        },
+                        "HMO": {
+                            "min": 13611,
+                            "max": 14422
+                        },
+                        "POS": {
+                            "min": 14732,
+                            "max": 16891
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 16013,
+                            "max": 17050
+                        },
+                        "HMO": {
+                            "min": 13611,
+                            "max": 15261
+                        },
+                        "EPO": {
+                            "min": 14732,
+                            "max": 16148
+                        }
+                    }
+                }
+            },
+            "27570": {
+                "gross_charge_min": 4256,
+                "gross_charge_max": 5105,
+                "cash_price": 2128,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 1703,
+                            "max": 1857
+                        },
+                        "HMO": {
+                            "min": 1447,
+                            "max": 1662
+                        },
+                        "EPO": {
+                            "min": 1566,
+                            "max": 1753
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 1703,
+                            "max": 1937
+                        },
+                        "HMO": {
+                            "min": 1447,
+                            "max": 1637
+                        },
+                        "POS": {
+                            "min": 1566,
+                            "max": 1722
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 1703,
+                            "max": 1846
+                        },
+                        "HMO": {
+                            "min": 1447,
+                            "max": 1603
+                        },
+                        "EPO": {
+                            "min": 1566,
+                            "max": 1750
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 1703,
+                            "max": 1808
+                        },
+                        "HMO": {
+                            "min": 1447,
+                            "max": 1590
+                        },
+                        "POS": {
+                            "min": 1566,
+                            "max": 1797
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 1703,
+                            "max": 1867
+                        },
+                        "HMO": {
+                            "min": 1447,
+                            "max": 1538
+                        },
+                        "EPO": {
+                            "min": 1566,
+                            "max": 1768
+                        }
+                    }
+                }
+            },
+            "29880": {
+                "gross_charge_min": 7743,
+                "gross_charge_max": 9022,
+                "cash_price": 3441,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 3011,
+                            "max": 3384
+                        },
+                        "HMO": {
+                            "min": 2560,
+                            "max": 2844
+                        },
+                        "EPO": {
+                            "min": 2770,
+                            "max": 3018
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 3011,
+                            "max": 3402
+                        },
+                        "HMO": {
+                            "min": 2560,
+                            "max": 2803
+                        },
+                        "POS": {
+                            "min": 2770,
+                            "max": 3086
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 3011,
+                            "max": 3409
+                        },
+                        "HMO": {
+                            "min": 2560,
+                            "max": 2917
+                        },
+                        "EPO": {
+                            "min": 2770,
+                            "max": 3030
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 3011,
+                            "max": 3307
+                        },
+                        "HMO": {
+                            "min": 2560,
+                            "max": 2889
+                        },
+                        "POS": {
+                            "min": 2770,
+                            "max": 3030
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 3011,
+                            "max": 3168
+                        },
+                        "HMO": {
+                            "min": 2560,
+                            "max": 2822
+                        },
+                        "EPO": {
+                            "min": 2770,
+                            "max": 2943
+                        }
+                    }
+                }
+            },
             "29881": {
                 "cash_price": 4200,
                 "insurance_rates": {
@@ -2657,6 +6276,83 @@
                 },
                 "gross_charge_min": 9500,
                 "gross_charge_max": 11022
+            },
+            "29882": {
+                "gross_charge_min": 12818,
+                "gross_charge_max": 15872,
+                "cash_price": 5875,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 4807,
+                            "max": 5280
+                        },
+                        "HMO": {
+                            "min": 4086,
+                            "max": 4353
+                        },
+                        "EPO": {
+                            "min": 4422,
+                            "max": 4832
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 4807,
+                            "max": 5131
+                        },
+                        "HMO": {
+                            "min": 4086,
+                            "max": 4560
+                        },
+                        "POS": {
+                            "min": 4422,
+                            "max": 4918
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 4807,
+                            "max": 5226
+                        },
+                        "HMO": {
+                            "min": 4086,
+                            "max": 4465
+                        },
+                        "EPO": {
+                            "min": 4422,
+                            "max": 4982
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 4807,
+                            "max": 5473
+                        },
+                        "HMO": {
+                            "min": 4086,
+                            "max": 4461
+                        },
+                        "POS": {
+                            "min": 4422,
+                            "max": 4757
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 4807,
+                            "max": 5183
+                        },
+                        "HMO": {
+                            "min": 4086,
+                            "max": 4615
+                        },
+                        "EPO": {
+                            "min": 4422,
+                            "max": 4958
+                        }
+                    }
+                }
             },
             "43239": {
                 "cash_price": 1350,
@@ -2966,6 +6662,83 @@
                 "gross_charge_min": 1900,
                 "gross_charge_max": 2248
             },
+            "73560": {
+                "gross_charge_min": 354,
+                "gross_charge_max": 440,
+                "cash_price": 106,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 159,
+                            "max": 175
+                        },
+                        "HMO": {
+                            "min": 135,
+                            "max": 147
+                        },
+                        "EPO": {
+                            "min": 146,
+                            "max": 158
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 159,
+                            "max": 171
+                        },
+                        "HMO": {
+                            "min": 135,
+                            "max": 149
+                        },
+                        "POS": {
+                            "min": 146,
+                            "max": 168
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 159,
+                            "max": 175
+                        },
+                        "HMO": {
+                            "min": 135,
+                            "max": 148
+                        },
+                        "EPO": {
+                            "min": 146,
+                            "max": 167
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 159,
+                            "max": 183
+                        },
+                        "HMO": {
+                            "min": 135,
+                            "max": 153
+                        },
+                        "POS": {
+                            "min": 146,
+                            "max": 157
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 159,
+                            "max": 179
+                        },
+                        "HMO": {
+                            "min": 135,
+                            "max": 143
+                        },
+                        "EPO": {
+                            "min": 146,
+                            "max": 162
+                        }
+                    }
+                }
+            },
             "73721": {
                 "cash_price": 480,
                 "insurance_rates": {
@@ -3042,6 +6815,83 @@
                 },
                 "gross_charge_min": 1750,
                 "gross_charge_max": 2072
+            },
+            "73722": {
+                "gross_charge_min": 3301,
+                "gross_charge_max": 3949,
+                "cash_price": 849,
+                "insurance_rates": {
+                    "aetna": {
+                        "PPO": {
+                            "min": 1320,
+                            "max": 1388
+                        },
+                        "HMO": {
+                            "min": 1122,
+                            "max": 1218
+                        },
+                        "EPO": {
+                            "min": 1215,
+                            "max": 1297
+                        }
+                    },
+                    "bcbs": {
+                        "PPO": {
+                            "min": 1320,
+                            "max": 1479
+                        },
+                        "HMO": {
+                            "min": 1122,
+                            "max": 1239
+                        },
+                        "POS": {
+                            "min": 1215,
+                            "max": 1330
+                        }
+                    },
+                    "uhc": {
+                        "PPO": {
+                            "min": 1320,
+                            "max": 1474
+                        },
+                        "HMO": {
+                            "min": 1122,
+                            "max": 1224
+                        },
+                        "EPO": {
+                            "min": 1215,
+                            "max": 1387
+                        }
+                    },
+                    "cigna": {
+                        "PPO": {
+                            "min": 1320,
+                            "max": 1506
+                        },
+                        "HMO": {
+                            "min": 1122,
+                            "max": 1187
+                        },
+                        "POS": {
+                            "min": 1215,
+                            "max": 1301
+                        }
+                    },
+                    "humana": {
+                        "PPO": {
+                            "min": 1320,
+                            "max": 1421
+                        },
+                        "HMO": {
+                            "min": 1122,
+                            "max": 1263
+                        },
+                        "EPO": {
+                            "min": 1215,
+                            "max": 1298
+                        }
+                    }
+                }
             },
             "80053": {
                 "cash_price": 32,

@@ -1,12 +1,22 @@
 "use client";
 
 import { useState, useCallback, useRef } from "react";
-import { Heart, ShieldCheck, TrendingDown, Sparkles } from "lucide-react";
+import { Heart, ShieldCheck, TrendingDown, Sparkles, Activity } from "lucide-react";
 import { SearchForm } from "@/components/SearchForm";
 import { ResultsList } from "@/components/ResultsList";
 import { ChatAssistant } from "@/components/ChatAssistant";
 import { searchHospitals } from "@/lib/search";
 import type { HospitalResult, SearchParams, InsuranceProfile } from "@/types";
+
+// Common knee procedures for quick selection
+const KNEE_PROCEDURES = [
+  { cpt: "27447", name: "Total Knee Replacement", shortName: "Total Replacement" },
+  { cpt: "29881", name: "Knee Arthroscopy", shortName: "Arthroscopy" },
+  { cpt: "27428", name: "ACL Reconstruction", shortName: "ACL Repair" },
+  { cpt: "29882", name: "Meniscus Repair", shortName: "Meniscus Repair" },
+  { cpt: "27446", name: "Partial Knee Replacement", shortName: "Partial Replacement" },
+  { cpt: "73721", name: "MRI Knee", shortName: "Knee MRI" },
+];
 
 export default function Home() {
   const [results, setResults] = useState<HospitalResult[]>([]);
@@ -38,13 +48,18 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-teal-500 flex items-center justify-center shadow-lg shadow-primary-500/25">
-                <Heart className="h-5 w-5 text-white" />
+                <Activity className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-primary-600 to-teal-600 bg-clip-text text-transparent">
-                CarePrice
-              </span>
+              <div>
+                <span className="text-xl font-bold bg-gradient-to-r from-primary-600 to-teal-600 bg-clip-text text-transparent">
+                  KneePrice
+                </span>
+                <span className="hidden sm:inline text-xs text-slate-500 dark:text-slate-400 ml-2">
+                  Knee Surgery Price Experts
+                </span>
+              </div>
             </div>
             <nav className="hidden md:flex items-center gap-6">
               <a
@@ -81,20 +96,41 @@ export default function Home() {
         <div className="max-w-5xl mx-auto text-center relative">
           <div className="inline-flex items-center gap-2 bg-primary-100/80 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 px-4 py-2 rounded-full text-sm font-medium mb-6 backdrop-blur-sm">
             <Sparkles className="h-4 w-4" />
-            Compare Healthcare Prices Instantly
+            The #1 Knee Surgery Price Comparison Platform
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-slate-100 leading-tight mb-6">
             Know Your
             <span className="bg-gradient-to-r from-primary-600 via-teal-500 to-primary-600 bg-clip-text text-transparent">
-              {" "}Healthcare Costs{" "}
+              {" "}Knee Surgery Costs{" "}
             </span>
             Before You Go
           </h1>
 
-          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Search for medical procedures, compare prices across hospitals, and find the best rate
-            based on your insurance. Take control of your healthcare spending.
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+            Compare prices for knee replacements, arthroscopy, ACL repairs, and more. 
+            Find the best rate based on your insurance and save thousands on your surgery.
+          </p>
+
+          {/* Quick Select Knee Procedures */}
+          <div className="mb-8">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">Quick select your procedure:</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {KNEE_PROCEDURES.map((proc) => (
+                <button
+                  key={proc.cpt}
+                  type="button"
+                  onClick={() => handleSearch({ procedure: proc.cpt, zipCode: "", insurance: "cash" })}
+                  className="px-4 py-2 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 hover:border-primary-400 hover:text-primary-600 dark:hover:border-primary-500 dark:hover:text-primary-400 transition-all shadow-sm hover:shadow-md"
+                >
+                  {proc.shortName}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <p className="text-xs text-slate-400 dark:text-slate-500 mb-6">
+            Or enter your details below for personalized pricing
           </p>
 
           {/* Search Form */}
@@ -113,11 +149,11 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
               <TrendingDown className="h-5 w-5 text-primary-500" />
-              <span className="text-sm">Save up to 80% on procedures</span>
+              <span className="text-sm">Average savings of $4,200 on knee surgery</span>
             </div>
             <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
-              <Heart className="h-5 w-5 text-rose-500" />
-              <span className="text-sm">Trusted by 50,000+ patients</span>
+              <Activity className="h-5 w-5 text-rose-500" />
+              <span className="text-sm">Trusted by 15,000+ knee surgery patients</span>
             </div>
           </div>
         </div>
@@ -157,19 +193,22 @@ export default function Home() {
       {!hasSearched && (
         <section className="pb-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-slate-900 dark:text-slate-100 mb-12">
-              Why Use CarePrice?
+            <h2 className="text-2xl md:text-3xl font-bold text-center text-slate-900 dark:text-slate-100 mb-4">
+              Why Choose KneePrice?
             </h2>
+            <p className="text-center text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
+              We specialize exclusively in knee surgeries, giving you the most accurate and comprehensive pricing data available.
+            </p>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-slate-100 dark:border-slate-800 shadow-lg shadow-slate-200/50 dark:shadow-slate-900/50">
                 <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-primary-500/25">
                   <TrendingDown className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                  Price Transparency
+                  Knee Surgery Experts
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400">
-                  See real prices from hospitals before you visit. No surprises, no hidden fees.
+                  We focus solely on knee procedures - from arthroscopy to total replacements. Get specialized pricing data you can trust.
                 </p>
               </div>
               <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-slate-100 dark:border-slate-800 shadow-lg shadow-slate-200/50 dark:shadow-slate-900/50">
@@ -177,21 +216,21 @@ export default function Home() {
                   <ShieldCheck className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                  Insurance-Specific Rates
+                  Your Insurance, Your Price
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400">
-                  Get personalized pricing based on your insurance plan&apos;s negotiated rates.
+                  See exactly what you&apos;ll pay with your insurance plan, deductible, and coinsurance factored in.
                 </p>
               </div>
               <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-slate-100 dark:border-slate-800 shadow-lg shadow-slate-200/50 dark:shadow-slate-900/50">
                 <div className="w-12 h-12 bg-gradient-to-br from-rose-500 to-rose-600 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-rose-500/25">
-                  <Heart className="h-6 w-6 text-white" />
+                  <Activity className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-2">
-                  Easy Comparison
+                  Get Back on Your Feet
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400">
-                  Compare multiple hospitals side-by-side and choose what&apos;s best for you.
+                  Compare top-rated orthopedic centers and find quality care that fits your budget.
                 </p>
               </div>
             </div>
@@ -205,15 +244,15 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-teal-500 flex items-center justify-center">
-                <Heart className="h-4 w-4 text-white" />
+                <Activity className="h-4 w-4 text-white" />
               </div>
-              <span className="text-lg font-bold text-white">CarePrice</span>
+              <span className="text-lg font-bold text-white">KneePrice</span>
             </div>
             <p className="text-sm text-center md:text-right">
-              © {new Date().getFullYear()} CarePrice. Empowering healthcare transparency.
+              © {new Date().getFullYear()} KneePrice. The Knee Surgery Price Experts.
               <br />
               <span className="text-xs">
-                Prices shown are estimates based on publicly available data.
+                Prices shown are estimates based on publicly available hospital data.
               </span>
             </p>
           </div>
