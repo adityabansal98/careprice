@@ -1,22 +1,23 @@
 [
     {
         "id": "hosp_001",
-        "name": "General City Hospital",
-        "address": "123 Medical Center Dr",
-        "city": "New York",
-        "state": "NY",
-        "zip": "10001",
-        "phone": "(212) 555-0100",
+        "name": "Mount Auburn Hospital",
+        "address": "330 Mount Auburn Street",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02138",
+        "phone": "(617) 492-3500",
+        "website": "https://www.mountauburnhospital.org",
         "rating": 4.2,
         "dataFreshness": "2024-11-15",
         "coordinates": {
-            "lat": 40.7484,
-            "lng": -73.9967
+            "lat": 42.3736,
+            "lng": -71.1309
         },
         "financialAssistance": {
             "available": true,
             "discountPercent": 50,
-            "programName": "City Care Assistance Program",
+            "programName": "Mount Auburn Financial Assistance Program",
             "eligibilityCriteria": "Household income below 200% of Federal Poverty Level",
             "incomeThreshold": "Under $60,000/year for family of 4"
         },
@@ -1412,22 +1413,23 @@
     },
     {
         "id": "hosp_002",
-        "name": "Metro Health Medical Center",
-        "address": "456 Healthcare Blvd",
-        "city": "New York",
-        "state": "NY",
-        "zip": "10012",
-        "phone": "(212) 555-0200",
+        "name": "Massachusetts General Hospital",
+        "address": "55 Fruit Street",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02114",
+        "phone": "(617) 726-2000",
+        "website": "https://www.massgeneral.org",
         "rating": 4.5,
         "dataFreshness": "2024-11-20",
         "coordinates": {
-            "lat": 40.7258,
-            "lng": -73.9981
+            "lat": 42.3632,
+            "lng": -71.0686
         },
         "financialAssistance": {
             "available": true,
             "discountPercent": 35,
-            "programName": "Metro Health Payment Assistance",
+            "programName": "MGH Financial Assistance Program",
             "eligibilityCriteria": "Uninsured patients with income below 250% FPL",
             "incomeThreshold": "Under $75,000/year for family of 4"
         },
@@ -2823,22 +2825,23 @@
     },
     {
         "id": "hosp_003",
-        "name": "Sunrise Community Hospital",
-        "address": "789 Wellness Way",
-        "city": "Brooklyn",
-        "state": "NY",
-        "zip": "10025",
-        "phone": "(718) 555-0300",
+        "name": "Beth Israel Deaconess Medical Center",
+        "address": "330 Brookline Avenue",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02215",
+        "phone": "(617) 667-7000",
+        "website": "https://www.bidmc.org",
         "rating": 4,
         "dataFreshness": "2024-10-30",
         "coordinates": {
-            "lat": 40.799,
-            "lng": -73.9665
+            "lat": 42.3388,
+            "lng": -71.1062
         },
         "financialAssistance": {
             "available": true,
             "discountPercent": 100,
-            "programName": "Community Care Free Services Program",
+            "programName": "BIDMC Financial Assistance Program",
             "eligibilityCriteria": "Income below 100% Federal Poverty Level qualifies for free care; 100-300% FPL receives sliding scale discounts up to 80%",
             "incomeThreshold": "Free care under $31,200/year for family of 4; discounts up to $93,600/year"
         },
@@ -4234,17 +4237,18 @@
     },
     {
         "id": "hosp_004",
-        "name": "Premium Care Institute",
-        "address": "321 Elite Medical Plaza",
-        "city": "Manhattan",
-        "state": "NY",
-        "zip": "10019",
-        "phone": "(212) 555-0400",
+        "name": "Brigham and Women's Hospital",
+        "address": "75 Francis Street",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02115",
+        "phone": "(617) 732-5500",
+        "website": "https://www.brighamandwomens.org",
         "rating": 4.8,
         "dataFreshness": "2024-11-18",
         "coordinates": {
-            "lat": 40.7648,
-            "lng": -73.9808
+            "lat": 42.3355,
+            "lng": -71.1067
         },
         "financialAssistance": {
             "available": false
@@ -5613,22 +5617,23 @@
     },
     {
         "id": "hosp_005",
-        "name": "Valley Medical Associates",
-        "address": "555 Health Park Ave",
-        "city": "Queens",
-        "state": "NY",
-        "zip": "10032",
-        "phone": "(718) 555-0500",
+        "name": "Cambridge Health Alliance",
+        "address": "1493 Cambridge Street",
+        "city": "Cambridge",
+        "state": "MA",
+        "zip": "02139",
+        "phone": "(617) 665-1000",
+        "website": "https://www.challiance.org",
         "rating": 3.9,
         "dataFreshness": "2024-11-10",
         "coordinates": {
-            "lat": 40.84,
-            "lng": -73.9419
+            "lat": 42.3751,
+            "lng": -71.0996
         },
         "financialAssistance": {
             "available": true,
             "discountPercent": 75,
-            "programName": "Valley Community Charity Care",
+            "programName": "CHA Community Care Program",
             "eligibilityCriteria": "Uninsured or underinsured patients below 400% Federal Poverty Level; Medicaid recipients also qualify",
             "incomeThreshold": "Under $124,800/year for family of 4"
         },
