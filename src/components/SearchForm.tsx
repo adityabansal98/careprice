@@ -21,6 +21,7 @@ interface SearchFormProps {
 // Ref type for external control
 export interface SearchFormRef {
   setProcedure: (cptCode: string) => void;
+  scrollToInsuranceDetails: () => void;
 }
 
 // Typical values by plan type for "Use Typical Values" feature
@@ -94,6 +95,7 @@ export const SearchForm = forwardRef<SearchFormRef, SearchFormProps>(function Se
   // Insurance details section
   const [showInsuranceDetails, setShowInsuranceDetails] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
+  const insuranceDetailsRef = useRef<HTMLDivElement>(null);
   const [deductibleTotal, setDeductibleTotal] = useState(insuranceProfile?.deductibleTotal?.toString() || "");
   const [deductibleRemaining, setDeductibleRemaining] = useState(insuranceProfile?.deductibleRemaining?.toString() || "");
   const [coinsurancePercent, setCoinsurancePercent] = useState(insuranceProfile?.coinsurancePercent?.toString() || "");
@@ -110,6 +112,12 @@ export const SearchForm = forwardRef<SearchFormRef, SearchFormProps>(function Se
         setProcedureQuery(`${procedure.name} (${procedure.cpt_code})`);
         setInputMode("search");
       }
+    },
+    scrollToInsuranceDetails: () => {
+      setShowInsuranceDetails(true);
+      setTimeout(() => {
+        insuranceDetailsRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 100);
     },
   }), [procedures]);
 
@@ -514,7 +522,7 @@ export const SearchForm = forwardRef<SearchFormRef, SearchFormProps>(function Se
 
         {/* Insurance Details Collapsible Section */}
         {insurance !== "cash" && (
-          <div className="mt-5 border-t border-slate-200 dark:border-slate-700 pt-5">
+          <div ref={insuranceDetailsRef} className="mt-5 border-t border-slate-200 dark:border-slate-700 pt-5">
             <button
               type="button"
               onClick={() => setShowInsuranceDetails(!showInsuranceDetails)}

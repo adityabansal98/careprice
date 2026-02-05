@@ -23,6 +23,7 @@ interface ResultsListProps {
   results: HospitalResult[];
   isLoading?: boolean;
   insuranceProfile: InsuranceProfile | null;
+  onAddInsuranceClick?: () => void;
 }
 
 const SORT_OPTIONS: Array<{ value: SortOption; label: string; icon: React.ReactNode }> = [
@@ -40,6 +41,7 @@ export function ResultsList({
   results, 
   isLoading = false,
   insuranceProfile,
+  onAddInsuranceClick,
 }: ResultsListProps) {
   const [sortBy, setSortBy] = useState<SortOption>("price");
   const [viewMode, setViewMode] = useState<ViewMode>("list");
@@ -167,6 +169,7 @@ export function ResultsList({
               result={result}
               rank={index + 1}
               insuranceProfile={insuranceProfile}
+              onAddInsuranceClick={onAddInsuranceClick}
             />
           ))}
         </div>

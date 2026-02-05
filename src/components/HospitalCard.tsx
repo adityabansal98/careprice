@@ -26,6 +26,7 @@ interface HospitalCardProps {
   result: HospitalResult;
   rank: number;
   insuranceProfile?: InsuranceProfile | null;
+  onAddInsuranceClick?: () => void;
 }
 
 // Component to show personalized out-of-pocket cost when insurance profile is set
@@ -160,7 +161,7 @@ function PersonalizedCostDisplay({
   );
 }
 
-function PriceDisplay({ priceInfo }: { priceInfo: PriceInfo }) {
+function PriceDisplay({ priceInfo, onAddInsuranceClick }: { priceInfo: PriceInfo; onAddInsuranceClick?: () => void }) {
   // Cash is the only single value now
   const isSingleValue = priceInfo.type === "cash";
   const isInsurance = priceInfo.type !== "cash";
@@ -188,10 +189,15 @@ function PriceDisplay({ priceInfo }: { priceInfo: PriceInfo }) {
         )}
       </div>
       {isInsurance && (
-        <p className="text-xs text-violet-600 dark:text-violet-400 mt-3 flex items-center gap-1.5 bg-violet-50 dark:bg-violet-950/30 px-2 py-1.5 rounded-lg">
+        <button
+          type="button"
+          onClick={onAddInsuranceClick}
+          className="text-xs text-violet-600 dark:text-violet-400 mt-3 flex items-center gap-1.5 bg-violet-50 dark:bg-violet-950/30 px-2 py-1.5 rounded-lg hover:bg-violet-100 dark:hover:bg-violet-900/50 transition-colors cursor-pointer w-full text-left"
+        >
           <Info className="h-3.5 w-3.5 flex-shrink-0" />
-          Add your insurance details above for a personalized out-of-pocket estimate
-        </p>
+          <span className="underline underline-offset-2">Add your insurance details above</span>
+          <span> for a personalized out-of-pocket estimate</span>
+        </button>
       )}
       {isSingleValue && (
         <p className="text-xs text-slate-500 mt-2 flex items-center gap-1">
@@ -277,7 +283,7 @@ function FinancialAssistanceInfo({ assistance }: { assistance: FinancialAssistan
   );
 }
 
-export function HospitalCard({ result, rank, insuranceProfile }: HospitalCardProps) {
+export function HospitalCard({ result, rank, insuranceProfile, onAddInsuranceClick }: HospitalCardProps) {
   const { hospital, priceInfo, distance, procedure } = result;
   const [reviewsOpen, setReviewsOpen] = useState(false);
   
@@ -418,7 +424,7 @@ export function HospitalCard({ result, rank, insuranceProfile }: HospitalCardPro
               costBreakdownMax={costCalculation.costBreakdownMax}
             />
           ) : (
-            <PriceDisplay priceInfo={priceInfo} />
+            <PriceDisplay priceInfo={priceInfo} onAddInsuranceClick={onAddInsuranceClick} />
           )}
 
           {/* Badges Row */}

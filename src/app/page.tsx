@@ -33,6 +33,11 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  // Handle click on "Add insurance details" link in results
+  const handleAddInsuranceClick = useCallback(() => {
+    searchFormRef.current?.scrollToInsuranceDetails();
+  }, []);
+
   const handleSearch = useCallback((params: SearchParams) => {
     setIsLoading(true);
     setHasSearched(true);
@@ -171,6 +176,7 @@ export default function Home() {
               results={results}
               isLoading={isLoading}
               insuranceProfile={insuranceProfile}
+              onAddInsuranceClick={handleAddInsuranceClick}
             />
             {!isLoading && results.length === 0 && (
               <div className="max-w-4xl mx-auto mt-8">
